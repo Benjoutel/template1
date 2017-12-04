@@ -1,0 +1,17 @@
+.container {
+
+    /* On ajoute une marge sur les cotés de l'écran */
+    padding-right: 15px;
+    padding-left: 15px;
+
+    /* Et on centre */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Sur les grands écrans, on limite la largeur du contenu */
+@media (min-width: 1200px){
+    .container {
+        width: 1170px;
+    }
+}
