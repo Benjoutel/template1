@@ -8,26 +8,26 @@
 
 
 
-puts "Delete all data"
+puts "destroy all data"
 
-puts "Delete Documents"
-Document.delete_all
-puts "Delete Events"
-Event.delete_all
-puts "Delete Episodes"
-Episode.delete_all
-puts "Delete Caregivers"
-Caregiver.delete_all
-puts "Delete Measures"
-Measure.delete_all
-puts "Delete Vaccinations"
-Vaccination.delete_all
-puts "Delete Allergies"
-Allergy.delete_all
-puts "Delete Antecedents"
-Antecedent.delete_all
-puts "Delete Patients"
-Patient.delete_all
+puts "destroy Documents"
+Document.destroy_all
+puts "destroy Events"
+Event.destroy_all
+puts "destroy Episodes"
+Episode.destroy_all
+puts "destroy Caregivers"
+Caregiver.destroy_all
+puts "destroy Measures"
+Measure.destroy_all
+puts "destroy Vaccinations"
+Vaccination.destroy_all
+puts "destroy Allergies"
+Allergy.destroy_all
+puts "destroy Antecedents"
+Antecedent.destroy_all
+puts "destroy Patients"
+Patient.destroy_all
 
 puts "Create Patient Benjamin"
 benjamin = Patient.new(firstname: "Benjamin",
@@ -169,6 +169,15 @@ puts 'Finished!'
 
 puts 'Creating caregivers...'
 caregiver_attributes = [
+    {
+    firstname: "Note",
+    lastname: "Note",
+    address: "46 Bis Boulevard Gabriel Guist'Hau, 44000 Nantes ",
+    phone_number: "02 40 20 32 41",
+    mail: "marc.greene@gmail.com",
+    speciality: "Medecin généraliste, Docteur du Sport",
+    patient: benjamin
+  },
   {
     firstname: "Marc",
     lastname: "Greene",
@@ -203,12 +212,20 @@ puts "Finished!"
 
 event_attributes = [
   {
+    category: "note",
+    name: "Visite",
+    description: "J'ai mal au pied. J'ai beau ête matinale, j'ai mal",
+    episode: Episode.first,
+    date: "2017-01-02",
+    caregiver: Caregiver.first
+  },
+  {
     category: "consultation",
     name: "Visite",
     description: "Visite du Dr. Greene pour mon pied gauche. Il m'a donné une ordonnnance pour faire une radio",
     episode: Episode.first,
     date: "2017-01-11",
-    caregiver: Caregiver.first
+    caregiver: Caregiver.all[1]
   },
   {
     category: "consultation",
@@ -216,7 +233,7 @@ event_attributes = [
     description: "Visite au cabinet de radiologie du Dr. Benton. Il a remarqué une épine calducéenne sous mon pied gauche.",
     episode: Episode.first,
     date: "2017-02-01",
-    caregiver: Caregiver.all[1]
+    caregiver: Caregiver.all[2]
   },
   {
     category: "consultation",
@@ -224,7 +241,7 @@ event_attributes = [
     description: "Visite du Dr  Greene. Suite au au rapport de la radio. Il m'a donné une ordonnnance pour le kinés",
     episode: Episode.first,
     date: "2017-02-21",
-    caregiver: Caregiver.all[0]
+    caregiver: Caregiver.all[1]
   },
   {
     category: "consultation",
@@ -232,8 +249,47 @@ event_attributes = [
     description: "Visite du kiné Carter",
     episode: Episode.first,
     date: "2017-03-04",
-    caregiver: Caregiver.all[2]
-  }
+    caregiver: Caregiver.all[3]
+  },
+  {
+    category: "note",
+    name: "Visite",
+    description: "Je commence à aller mieux",
+    episode: Episode.first,
+    date: "2017-05-02",
+    caregiver: Caregiver.first
+  },
 ]
 
 event = Event.create!(event_attributes)
+
+
+document_attributes = [
+  {
+    category: "ordonnnance",
+    name: "ordonnnance du Dr",
+    event: Event.first,
+    document: File.open(Rails.root.join('db/fixtures/images/ordonnance.jpg'))
+  },
+    {
+    category: "ordonnnance",
+    name: "ordonnnance du Dr",
+    event: Event.all[1],
+    document: File.open(Rails.root.join('db/fixtures/images/radio1.jpg'))
+  },
+    {
+    category: "ordonnnance",
+    name: "ordonnnance du Dr",
+    event: Event.all[1],
+    document: File.open(Rails.root.join('db/fixtures/images/radio2.jpg'))
+  },
+    {
+    category: "ordonnnance",
+    name: "ordonnnance du Dr",
+    event: Event.all[1],
+    document: File.open(Rails.root.join('db/fixtures/images/radio3.jpg'))
+  },
+]
+
+
+Document.create!(document_attributes)
