@@ -23,7 +23,7 @@ Measure.delete_all
 puts "Delete Vaccinations"
 Vaccination.delete_all
 puts "Delete Allergies"
-Allergie.delete_all
+Allergy.delete_all
 puts "Delete Antecedents"
 Antecedent.delete_all
 puts "Delete Patients"
@@ -35,7 +35,7 @@ benjamin = Patient.new(firstname: "Benjamin",
   email: 'benjamin@gmail.com',
   password: 123456,
   photo: File.open(Rails.root.join('db/fixtures/images/benjamin.jpg')),
-  birth_date: "14/09/1984",
+  birth_date: "1984-09-14",
   phone_number: "06-07-30-46-76",
   address: "27 Boulevard Stalingrad 44000 Nantes"
   )
@@ -50,25 +50,25 @@ measure_attributes = [
     patient: benjamin,
     name: "poids",
     value: 70,
-    date: "27/10/2016"
+    date: "2016-10-27"
   },
   {
     patient: benjamin,
     name: "poids",
     value: 70,
-    date: "27/10/2017"
+    date: "2017-10-27"
   },
   {
     patient: benjamin,
     name: "taille",
     value: 170,
-    date: "27/10/2017"
+    date: "2017-10-27"
   },
   {
     patient: benjamin,
     name: "taille",
     value: 170,
-    date: "27/10/2016"
+    date: "2016-10-27"
   }
 ]
 
@@ -80,22 +80,22 @@ vaccination_attributes = [
     {
     patient: benjamin,
     vaccin: "diphtérie",
-    date: "27/10/1985"
+    date: "1985-10-27"
   },
   {
     patient: benjamin,
     vaccin: "tétanos",
-    date: "27/02/1986"
+    date: "1986-02-27"
   },
   {
     patient: benjamin,
     vaccin: "poliomyélite",
-    date: "11/03/1986"
+    date: "1986-03-13"
   },
   {
     patient: benjamin,
     vaccin: "fièvre jaune",
-    date: "05/09/2010"
+    date: "2010-09-05"
   }
 
 ]
@@ -207,6 +207,7 @@ event_attributes = [
     name: "Visite",
     description: "Visite du Dr. Greene pour mon pied gauche. Il m'a donné une ordonnnance pour faire une radio",
     episode: Episode.first,
+    date: "2017-01-11",
     caregiver: Caregiver.first
   },
   {
@@ -214,6 +215,7 @@ event_attributes = [
     name: "Visite",
     description: "Visite au cabinet de radiologie du Dr. Benton. Il a remarqué une épine calducéenne sous mon pied gauche.",
     episode: Episode.first,
+    date: "2017-02-01",
     caregiver: Caregiver.all[1]
   },
   {
@@ -221,6 +223,7 @@ event_attributes = [
     name: "Visite",
     description: "Visite du Dr  Greene. Suite au au rapport de la radio. Il m'a donné une ordonnnance pour le kinés",
     episode: Episode.first,
+    date: "2017-02-21",
     caregiver: Caregiver.all[0]
   },
   {
@@ -228,6 +231,7 @@ event_attributes = [
     name: "Visite",
     description: "Visite du kiné Carter",
     episode: Episode.first,
+    date: "2017-03-04",
     caregiver: Caregiver.all[2]
   }
 ]
