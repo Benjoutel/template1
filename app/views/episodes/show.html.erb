@@ -1,0 +1,45 @@
+<h1><%= @episode.name %></h1>
+
+
+
+<div class="container">
+
+  <% @events.each do |event| %>
+
+    <ul>
+
+      <li>
+        <!-- Si l evenement est une consultation -->
+        <% if event.category == "consultation" %>
+          Rendez-vous avec <%=event.caregiver.speciality%>
+          <%=event.caregiver.lastname%>
+          <%=event.date%>
+          <%=event.description%>
+        <% else %>
+          Prise de note du  <%=event.date%>
+          <%=event.description%>
+        <% end %>
+
+
+        <!-- Si l evenement a des docs -->
+
+        <% if event.documents.size > 0 %>
+          <ul>
+            <% event.documents.each do |document|  %>
+              <li>
+                <%= document.name %>
+                <%= document.category %>
+                <%= cl_image_tag document.document, height: 60 %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+
+
+    </ul>
+
+  <% end %>
+
+
+</div>
