@@ -102,7 +102,7 @@ vaccination_attributes = [
 
 Vaccination.create!(vaccination_attributes)
 
-allergie_attributes = [  {
+allergy_attributes = [  {
     patient: benjamin,
     name: "accarien"
   },
@@ -121,7 +121,7 @@ allergie_attributes = [  {
 
 ]
 
-# Allergie.create!(allergie_attributes)
+Allergy.create!(allergy_attributes)
 
 # antecedent_attributes = [
 #     {

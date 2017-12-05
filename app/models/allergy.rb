@@ -1,4 +1,4 @@
-class Allergie < ApplicationRecord
+class Allergy < ApplicationRecord
   belongs_to :patient
   validates :name, presence: true
 end
