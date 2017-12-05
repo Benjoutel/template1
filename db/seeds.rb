@@ -204,7 +204,7 @@ caregiver_attributes = [
     mail: "john.carter@gmail.com",
     speciality: "Kiné",
     patient: benjamin
-  },
+  }
 ]
 
 Caregiver.create!(caregiver_attributes)
@@ -282,7 +282,7 @@ event_attributes = [
     episode: Episode.all[2],
     date: "2015-01-01",
     caregiver: Caregiver.first
-  },
+  }
 ]
 
 event = Event.create!(event_attributes)
@@ -292,7 +292,7 @@ document_attributes = [
   {
     category: "ordonnnance",
     name: "ordonnnance du Dr",
-    event: Event.all[1],,
+    event: Event.all[1],
     document: File.open(Rails.root.join('db/fixtures/images/ordonnance.jpg'))
   },
     {
@@ -312,7 +312,7 @@ document_attributes = [
     name: "ordonnnance du Dr",
     event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio3.jpg'))
-  },
+  }
 ]
 
 
