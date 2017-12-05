@@ -5,6 +5,7 @@ class CreateVaccinations < ActiveRecord::Migration[5.0]
       t.date :date
       t.string :recall
       t.references :patient, foreign_key: true
+      t.timestamps
     end
   end
 end

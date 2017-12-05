@@ -8,6 +8,7 @@ class CreateCaregivers < ActiveRecord::Migration[5.0]
       t.string :phone_number
       t.string :speciality
       t.references :patient, foreign_key: true
+      t.timestamps
     end
   end
 end

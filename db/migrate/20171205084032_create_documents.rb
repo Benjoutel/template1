@@ -5,6 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[5.0]
       t.string :document
       t.string :name
       t.references :event, foreign_key: true
+      t.timestamps
     end
   end
 end

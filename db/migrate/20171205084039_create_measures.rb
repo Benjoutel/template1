@@ -5,6 +5,7 @@ class CreateMeasures < ActiveRecord::Migration[5.0]
       t.integer :value
       t.date :date
       t.references :patient, foreign_key: true
+      t.timestamps
     end
   end
 end
