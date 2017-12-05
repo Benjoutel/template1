@@ -67,6 +67,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.4.0)
+      devise (>= 3.1)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -142,6 +144,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.4)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.0.6)
       actionpack (= 5.0.6)
       activesupport (= 5.0.6)
@@ -216,6 +221,7 @@ DEPENDENCIES
   carrierwave
   cloudinary (~> 1.2)
   devise
+  devise-i18n
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
@@ -226,6 +232,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.0.6)
+  rails-i18n
   redis
   sass-rails
   simple_form

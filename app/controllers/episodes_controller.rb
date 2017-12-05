@@ -1,23 +1,15 @@
 class EpisodesController < ApplicationController
 
 
-def index
-  @episodes = Episode.all
-end
+  def index
+    @episodes = Episode.where(patient_id: current_patient.id)
+    # joins events and order episodes by update date
+  end
 
-
-
-
-
-
-
-
-private
-
-def episode_params
-  params.require(:episode).permit(:name, :created_at, :updated_at)
-end
-
-
-
+  def chrono
+    @events = Event.
+      joins(:episode).
+      where(episodes: { patient_id: current_patient.id }).
+      order(date: :desc)
+  end
 end

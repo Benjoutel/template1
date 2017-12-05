@@ -1,0 +1,34 @@
+<div>
+  <h1>Mes épisodes</h1>
+</div>
+
+<div>
+  <%= link_to "Vue chronologique", chrono_episodes_path %>
+</div>
+
+<div>
+  <p>Vue des dossiers</p>
+</div>
+
+<div>
+  <%= link_to "Ajouter un épisode", new_episode_path %>
+</div>
+<!-- add search partial here -->
+
+<div>
+  <ul>
+  <% @events.each do |event| %>
+    <div>
+    <li>
+    Rendez-vous avec <%= event.caregiver.firstname.capitalize %> <%= event.caregiver.lastname.capitalize %> (<%= event.caregiver.speciality.capitalize %>), le <%= l(event.date, format: '%d %B %Y') %>
+    <div>
+      dans l'épisode : <%= event.episode.name.capitalize %>
+    </div>
+    <div>
+      Détails : <%= event.description %>
+    </div>
+    </li>
+    </div>
+  <% end %>
+  </ul>
+</div>
