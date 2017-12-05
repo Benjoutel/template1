@@ -1,0 +1,30 @@
+<div>
+  <h1>Mes épisodes</h1>
+</div>
+
+<div>
+  <%= link_to "Vue chronologique", chrono_episodes_path %>
+</div>
+
+<div>
+  <p>Vue des dossiers</p>
+</div>
+
+<div>
+  <%= link_to "Ajouter un épisode", new_episode_path %>
+</div>
+<!-- add search partial here -->
+
+<div>
+  <ul>
+  <% @episodes.each do |episode| %>
+    <div>
+    <li>
+    <%= episode.name.capitalize %>
+    Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
+
+    </li>
+    </div>
+  <% end %>
+  </ul>
+</div>
