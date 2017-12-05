@@ -214,6 +214,14 @@ event_attributes = [
   {
     category: "note",
     name: "Visite",
+    description: "Création de l'épisode",
+    episode: Episode.first,
+    date: "2017-01-01",
+    caregiver: Caregiver.first
+  },
+  {
+    category: "note",
+    name: "Visite",
     description: "J'ai mal au pied. J'ai beau ête matinale, j'ai mal",
     episode: Episode.first,
     date: "2017-01-02",
@@ -259,6 +267,22 @@ event_attributes = [
     date: "2017-05-02",
     caregiver: Caregiver.first
   },
+  {
+    category: "note",
+    name: "Visite",
+    description: "Création de l'épisode",
+    episode: Episode.all[1],
+    date: "2016-01-01",
+    caregiver: Caregiver.first
+  },
+    {
+    category: "note",
+    name: "Visite",
+    description: "Création de l'épisode",
+    episode: Episode.all[2],
+    date: "2015-01-01",
+    caregiver: Caregiver.first
+  },
 ]
 
 event = Event.create!(event_attributes)
@@ -268,25 +292,25 @@ document_attributes = [
   {
     category: "ordonnnance",
     name: "ordonnnance du Dr",
-    event: Event.first,
+    event: Event.all[1],,
     document: File.open(Rails.root.join('db/fixtures/images/ordonnance.jpg'))
   },
     {
-    category: "ordonnnance",
+    category: "radio",
     name: "ordonnnance du Dr",
-    event: Event.all[1],
+    event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio1.jpg'))
   },
     {
-    category: "ordonnnance",
+    category: "radio",
     name: "ordonnnance du Dr",
-    event: Event.all[1],
+    event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio2.jpg'))
   },
     {
-    category: "ordonnnance",
+    category: "radio",
     name: "ordonnnance du Dr",
-    event: Event.all[1],
+    event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio3.jpg'))
   },
 ]
