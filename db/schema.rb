@@ -16,59 +16,73 @@ ActiveRecord::Schema.define(version: 20171205084056) do
   enable_extension "plpgsql"
 
   create_table "allergies", force: :cascade do |t|
-    t.string  "name"
-    t.integer "patient_id"
+    t.string   "name"
+    t.integer  "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_allergies_on_patient_id", using: :btree
   end
 
   create_table "antecedents", force: :cascade do |t|
-    t.string  "description"
-    t.integer "patient_id"
+    t.text     "description"
+    t.integer  "patient_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["patient_id"], name: "index_antecedents_on_patient_id", using: :btree
   end
 
   create_table "caregivers", force: :cascade do |t|
-    t.string  "firstname"
-    t.string  "lastname"
-    t.string  "address"
-    t.string  "mail"
-    t.string  "phone_number"
-    t.string  "speciality"
-    t.integer "patient_id"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "address"
+    t.string   "mail"
+    t.string   "phone_number"
+    t.string   "speciality"
+    t.integer  "patient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["patient_id"], name: "index_caregivers_on_patient_id", using: :btree
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string  "category"
-    t.string  "document"
-    t.string  "name"
-    t.integer "event_id"
+    t.string   "category"
+    t.string   "document"
+    t.string   "name"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_documents_on_event_id", using: :btree
   end
 
   create_table "episodes", force: :cascade do |t|
-    t.string  "name"
-    t.string  "description"
-    t.integer "patient_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "patient_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["patient_id"], name: "index_episodes_on_patient_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
-    t.string  "name"
-    t.date    "date"
-    t.string  "description"
-    t.string  "category"
-    t.integer "episode_id"
-    t.integer "caregiver_id"
+    t.string   "name"
+    t.date     "date"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "episode_id"
+    t.integer  "caregiver_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["caregiver_id"], name: "index_events_on_caregiver_id", using: :btree
     t.index ["episode_id"], name: "index_events_on_episode_id", using: :btree
   end
 
   create_table "measures", force: :cascade do |t|
-    t.string  "name"
-    t.integer "value"
-    t.date    "date"
-    t.integer "patient_id"
+    t.string   "name"
+    t.integer  "value"
+    t.date     "date"
+    t.integer  "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_measures_on_patient_id", using: :btree
   end
 
@@ -87,11 +101,10 @@ ActiveRecord::Schema.define(version: 20171205084056) do
     t.datetime "updated_at",                          null: false
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "birth_date"
+    t.date     "birth_date"
     t.string   "address"
     t.string   "phone_number"
     t.string   "photo"
-    t.string   "mail"
     t.string   "insee"
     t.string   "nationality"
     t.string   "civil_status"
@@ -101,10 +114,12 @@ ActiveRecord::Schema.define(version: 20171205084056) do
   end
 
   create_table "vaccinations", force: :cascade do |t|
-    t.string  "vaccin"
-    t.date    "date"
-    t.string  "recall"
-    t.integer "patient_id"
+    t.string   "vaccin"
+    t.date     "date"
+    t.string   "recall"
+    t.integer  "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_vaccinations_on_patient_id", using: :btree
   end
 
