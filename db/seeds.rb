@@ -237,3 +237,5 @@ event_attributes = [
 ]
 
 event = Event.create!(event_attributes)
+
+
