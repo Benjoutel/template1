@@ -1,20 +1,6 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(192,192,170,0.4) 0%, rgba(126, 183, 246, 0.4) 50%), url('http://res.cloudinary.com/deko23qhf/image/upload/c_scale,w_1000/v1512489911/coverhp3_ukbmv3.jpg');">
-
-  <div class="banner-content">
-    <h1>Kenko</h1>
-      <p>
-        <a href="" class="typewrite" data-period="2000" data-type='[ "Prenez en main votre santé", "En sécurité", "Créez votre dossier" ]'>
-          <span class="wrap"></span>
-        </a>
-      </p>
-
-      <button type="button" class="btn btn-primary btn-lg">Créez votre dossier médical
-</button>
-    </div>
-  </div>
 
 
-<script>
+
   var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -71,23 +57,4 @@
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
     };
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
