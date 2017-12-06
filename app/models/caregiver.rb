@@ -3,4 +3,5 @@ class Caregiver < ApplicationRecord
   belongs_to :patient
   validates :lastname, presence: true
   validates :speciality, presence: true
+  mount_uploader :photo, PhotoUploader
 end

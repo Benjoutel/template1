@@ -1,48 +1,82 @@
-<h1><%= @episode.name %></h1>
-
-
-
 <div class="container">
 
+  <h1><%= @episode.name %></h1>
 
+  <div class="row">
+    <div class="card-event-timeline-begin">
 
+    </div>
 
-  <% @events.each do |event| %>
+    <% @events.each do |event| %>
 
-    <ul>
+      <div class="col-xs-12">
 
-      <li>
-        <!-- Si l evenement est une consultation -->
-        <% if event.category == "consultation" %>
-          Rendez-vous avec <%=event.caregiver.speciality%>
-          <%=event.caregiver.lastname%>
-          <%=event.date%>
-          <%=event.description%>
-        <% else %>
-          Prise de note du  <%=event.date%>
-          <%=event.description%>
-        <% end %>
+        <!-- card begin -->
+        <div class="card-event-timeline">
 
+          <div class="card-event-timeline-left">
+            <div class="card-event-timeline-date">
+              <p><%=event.date%></p>
+            </div>
+          </div>
 
-        <!-- Si l evenement a des docs -->
+          <div class="card-event-timeline-middle">
 
-        <% if event.documents.size > 0 %>
-          <ul>
-            <% event.documents.each do |document|  %>
-              <li>
-                <%= document.name %>
-                <%= document.category %>
-                <%= cl_image_tag document.document, height: 60 %>
-              </li>
+            <div class="card-event-timeline-name">
+              <% if event.category == "consultation" %>
+                <p>Rendez-vous avec <%=event.caregiver.speciality%> <%=event.caregiver.firstname%></p>
+              <% else %>
+                <p>Prise de note</p>
+              <% end %>
+            </div>
+
+            <div class="card-event-timeline-description">
+             <p> Details : <%= event.description%></p>
+            </div>
+
+            <% if event.documents.size > 0 %>
+              <div class="card-event-timeline-documents">
+                  <i class="fa fa-paperclip" aria-hidden="true"></i>
+                  <% event.documents.each do |document|  %>
+                    <%= cl_image_tag document.document, height: 60 %>
+                  <% end %>
+
+                  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#<%= event.id  %>"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  <div id="<%= event.id %>" class="collapse out">
+                    <ul>
+                      <% event.documents.each do |document|  %>
+                      <li><%= link_to document.name, episodes_path %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              </div>
             <% end %>
-          </ul>
-        <% end %>
-      </li>
 
+          </div>
 
-    </ul>
+          <div class="card-event-timeline-right">
+            <div class="card-event-timeline-picto">
+              <% if event.category == "consultation" %>
+                <%= cl_image_tag event.caregiver.photo, height: 60 %>
+              <% else %>
+                <%= cl_image_tag @episode.patient.photo, height: 60 %>
+              <% end %>
 
-  <% end %>
+            </div>
+            <div class="card-event-timeline-btn">
+              <%= link_to "Voir mon événement", episodes_path, class:"btn btn-primary" %>
+            </div>
+          </div>
 
+        </div>
+        <!-- card end -->
+      </div>
 
+    <% end %>
+  </div>
 </div>
+
+
+
+
+

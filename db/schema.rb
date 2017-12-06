@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205173955) do
+ActiveRecord::Schema.define(version: 20171206124857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171205173955) do
     t.integer  "patient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "photo"
     t.index ["patient_id"], name: "index_caregivers_on_patient_id", using: :btree
   end
 

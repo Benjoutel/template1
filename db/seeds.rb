@@ -185,6 +185,7 @@ caregiver_attributes = [
     phone_number: "02 40 20 32 41",
     mail: "marc.greene@gmail.com",
     speciality: "Medecin généraliste, Docteur du Sport",
+    photo: File.open(Rails.root.join('db/fixtures/images/doctor.png')),
     patient: benjamin
   },
   {
@@ -194,6 +195,7 @@ caregiver_attributes = [
     phone_number: "02 40 20 03 52",
     mail: "peter.benton@gmail.com",
     speciality: "Radiologue",
+    photo: File.open(Rails.root.join('db/fixtures/images/radiologist.png')),
     patient: benjamin
   },
   {
@@ -203,6 +205,7 @@ caregiver_attributes = [
     phone_number: "02 40 69 13 13",
     mail: "john.carter@gmail.com",
     speciality: "Kiné",
+    photo: File.open(Rails.root.join('db/fixtures/images/kine.png')),
     patient: benjamin
   }
 ]
@@ -288,19 +291,19 @@ document_attributes = [
   },
     {
     category: "radio",
-    name: "ordonnnance du Dr",
+    name: "Radio 1",
     event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio1.jpg'))
   },
     {
     category: "radio",
-    name: "ordonnnance du Dr",
+    name: "Radio 2",
     event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio2.jpg'))
   },
     {
     category: "radio",
-    name: "ordonnnance du Dr",
+    name: "Radio 3",
     event: Event.all[2],
     document: File.open(Rails.root.join('db/fixtures/images/radio3.jpg'))
   }
