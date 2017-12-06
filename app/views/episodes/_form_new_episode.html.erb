@@ -7,12 +7,11 @@
 
 
     <%= simple_form_for @episode do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.input :name, { label: 'Name', class: "form-text" } %>
+    <%= f.input :description, class: "form-text" %>
   </div>
     <div class="form_new_validation">
-      <%= f.button :submit , class: "btn-primary"%>
+      <%= f.button :submit , class: "btn-green"%>
       <% end %>
     </div>
-
 </div>
