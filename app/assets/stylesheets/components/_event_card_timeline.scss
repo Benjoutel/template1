@@ -37,10 +37,20 @@
 
 }
 
-.card-event-timeline-description {
+.card-event-timeline-description p{
+  margin: 5px;
+  width: 300px;
+  height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-event-timeline-description-all p{
   margin: 5px;
 
 }
+
 
 .card-event-timeline-documents {
   margin: 5px;
@@ -57,8 +67,9 @@
 
 .card-event-timeline-picto {
   margin: 8px;
-
-  border-radius: 10%;
+  // height: 35px;
+  // width: 35px;
+  // border-radius: 50%;
 }
 
 .card-event-timeline-btn {

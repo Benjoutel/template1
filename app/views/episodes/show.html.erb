@@ -12,7 +12,9 @@
       <div class="col-xs-12">
 
         <!-- card begin -->
-        <div class="card-event-timeline">
+
+
+        <div class="card-event-timeline" >
 
           <div class="card-event-timeline-left">
             <div class="card-event-timeline-date">
@@ -31,21 +33,28 @@
             </div>
 
             <div class="card-event-timeline-description">
-             <p> Details : <%= event.description%></p>
+              <p> Details : <%= event.description%></p>
             </div>
 
             <% if event.documents.size > 0 %>
               <div class="card-event-timeline-documents">
                   <i class="fa fa-paperclip" aria-hidden="true"></i>
-                  <% event.documents.each do |document|  %>
-                    <%= cl_image_tag document.document, height: 60 %>
-                  <% end %>
 
-                  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#<%= event.id  %>"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  <%= pluralize event.documents.size, "document", "documents" %>
+
                   <div id="<%= event.id %>" class="collapse out">
+
                     <ul>
                       <% event.documents.each do |document|  %>
-                      <li><%= link_to document.name, episodes_path %></li>
+                      <!-- <li><%#= link_to document.name, episodes_path %></li> -->
+                      <li data-toggle="modal" data-target="#<%= document.id%>">
+                        <%= document.name %>
+                        <li id="<%= document.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <%= cl_image_tag document.document, :height=> 60, :radius=>50 %>
+                          <%= document.created_at %>
+                        </li>
+                      </li>
+
                       <% end %>
                     </ul>
                   </div>
@@ -55,16 +64,23 @@
           </div>
 
           <div class="card-event-timeline-right">
+            <% if event.documents.size > 0 %>
+              <div class="card-event-timeline-carret">
+                <i class="fa fa-caret-right" aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> </i>
+                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+              </div>
+            <% end %>
             <div class="card-event-timeline-picto">
               <% if event.category == "consultation" %>
-                <%= cl_image_tag event.caregiver.photo, height: 60 %>
+                <%= cl_image_tag event.caregiver.photo, :height=> 60, :radius=>50 %>
               <% else %>
-                <%= cl_image_tag @episode.patient.photo, height: 60 %>
+                <%= cl_image_tag @episode.patient.photo, :height=> 60, :radius=>50 %>
               <% end %>
+
 
             </div>
             <div class="card-event-timeline-btn">
-              <%= link_to "Voir mon événement", episodes_path, class:"btn btn-primary" %>
+              <%= link_to "Ajouter un document", episodes_path, class:"btn btn-primary" %>
             </div>
           </div>
 
