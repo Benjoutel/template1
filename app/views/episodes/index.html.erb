@@ -7,6 +7,19 @@
     </div>
   </div>
 
+<div class="search">
+  <%= form_tag(episodes_path, method: :get) do %>
+  <%= text_field_tag :name %>
+  <%= submit_tag 'Search', class: "btn-primary"%>
+<% end %>
+
+
+</div>
+
+<div>
+  <%= link_to "Vue chronologique", chrono_episodes_path %>
+</div>
+
   <div class="chrono-view-btn">
     <div>
       <%= link_to "Vue chronologique", chrono_episodes_path %>
