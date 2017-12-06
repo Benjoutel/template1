@@ -3,10 +3,17 @@ class EpisodesController < ApplicationController
   def show
     @episode = Episode.find_by_id(params[:id])
     @events = Event.where(episode_id: @episode.id).order(date: :desc)
+    @events = @episode.events.order(date: :desc)
   end
 
   def index
-    @episodes = Episode.where(patient_id: current_patient.id)
+    # @episodes = Episode.where(patient_id: current_patient.id)
+    # better use of associations
+    @episodes = current_patient.episodes
+
+    if params[:name]
+      @episodes = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
+    end
     # joins events and order episodes by update date
   end
 
