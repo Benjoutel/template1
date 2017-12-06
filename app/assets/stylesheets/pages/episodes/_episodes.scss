@@ -1,7 +1,8 @@
 .episodes-head {
   display: flex;
   align-items : center;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
+  margin-left: 10px;
 }
 
 .episodes-title {
@@ -9,6 +10,7 @@
   flex: 1 0 auto;
   align-items: center;
 }
+
 
 .episodes-view {
   flex: 0 0 20%;
@@ -29,7 +31,10 @@
 
 .add-episode{
   margin-left: 10px;
+  margin-right: 10px;
   display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .search {
@@ -56,12 +61,14 @@
   padding-top: 5px;
   padding-left: 50px;
   padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 .episodes {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  background-color: white;
 }
 
 .card-episode {
@@ -74,6 +81,11 @@
   background-color: white;
   border: 0.5px solid #DCE4ED;
   box-shadow: 4px 4px 4px #DCE4ED;
+  padding: 10px;
+}
+
+.card-episode:hover .episode-button{
+  padding-bottom: 15px;
 }
 
 .card-episode-upbox {
@@ -101,6 +113,7 @@
   background-color: #00E6B5;
   border: 0.5px solid #00E6B5;
   color: white;
+  transition: all 0.3s ease;
 }
 
 .episode-name {

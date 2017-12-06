@@ -1,48 +1,48 @@
 <div class="episodes-index-container">
 
-<div class="episodes-head">
-  <div class="episodes-title h1">
-    <div>
-      Mes épisodes
+    <div class="episodes-head">
+      <div class="episodes-title h1">
+        <div>
+          Mes épisodes
+        </div>
+      </div>
+      <div class="btn-blue">
+        <div>
+          <%= link_to "Vue chronologique", chrono_episodes_path %>
+        </div>
+      </div>
+      <div class="btn-inactive">
+        <div>
+          Vue des épisodes
+        </div>
+      </div>
     </div>
-  </div>
 
-
-  <div class="chrono-view-btn">
-    <div>
-      <%= link_to "Vue chronologique", chrono_episodes_path %>
+    <div class="add-episode">
+      <div class="search">
+        <%= form_tag(episodes_path, method: :get) do %>
+        <%= text_field_tag :name %>
+        <%= submit_tag 'Search', class: "btn-blue"%>
+        <% end %>
+      </div>
+      <div class="btn-green">
+        <div>
+          <%= link_to "Ajouter un épisode", new_episode_path %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="episodes-view">
-    <div>
-      Vue des épisodes
-    </div>
-  </div>
 </div>
-
-<div class="add-episode">
-  <div class="search">
-    <%= form_tag(episodes_path, method: :get) do %>
-    <%= text_field_tag :name %>
-    <%= submit_tag 'Search', class: "btn-primary"%>
-    <% end %>
-  </div>
-
-  <div class="add-episode-btn">
-    <div>
-      <%= link_to "Ajouter un épisode", new_episode_path %>
-    </div>
-  </div>
-</div>
-<!-- add search partial here -->
 
 
 <!-- <div class="col-xs-12 col-sm-4"> -->
 <!-- <div class="episodes_row"> -->
-  <div class="episodes">
+<div class="episodes">
+  <div class="row">
     <% @episodes.each do |episode| %>
       <!-- episode card beginning -->
-      <div class="card-episode">
+
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card-episode">
         <div class="card-episode-upbox">
           <div class="episode-name">
             <%= episode.name.capitalize %>
@@ -60,10 +60,13 @@
 
         </div>
       </div>
+      </div>
+
       <!-- episode card end -->
     <% end %>
   </div>
-<!-- </div> -->
+  </div>
+
 <!-- </div> -->
 
-</div>
+

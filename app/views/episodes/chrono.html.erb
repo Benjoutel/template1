@@ -1,3 +1,41 @@
+ <div class="episodes-index-container">
+
+    <div class="episodes-head">
+      <div class="episodes-title h1">
+        <div>
+          Mes épisodes
+        </div>
+      </div>
+      <div class="btn-inactive">
+        <div>
+          Vue chronologique
+        </div>
+      </div>
+      <div class="btn-blue">
+        <div>
+          <%= link_to "Vue des épisodes", episodes_path %>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-episode">
+      <div class="search">
+        <%= form_tag(episodes_path, method: :get) do %>
+        <%= text_field_tag :name %>
+        <%= submit_tag 'Search', class: "btn-blue"%>
+        <% end %>
+      </div>
+      <div class="btn-green">
+        <div>
+          <%= link_to "Ajouter un épisode", new_episode_path %>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<!--
 <div class="episodes-index-container">
 
 <div class="episodes-head">
@@ -18,7 +56,7 @@
       <%= link_to "Vue des épisodes", episodes_path %>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- add search partial here -->
 

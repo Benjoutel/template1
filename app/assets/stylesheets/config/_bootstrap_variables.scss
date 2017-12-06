@@ -7,12 +7,12 @@
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 $light-gray;
-$font-size-base: 18px;
+$font-size-base: 16px;
 
 // Colors
 $brand-primary:   $blue;
 $brand-success:   $green;
-$brand-danger:    $red;
+$brand-danger:    $orange;
 
 // Buttons & inputs' radius
 $border-radius-base:  2px;
@@ -20,3 +20,7 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+$link-color: white;
+$link-hover-color: white;
+$link-hover-decoration: none;
+$text-color: $dark-gray;
