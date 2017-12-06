@@ -1,0 +1,18 @@
+<div class="form_new_container">
+<div class="form_new">
+  <div class="form_new_title">
+
+    <h2>Crée un nouvel épisode</h2>
+  </div>
+
+
+    <%= simple_form_for @episode do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+  </div>
+    <div class="form_new_validation">
+      <%= f.button :submit , class: "btn-primary"%>
+      <% end %>
+    </div>
+
+</div>

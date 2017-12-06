@@ -17,5 +17,26 @@ class EpisodesController < ApplicationController
       order(date: :desc)
   end
 
+  def new
+    @episode = Episode.new
+  end
+
+  def create
+    @episode       = Episode.new(name: episode_params[:name], description: episode_params[:description], patient_id: current_patient.id)
+    initial_event = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", caregiver: Caregiver.first, date: Date.today)
+    @episode.events << initial_event
+    if @episode.save
+      redirect_to episodes_path
+    else
+      render :new
+    end
+
+
+
+  end
+
+def episode_params
+    params.require(:episode).permit(:name, :description)
+  end
 
 end
