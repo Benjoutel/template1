@@ -1,18 +1,66 @@
-.card-event {
+.card-event-timeline-begin {
+
+  border-left-color: $blue;
+  border-left-style: solid;
+  border-left-width: 4px;
+}
+
+.card-event-timeline {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  background-color: white;
+}
+
+
+.card-event-timeline-left {
 
 }
 
 
-.card-event-left {
+.card-event-timeline-date {
+  margin: 5px;
 
 }
 
 
-.card-event-middle {
-
+.card-event-timeline-middle {
+  width: 70%;
+  border-left-color: $blue;
+  border-left-style: solid;
+  border-left-width: 11px;
 }
 
 
-.card-event-right {
+.card-event-timeline-name {
+  margin: 5px;
 
+}
+
+.card-event-timeline-description {
+  margin: 5px;
+
+}
+
+.card-event-timeline-documents {
+  margin: 5px;
+
+}
+
+.card-event-timeline-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+.card-event-timeline-picto {
+  margin: 8px;
+
+  border-radius: 10%;
+}
+
+.card-event-timeline-btn {
+  margin: 5px;
 }
