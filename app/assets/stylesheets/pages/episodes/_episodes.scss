@@ -1,0 +1,107 @@
+.episodes-head {
+  display: flex;
+  align-items : center;
+  margin-bottom: 40px;
+}
+
+.episodes-title {
+  // width: 600px;
+  flex: 1 0 auto;
+  align-items: center;
+}
+
+.episodes-view {
+  flex: 0 0 20%;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.chrono-view-btn {
+  flex: 0 0 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #6CB4F9;
+  border-radius: 10px;
+  color: white;
+}
+
+.add-episode{
+  margin-left: 10px;
+}
+.add-episode-btn {
+  color: white;
+  text-decoration: none;
+  background-color: #6CB4F9;
+  border-radius: 4px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.episodes-index-container {
+  background-color: white;
+  margin: 0px;
+  padding-top: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.episodes {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-episode {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  background-color: red;
+  border-radius: 4px;
+  margin: 10px;
+  background-color: white;
+  border: 0.5px solid #DCE4ED;
+  box-shadow: 4px 4px 4px #DCE4ED;
+}
+
+.card-episode-upbox {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.card-episode-downbox {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+
+.episode-button {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  background-color: #6CB4F9;
+  border: 0.5px solid #2B95EA;
+  color: white;
+}
+
+.episode-name {
+  text-align: center;
+}
+
+.episode-date {
+  text-align: center;
+  margin: 10px;
+  font-size: 10px;
+}

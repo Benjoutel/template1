@@ -1,30 +1,62 @@
-<div>
-  <h1>Mes épisodes</h1>
+<div class="episodes-index-container">
+
+<div class="episodes-head">
+  <div class="episodes-title h1">
+    <div>
+      Mes épisodes
+    </div>
+  </div>
+
+  <div class="chrono-view-btn">
+    <div>
+      <%= link_to "Vue chronologique", chrono_episodes_path %>
+    </div>
+  </div>
+
+  <div class="episodes-view">
+    <div>
+      Vue des épisodes
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= link_to "Vue chronologique", chrono_episodes_path %>
-</div>
-
-<div>
-  <p>Vue des dossiers</p>
-</div>
-
-<div>
-  <%= link_to "Ajouter un épisode", new_episode_path %>
+<div class="add-episode">
+  <div class="add-episode-btn">
+    <div>
+      <%= link_to "Ajouter un épisode", new_episode_path %>
+    </div>
+  </div>
 </div>
 <!-- add search partial here -->
 
-<div>
-  <ul>
-  <% @episodes.each do |episode| %>
-    <div>
-    <li>
-    <%= episode.name.capitalize %>
-    Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
 
-    </li>
-    </div>
-  <% end %>
-  </ul>
+<!-- <div class="col-xs-12 col-sm-4"> -->
+<!-- <div class="episodes_row"> -->
+  <div class="episodes">
+    <% @episodes.each do |episode| %>
+      <!-- episode card beginning -->
+      <div class="card-episode">
+        <div class="card-episode-upbox">
+          <div class="episode-name">
+            <%= episode.name.capitalize %>
+          </div>
+        </div>
+        <div class="card-episode-downbox">
+            <div class="episode-date">
+              Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
+            </div>
+            <div class="episode-button">
+              <div>
+                <%= link_to "Voir l'épisode", episode_path(episode), class:"blue-btn decoration-btn" %>
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <!-- episode card end -->
+    <% end %>
+  </div>
+<!-- </div> -->
+<!-- </div> -->
+
 </div>

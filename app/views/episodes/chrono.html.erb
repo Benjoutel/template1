@@ -1,18 +1,25 @@
-<div>
-  <h1>Mes épisodes</h1>
+<div class="episodes-index-container">
+
+<div class="episodes-head">
+  <div class="episodes-title h1">
+    <div>
+      Mes épisodes
+    </div>
+  </div>
+
+  <div class="episodes-view">
+    <div>
+      Vue chronologique
+    </div>
+  </div>
+
+  <div class="chrono-view-btn">
+    <div>
+      <%= link_to "Vue des épisodes", episodes_path %>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= link_to "Vue chronologique", chrono_episodes_path %>
-</div>
-
-<div>
-  <p>Vue des dossiers</p>
-</div>
-
-<div>
-  <%= link_to "Ajouter un épisode", new_episode_path %>
-</div>
 <!-- add search partial here -->
 
 <div>
@@ -31,4 +38,5 @@
     </div>
   <% end %>
   </ul>
+</div>
 </div>
