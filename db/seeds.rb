@@ -213,7 +213,6 @@ puts "Finished!"
 event_attributes = [
   {
     category: "note",
-    name: "Visite",
     description: "Création de l'épisode",
     episode: Episode.first,
     date: "2017-01-01",
@@ -221,7 +220,6 @@ event_attributes = [
   },
   {
     category: "note",
-    name: "Visite",
     description: "J'ai mal au pied. J'ai beau ête matinale, j'ai mal",
     episode: Episode.first,
     date: "2017-01-02",
@@ -229,39 +227,34 @@ event_attributes = [
   },
   {
     category: "consultation",
-    name: "Visite",
-    description: "Visite du Dr. Greene pour mon pied gauche. Il m'a donné une ordonnnance pour faire une radio",
+    description: "Le docteur m'a donné une ordonnnance pour faire une radio",
     episode: Episode.first,
     date: "2017-01-11",
     caregiver: Caregiver.all[1]
   },
   {
     category: "consultation",
-    name: "Visite",
-    description: "Visite au cabinet de radiologie du Dr. Benton. Il a remarqué une épine calducéenne sous mon pied gauche.",
+    description: " Il a remarqué une epine calcanéenne sous mon pied gauche. A confirmer avec le docteur Greene",
     episode: Episode.first,
     date: "2017-02-01",
     caregiver: Caregiver.all[2]
   },
   {
     category: "consultation",
-    name: "Visite",
-    description: "Visite du Dr  Greene. Suite au au rapport de la radio. Il m'a donné une ordonnnance pour le kinés",
+    description: "Le docteur Greene confirme l'épine calcanéenne",
     episode: Episode.first,
     date: "2017-02-21",
     caregiver: Caregiver.all[1]
   },
   {
     category: "consultation",
-    name: "Visite",
-    description: "Visite du kiné Carter",
+    description: "Premier exercice effectué avec le docteur Carter",
     episode: Episode.first,
     date: "2017-03-04",
     caregiver: Caregiver.all[3]
   },
   {
     category: "note",
-    name: "Visite",
     description: "Je commence à aller mieux",
     episode: Episode.first,
     date: "2017-05-02",
@@ -269,7 +262,6 @@ event_attributes = [
   },
   {
     category: "note",
-    name: "Visite",
     description: "Création de l'épisode",
     episode: Episode.all[1],
     date: "2016-01-01",
@@ -277,7 +269,6 @@ event_attributes = [
   },
     {
     category: "note",
-    name: "Visite",
     description: "Création de l'épisode",
     episode: Episode.all[2],
     date: "2015-01-01",
