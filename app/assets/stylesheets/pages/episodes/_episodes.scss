@@ -29,11 +29,18 @@
 
 .add-episode{
   margin-left: 10px;
+  display: flex;
 }
+
+.search {
+  flex: 1 0 auto;
+}
+
 .add-episode-btn {
+  flex: 0 0 200px;
   color: white;
   text-decoration: none;
-  background-color: #6CB4F9;
+  background-color: #00E6B5;
   border-radius: 4px;
   width: 200px;
   height: 40px;
@@ -91,8 +98,8 @@
   align-items: center;
   justify-content: space-around;
   height: 50px;
-  background-color: #6CB4F9;
-  border: 0.5px solid #2B95EA;
+  background-color: #00E6B5;
+  border: 0.5px solid #00E6B5;
   color: white;
 }
 
