@@ -9,7 +9,7 @@
      <!--    < "Ajouter un rdv", new_episode_appointment_path(@episode), class:"btn btn-primary", data: { toggle: "modal", target: '#loginModal' } %>
  -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
 
 
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,14 +57,18 @@
 
             <div class="card-event-timeline-name">
               <% if event.category == "appointment" %>
-                <p>Rendez-vous avec <%=event.caregiver.speciality%> <%=event.caregiver.firstname%></p>
+                <p>Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%> </p>
               <% else %>
                 <p>Prise de note</p>
               <% end %>
             </div>
 
             <div class="card-event-timeline-description">
-              <p> "<%= event.description%> "</p>
+              <p>
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                <%= event.description%>
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </p>
             </div>
 
             <% if event.documents.size > 0 %>
@@ -77,14 +81,28 @@
 
                     <ul>
                       <% event.documents.each do |document|  %>
-                      <li data-toggle="modal" data-target="#<%= document.id%>">
-                        <%= document.name %>
-                        <li id="<%= document.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <%= cl_image_tag document.document, :height=> 60, :radius=>50 %>
-                          <%= document.created_at %>
+                        <li data-toggle="modal" data-target="#<%= document.id%>">
+                          <%= document.name %>
                         </li>
-                      </li>
+                        <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                              </div>
+                              <div class="modal-body">
+                                <%= cl_image_tag document.document, :height=> 200 %>
 
+
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
+<!--                                 <button type="button" class="btn-blue">Save changes</button>
+ -->                              </div>
+                            </div>
+                          </div>
+                        </div>
                       <% end %>
                     </ul>
                   </div>
