@@ -1,73 +1,52 @@
 <div class="container">
 
+  <h1><%= @episode.name %></h1>
 
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
 
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter un RDV</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "appointments/form_appointment" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal note-->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal2" >Ajouter une Note</button>
+  <div class="modal fade" id="loginModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Ajouter une Note</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "notes/form_note" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--  -->
   <div class="row">
 
-    <h1><%= @episode.name %></h1>
-
-
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
-
-
-
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajouter un RDV</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= render "appointments/form_appointment" %>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-<!-- modal note-->
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal2" >Ajouter une Note</button>
-
-
-        <div class="modal fade" id="loginModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajouter une Note</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= render "notes/form_note" %>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-    <div class="card-event-timeline-begin">
-
-
-    </div>
 
     <% @events.each do |event| %>
 
       <div class="col-xs-12">
 
         <!-- card begin -->
-
-
         <div class="card-event-timeline" >
 
           <div class="card-event-timeline-left">
@@ -96,42 +75,35 @@
 
             <% if event.documents.size > 0 %>
               <div class="card-event-timeline-documents">
-                  <i class="fa fa-paperclip" aria-hidden="true"></i>
-
-                  <span aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> <%= pluralize event.documents.size, "document", "documents" %> </span>
-
-                  <div id="<%= event.id %>" class="collapse out">
-
-                    <ul>
-                      <% event.documents.each do |document|  %>
-                        <li data-toggle="modal" data-target="#<%= document.id%>">
-                          <%= document.name %>
-                        </li>
-                        <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
-                              </div>
-                              <div class="modal-body">
-                                <%= cl_image_tag document.document, :height=> 200 %>
-
-
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
-<!--                                 <button type="button" class="btn-blue">Save changes</button>
- -->                              </div>
+                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                <span aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> <%= pluralize event.documents.size, "document", "documents" %> </span>
+                <div id="<%= event.id %>" class="collapse out">
+                  <ul>
+                    <% event.documents.each do |document|  %>
+                      <li data-toggle="modal" data-target="#<%= document.id%>">
+                        <%= document.name %>
+                      </li>
+                      <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                            </div>
+                            <div class="modal-body">
+                              <%= cl_image_tag document.document, :height=> 200 %>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
                             </div>
                           </div>
                         </div>
-                      <% end %>
-                    </ul>
-                  </div>
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
               </div>
             <% end %>
-
           </div>
 
           <div class="card-event-timeline-right">
@@ -145,9 +117,24 @@
 
             </div>
             <div class="card-event-timeline-btn">
-              <%= link_to episodes_path, class:"btn btn-primary" do %>
-                <i class="fa fa-file-text" aria-hidden="true"></i>
-              <% end %>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_doc<%=event.id%>" >Ajouter un document</button>
+                <div class="modal fade" id="add_doc<%=event.id%>" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" >Ajouter un document</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= render "documents/form_document", event: event %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
             </div>
           </div>
 
@@ -158,6 +145,8 @@
     <% end %>
   </div>
 </div>
+
+
 
 
 

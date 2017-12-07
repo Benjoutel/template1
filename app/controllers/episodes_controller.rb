@@ -1,20 +1,19 @@
 class EpisodesController < ApplicationController
 
   def show
-    @episode = Episode.find_by_id(params[:id])
-    @events = Event.where(episode_id: @episode.id).order(date: :desc)
+    @episode      = Episode.find_by_id(params[:id])
+    @events       = Event.where(episode_id: @episode.id).order(date: :desc)
     # @events = @episode.events.order(date: :desc)
-    @appointment = Event.new(category: "appointment")
-    @note = Event.new(category: "note")
-    @caregivers = Caregiver.where(patient_id: @episode.patient_id).where.not(firstname: "Note")
-
+    @appointment  = Event.new(category: "appointment")
+    @note         = Event.new(category: "note")
+    @caregivers   = Caregiver.where(patient_id: @episode.patient_id)
+    @document     = Document.new
   end
 
   def index
     # @episodes = Episode.where(patient_id: current_patient.id)
     # better use of associations
     @episodes = current_patient.episodes
-
     if params[:name]
       @episodes = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
@@ -33,20 +32,20 @@ class EpisodesController < ApplicationController
   end
 
   def create
-    @episode       = Episode.new(name: episode_params[:name], description: episode_params[:description], patient_id: current_patient.id)
-    initial_event = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", caregiver: Caregiver.first, date: Date.today)
+    @episode        = Episode.new(episode_params)
+    @episode.patient = current_patient
+    initial_event   = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", date: Date.today)
     @episode.events << initial_event
     if @episode.save
       redirect_to episodes_path
     else
       render :new
     end
-
-
-
   end
 
-def episode_params
+  private
+
+  def episode_params
     params.require(:episode).permit(:name, :description)
   end
 
