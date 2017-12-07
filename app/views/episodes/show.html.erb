@@ -18,7 +18,7 @@
 
           <div class="card-event-timeline-left">
             <div class="card-event-timeline-date">
-              <p><%=event.date%></p>
+              <p><%=event.date.strftime('%d/%m/%Y')%></p>
             </div>
           </div>
 
@@ -33,20 +33,19 @@
             </div>
 
             <div class="card-event-timeline-description">
-              <p> Details : <%= event.description%></p>
+              <p> "<%= event.description%> "</p>
             </div>
 
             <% if event.documents.size > 0 %>
               <div class="card-event-timeline-documents">
                   <i class="fa fa-paperclip" aria-hidden="true"></i>
 
-                  <%= pluralize event.documents.size, "document", "documents" %>
+                  <span aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> <%= pluralize event.documents.size, "document", "documents" %> </span>
 
                   <div id="<%= event.id %>" class="collapse out">
 
                     <ul>
                       <% event.documents.each do |document|  %>
-                      <!-- <li><%#= link_to document.name, episodes_path %></li> -->
                       <li data-toggle="modal" data-target="#<%= document.id%>">
                         <%= document.name %>
                         <li id="<%= document.id %>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -64,12 +63,6 @@
           </div>
 
           <div class="card-event-timeline-right">
-            <% if event.documents.size > 0 %>
-              <div class="card-event-timeline-carret">
-                <i class="fa fa-caret-right" aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> </i>
-                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
-              </div>
-            <% end %>
             <div class="card-event-timeline-picto">
               <% if event.category == "consultation" %>
                 <%= cl_image_tag event.caregiver.photo, :height=> 60, :radius=>50 %>
@@ -80,7 +73,9 @@
 
             </div>
             <div class="card-event-timeline-btn">
-              <%= link_to "Ajouter un document", episodes_path, class:"btn btn-primary" %>
+              <%= link_to episodes_path, class:"btn btn-primary" do %>
+                <i class="fa fa-file-text" aria-hidden="true"></i>
+              <% end %>
             </div>
           </div>
 
