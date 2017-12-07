@@ -6,10 +6,10 @@
 
     <h1><%= @episode.name %></h1>
 
-     <!--    < "Ajouter un rdv", new_episode_appointment_path(@episode), class:"btn btn-primary", data: { toggle: "modal", target: '#loginModal' } %>
- -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
+<!-- modal du rdv-->
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
 
 
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -23,6 +23,29 @@
               </div>
               <div class="modal-body">
                 <%= render "appointments/form_appointment" %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+<!-- modal note-->
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal2" >Ajouter une Note</button>
+
+
+        <div class="modal fade" id="loginModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter une Note</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= render "notes/form_note" %>
               </div>
 
             </div>

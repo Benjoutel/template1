@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
     @episode = Episode.find(params[:episode_id])
     @appointment = Event.new(category: "appointment")
     # (category: "appointment")
-    @caregivers = Caregiver.where(patient_id: @episode.patient_id).where.not(firstname: "Note")
+    @caregivers = Caregiver.where(patient_id: @episode.patient_id)
 
 
   end
