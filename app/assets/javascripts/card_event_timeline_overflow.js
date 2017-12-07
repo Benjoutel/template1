@@ -6,11 +6,11 @@ cards.forEach(function (card){
     console.log(middle);
     console.log(middle.style.getPropertyValue("width"));
     // if (middle.style.getPropertyValue('text-overflow') == "ellipsis") {
-      middle.style.textOverflow = "unset";
-      middle.style.overflow = "unset";
-      middle.style.width = "unset";
-      middle.style.height = "unset";
-      middle.style.whiteSpace = "unset";
+      // middle.style.textOverflow = "unset";
+      // middle.style.overflow = "unset";
+      // middle.style.width = "unset";
+      // middle.style.height = "unset";
+      // middle.style.whiteSpace = "unset";
     // }
   // else if (middle.style.textOverflow === "unset") {
   //     middle.style.textOverflow = "ellipsis";
