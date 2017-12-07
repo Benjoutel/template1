@@ -169,15 +169,6 @@ puts 'Finished!'
 
 puts 'Creating caregivers...'
 caregiver_attributes = [
-    {
-    firstname: "Note",
-    lastname: "Note",
-    address: "Caregiver note without real address",
-    phone_number: "Caregiver note without real phone_number",
-    mail: "Caregiver note without real mail",
-    speciality: "Caregiver note without real speciality",
-    patient: benjamin
-  },
   {
     firstname: "Marc",
     lastname: "Greene",
@@ -218,65 +209,60 @@ event_attributes = [
     category: "note",
     description: "Création de l'épisode",
     episode: Episode.first,
-    date: "2017-01-01",
-    caregiver: Caregiver.first
+    date: "2017-01-01"
   },
   {
     category: "note",
     description: "J'ai mal au pied. J'ai beau ête matinale, j'ai mal",
     episode: Episode.first,
-    date: "2017-01-02",
-    caregiver: Caregiver.first
+    date: "2017-01-02"
   },
   {
     category: "appointment",
     description: "Le docteur m'a donné une ordonnnance pour faire une radio",
     episode: Episode.first,
     date: "2017-01-11",
-    caregiver: Caregiver.all[1]
+    caregiver: Caregiver.all[0]
   },
   {
     category: "appointment",
     description: " Il a remarqué une epine calcanéenne sous mon pied gauche. A confirmer avec le docteur Greene",
     episode: Episode.first,
     date: "2017-02-01",
-    caregiver: Caregiver.all[2]
+    caregiver: Caregiver.all[1]
   },
   {
     category: "appointment",
     description: "Le docteur Greene confirme l'épine calcanéenne",
     episode: Episode.first,
     date: "2017-02-21",
-    caregiver: Caregiver.all[1]
+    caregiver: Caregiver.all[0]
   },
   {
     category: "appointment",
     description: "Premier exercice effectué avec le docteur Carter",
     episode: Episode.first,
     date: "2017-03-04",
-    caregiver: Caregiver.all[3]
+    caregiver: Caregiver.all[2]
   },
   {
     category: "note",
     description: "Je commence à aller mieux",
     episode: Episode.first,
-    date: "2017-05-02",
-    caregiver: Caregiver.first
-  },
+    date: "2017-05-02"
+      },
   {
     category: "note",
     description: "Création de l'épisode",
     episode: Episode.all[1],
-    date: "2016-01-01",
-    caregiver: Caregiver.first
+    date: "2016-01-01"
   },
     {
     category: "note",
     description: "Création de l'épisode",
     episode: Episode.all[2],
-    date: "2015-01-01",
-    caregiver: Caregiver.first
-  }
+    date: "2015-01-01"
+      }
 ]
 
 event = Event.create!(event_attributes)

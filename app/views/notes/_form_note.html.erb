@@ -1,0 +1,8 @@
+  <%= simple_form_for [@episode, @note], url: episode_notes_path(@episode), method: :post do |f| %>
+  <%= f.input :description %>
+
+<div class="form_new_validation">
+  <%= f.button :submit , class: "btn-primary"%>
+
+</div>
+<% end %>

@@ -5,6 +5,7 @@ class EpisodesController < ApplicationController
     @events = Event.where(episode_id: @episode.id).order(date: :desc)
     # @events = @episode.events.order(date: :desc)
     @appointment = Event.new(category: "appointment")
+    @note = Event.new(category: "note")
     @caregivers = Caregiver.where(patient_id: @episode.patient_id).where.not(firstname: "Note")
 
   end
