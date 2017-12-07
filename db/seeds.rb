@@ -172,10 +172,10 @@ caregiver_attributes = [
     {
     firstname: "Note",
     lastname: "Note",
-    address: "46 Bis Boulevard Gabriel Guist'Hau, 44000 Nantes ",
-    phone_number: "02 40 20 32 41",
-    mail: "marc.greene@gmail.com",
-    speciality: "Medecin généraliste, Docteur du Sport",
+    address: "Caregiver note without real address",
+    phone_number: "Caregiver note without real phone_number",
+    mail: "Caregiver note without real mail",
+    speciality: "Caregiver note without real speciality",
     patient: benjamin
   },
   {
@@ -229,28 +229,28 @@ event_attributes = [
     caregiver: Caregiver.first
   },
   {
-    category: "consultation",
+    category: "appointment",
     description: "Le docteur m'a donné une ordonnnance pour faire une radio",
     episode: Episode.first,
     date: "2017-01-11",
     caregiver: Caregiver.all[1]
   },
   {
-    category: "consultation",
+    category: "appointment",
     description: " Il a remarqué une epine calcanéenne sous mon pied gauche. A confirmer avec le docteur Greene",
     episode: Episode.first,
     date: "2017-02-01",
     caregiver: Caregiver.all[2]
   },
   {
-    category: "consultation",
+    category: "appointment",
     description: "Le docteur Greene confirme l'épine calcanéenne",
     episode: Episode.first,
     date: "2017-02-21",
     caregiver: Caregiver.all[1]
   },
   {
-    category: "consultation",
+    category: "appointment",
     description: "Premier exercice effectué avec le docteur Carter",
     episode: Episode.first,
     date: "2017-03-04",
