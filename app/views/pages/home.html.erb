@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(192,192,170,0.4) 0%, rgba(126, 183, 246, 0.4) 50%), url('http://res.cloudinary.com/deko23qhf/image/upload/c_scale,w_1000/v1512489911/coverhp3_ukbmv3.jpg');">
+<div class="banner banner80" style="background-image: linear-gradient(-225deg, rgba(192,192,170,0.6) 0%, rgba(126, 183, 246, 0.6) 50%), url('<%= image_path("coverhp2.jpg")%>');">
 
   <div class="banner-content">
     <h1>Kenko</h1>
@@ -8,11 +8,29 @@
         </a>
       </p>
 
-      <button type="button" class="btn btn-primary btn-lg">Créez votre dossier médical
-</button>
+
+      <div>
+      <%= link_to "Créez votre Kenko", episodes_path, class: "btn-green" %>
+      </div>
+  </div>
+</div>
+
+
+<div class="banner banner60" style="background-image: linear-gradient(-225deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255, 0.9) 50%), url('<%= image_path("laptop.jpg")%>');">
+  <div class="col-xs-6 col-sm-4">
+    <div class="icon">
+      <%= image_tag('note-green.png', height:"200px")%>
     </div>
   </div>
-
+  <div class="col-xs-6 col-sm-4">
+    <div class="info">
+      Prenez des notes directement dans votre Kenko.
+    </div>
+  </div>
+  <div class="col-xs-0 col-sm-4">
+    <div></div>
+  </div>
+</div>
 
 <script>
   var TxtType = function(el, toRotate, period) {
