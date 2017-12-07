@@ -3,7 +3,10 @@ class EpisodesController < ApplicationController
   def show
     @episode = Episode.find_by_id(params[:id])
     @events = Event.where(episode_id: @episode.id).order(date: :desc)
-    @events = @episode.events.order(date: :desc)
+    # @events = @episode.events.order(date: :desc)
+    @appointment = Event.new(category: "appointment")
+    @caregivers = Caregiver.where(patient_id: @episode.patient_id).where.not(firstname: "Note")
+
   end
 
   def index
