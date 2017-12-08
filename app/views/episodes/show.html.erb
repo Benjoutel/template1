@@ -124,14 +124,14 @@
               <% if event.category == "consultation" %>
                 <%= cl_image_tag event.caregiver.photo, :height=> 60, :radius=>50 %>
               <% else %>
-                <%= cl_image_tag @episode.patient.photo, :height=> 60, :radius=>50 %>
+                <%= cl_image_tag event.patient.photo, :height=> 60, :radius=>50 %>
               <% end %>
 
 
             </div>
             <div class="card-event-timeline-btn">
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_doc<%=event.id%>" ><i class="fa fa-file-text-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_doc<%=event.id%>" ><i class="fa fa-plus" aria-hidden="true"></i>      <i class="fa fa-file-text-o" aria-hidden="true"></i></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_doc<%=event.id%>" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroy_doc<%=event.id%>" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 <div class="modal fade" id="add_doc<%=event.id%>" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">

@@ -1,7 +1,7 @@
 
 <%= simple_form_for [@episode, @document], url: document_path(@episode, event), method: :post do |form| %>
   <%= form.input :name %>
-  <%= form.input :category %>
+  <%= form.input :category, collection: ["radio", "ordonnnance", "analyse"] %>
   <%= form.input :document, label: "Upload Document", error: 'photo is compulsory' %>
   <%= hidden_field_tag 'event_category', event.category, prompt: "Ordonnance, Radio, Analyse de sang" %>
   <%= form.button :submit, "Ajouter un document", class: "btn-blue" %>
