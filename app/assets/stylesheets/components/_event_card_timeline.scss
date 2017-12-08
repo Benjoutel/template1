@@ -37,6 +37,22 @@
 }
 
 
+
+.card-event-timeline-middle-note {
+  width: 70%;
+  border-left-color: $blue;
+  border-left-style: solid;
+  border-left-width: 11px;
+  padding-left: 10px;
+}
+
+.card-event-timeline-middle-appointment {
+  width: 70%;
+  border-left-color: $green;
+  border-left-style: solid;
+  border-left-width: 11px;
+  padding-left: 10px;
+}
 .card-event-timeline-name {
   margin: 5px;
   font-weight: 900;
