@@ -314,7 +314,7 @@ event_attributes = [
      {
     category: "appointment",
     description: "Je viens montrer les resultats de mes examens du coeur. Tout est cool. ",
-    episode: Episode.all[2],
+    episode: Episode.all[3],
     date: "2015-03-30",
     caregiver: Caregiver.all[0] #medecin generaliste
   }
