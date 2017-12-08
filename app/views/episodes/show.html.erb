@@ -124,7 +124,7 @@
               <% if event.category == "consultation" %>
                 <%= cl_image_tag event.caregiver.photo, :height=> 60, :radius=>50 %>
               <% else %>
-                <%= cl_image_tag event.patient.photo, :height=> 60, :radius=>50 %>
+                <%= cl_image_tag event.episode.patient.photo, :height=> 60, :radius=>50 %>
               <% end %>
 
 
