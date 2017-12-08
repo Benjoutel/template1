@@ -16,7 +16,7 @@
     -webkit-transition: height .25s;
     -moz-transition: height .25s;
     transition: height .25s;
-    height: 140px;
+    height: 70px;
 
 }
 
@@ -81,8 +81,8 @@
 }
 
 .episodes {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 27px;
+  padding-right: 109px;
   padding-bottom: 50px;
 }
 
@@ -130,10 +130,52 @@
 .episode-name {
   text-align: center;
    margin: 30px;
+   font-weight: 700;
 }
 
 .episode-date {
   text-align: center;
   margin: 10px;
   font-size: 10px;
+}
+
+
+#name{
+    border-radius: 12px;
+    height: 35px;
+    width: 200px;
+    border-color: $green;
+    padding: 0 10px;
+}
+
+.add-episode-btn{
+
+    border: 1px solid #01C3A7;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #01C3A7;
+    border-bottom: 1px solid #01907c;
+    box-shadow: 0 1px 1px -1px #8C9DA1;
+    margin: 24px 0 19px 36px;
+}
+
+
+.add-episode-search{
+
+    border: 1px solid #01C3A7;
+    color: #FFF;
+    cursor: pointer;
+    background-color: #01C3A7;
+    border-bottom: 1px solid #01907c;
+    box-shadow: 0 1px 1px -1px #8C9DA1;
+
+}
+
+.rowbtn{
+  margin: 15px 0 32px 34px;
+  width: 94%;
+  border-bottom-style: solid;
+  padding-bottom: 14px;
+  border-width: 1px;
+  border-color: $gray-above-background;
 }
