@@ -15,7 +15,7 @@ class EpisodesController < ApplicationController
     # better use of associations
     @episodes = current_patient.episodes
     if params[:name]
-      @episodes = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
+      @episodes  = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
     # joins events and order episodes by update date
   end
