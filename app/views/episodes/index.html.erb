@@ -1,22 +1,12 @@
-<div class="episodes-index-container">
 
-    <div class="episodes-head">
-      <div class="episodes-title h1">
-        <div>
-          Mes épisodes
-        </div>
-      </div>
-      <div class="btn-blue">
-        <div>
-          <%= link_to "Vue chronologique", chrono_episodes_path %>
-        </div>
-      </div>
-      <div class="btn-inactive">
-        <div>
-          Vue des épisodes
-        </div>
+<div class="episodes-index-container">
+  <div class="episodes-head">
+    <div class="episodes-title">
+      <div>
+        <h3>Mes épisodes</h3>
       </div>
     </div>
+
 
     <div class="add-episode">
       <div class="search">
@@ -25,30 +15,22 @@
         <%= submit_tag 'Search', class: "btn-blue"%>
         <% end %>
       </div>
-      <div class="btn-green">
-        <div>
-          <%= link_to "Ajouter un épisode", new_episode_path %>
-        </div>
-      </div>
     </div>
-</div>
+  </div>
 
-
-<!-- <div class="col-xs-12 col-sm-4"> -->
-<!-- <div class="episodes_row"> -->
-<div class="episodes">
-  <div class="row">
-    <% @episodes.each do |episode| %>
+  <div class="episodes">
+    <div class="row">
+      <% @episodes.each do |episode| %>
       <!-- episode card beginning -->
 
       <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="card-episode">
-        <div class="card-episode-upbox">
-          <div class="episode-name">
-            <%= episode.name.capitalize %>
+          <div class="card-episode-upbox">
+            <div class="episode-name">
+              <%= episode.name.capitalize %>
+            </div>
           </div>
-        </div>
-        <div class="card-episode-downbox">
+          <div class="card-episode-downbox">
             <div class="episode-date">
               Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
             </div>
@@ -58,15 +40,12 @@
               </div>
             </div>
 
+          </div>
         </div>
       </div>
-      </div>
-
-      <!-- episode card end -->
-    <% end %>
+      <% end %>
+    </div>
   </div>
-  </div>
-
-<!-- </div> -->
+</div>
 
 
