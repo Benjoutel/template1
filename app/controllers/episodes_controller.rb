@@ -8,6 +8,7 @@ class EpisodesController < ApplicationController
     @note         = Event.new(category: "note")
     @caregivers   = Caregiver.where(patient_id: @episode.patient_id)
     @document     = Document.new
+    # @document_categories = Document.group(:category).count.sort_by{ |k, v| v }.reverse.to_h
   end
 
   def index

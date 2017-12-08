@@ -38,6 +38,11 @@
     </div>
   </div>
 
+
+  <%# @document_categories.keys.each do |category| %>
+    <!-- <button type="button" class="btn btn-primary" > <%= category %>   </button> -->
+  <%# end %>
+
     <!--  -->
   <div class="row">
 
@@ -55,8 +60,15 @@
             </div>
           </div>
 
-          <div class="card-event-timeline-middle">
 
+          <% if event.category == "appointment" %>
+            <div class="card-event-timeline-middle-appointment">
+          <% else %>
+            <div class="card-event-timeline-middle-note">
+          <% end %>
+
+<!--           <div class="card-event-timeline-middle">
+ -->
             <div class="card-event-timeline-name">
               <% if event.category == "appointment" %>
                 <p>Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%> </p>
@@ -75,14 +87,17 @@
 
             <% if event.documents.size > 0 %>
               <div class="card-event-timeline-documents">
+
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
-                <span aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> <%= pluralize event.documents.size, "document", "documents" %> </span>
-                <div id="<%= event.id %>" class="collapse out">
+                <!-- <span aria-hidden="true" data-toggle="collapse" data-target="#<%= event.id%>"> <%= pluralize event.documents.size, "document", "documents" %> </span> -->
+                <!-- <div id="<%= event.id %>" class="collapse out"> -->
+                  <span> <%= pluralize event.documents.size, "document", "documents" %> </span>
                   <ul>
                     <% event.documents.each do |document|  %>
-                      <li data-toggle="modal" data-target="#<%= document.id%>">
-                        <%= document.name %>
-                      </li>
+                      <span data-toggle="modal" data-target="#<%= document.id%>">
+                         <%#= document.name %>
+                         <%= cl_image_tag document.document, :height=> 50 %>
+                      </span>
                       <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -101,7 +116,7 @@
                       </div>
                     <% end %>
                   </ul>
-                </div>
+                <!-- </div> -->
               </div>
             <% end %>
           </div>
@@ -118,7 +133,9 @@
             </div>
             <div class="card-event-timeline-btn">
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_doc<%=event.id%>" >Ajouter un document</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_doc<%=event.id%>" ><i class="fa fa-file-text-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_doc<%=event.id%>" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroy_doc<%=event.id%>" ><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 <div class="modal fade" id="add_doc<%=event.id%>" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
