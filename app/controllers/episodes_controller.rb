@@ -19,6 +19,7 @@ class EpisodesController < ApplicationController
       @episodes  = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
     # joins events and order episodes by update date
+    @episode = Episode.new
   end
 
   def chrono

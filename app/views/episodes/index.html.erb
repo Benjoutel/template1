@@ -11,11 +11,34 @@
     <div class="add-episode">
       <div class="search">
         <%= form_tag(episodes_path, method: :get) do %>
-        <%= text_field_tag :name %>
-        <%= submit_tag 'Search', class: "btn-blue"%>
+        <%= text_field_tag :name, :Recherche  %>
+        <%= submit_tag 'Search', class: "btn btn-success"%>
         <% end %>
       </div>
     </div>
+  </div>
+
+  <div class="rowbtn">
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal" >Ajouter RDV</button>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Ajouter un épisode medicale</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "form_new_episode" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%#= link_to "Ajouter un épisode medical", new_episode_path %>
   </div>
 
   <div class="episodes">
@@ -47,5 +70,9 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
