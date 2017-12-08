@@ -17,7 +17,8 @@ class EpisodesController < ApplicationController
 
     # order episodes / date events la plus récente
 
-    @episodes = current_patient.episodes.includes(:events).order("events.date desc")
+    @episodes = current_patient.episodes
+    # .includes(:events).order("events.date desc")
     if params[:name]
       @episodes  = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
