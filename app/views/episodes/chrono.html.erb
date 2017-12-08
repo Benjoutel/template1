@@ -121,7 +121,7 @@
 
           <div class="card-event-timeline-right">
             <div class="card-event-timeline-picto">
-              <% if event.category == "consultation" %>
+              <% if event.category == "appointment" %>
                 <%= cl_image_tag event.caregiver.photo, :height=> 60, :radius=>50 %>
               <% else %>
                 <%= cl_image_tag event.episode.patient.photo, :height=> 60, :radius=>50 %>
