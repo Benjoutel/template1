@@ -34,7 +34,7 @@ chris = Patient.new(firstname: "christophe",
   lastname: "Taro",
   email: 'chris@gmail.com',
   password: "popopo",
-  photo: File.open(Rails.root.join('db/fixtures/images/chris.jpg')),
+  photo: File.open(Rails.root.join('db/fixtures/images/benjamin.jpg')),
   birth_date: "1987-09-14",
   phone_number: "06-07-30-46-76",
   address: "27 Boulevard Stalingrad 44000 Nantes"
@@ -144,7 +144,7 @@ puts 'Creating episodes...'
 episode_attributes = [
   {
     patient: chris,
-    name: "Fatigue decembre 2017"
+    name: "Rhume decembre 2016"
   },
   {
     patient: chris,
