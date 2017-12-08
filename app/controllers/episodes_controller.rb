@@ -14,7 +14,10 @@ class EpisodesController < ApplicationController
   def index
     # @episodes = Episode.where(patient_id: current_patient.id)
     # better use of associations
-    @episodes = current_patient.episodes
+
+    # order episodes / date events la plus récente
+
+    @episodes = current_patient.episodes.includes(:events).order("events.date desc")
     if params[:name]
       @episodes  = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
@@ -26,6 +29,10 @@ class EpisodesController < ApplicationController
       joins(:episode).
       where(episodes: { patient_id: current_patient.id }).
       order(date: :desc)
+    @appointment  = Event.new(category: "appointment")
+    @note         = Event.new(category: "note")
+    @caregivers   = current_patient.caregivers
+    @document     = Document.new
   end
 
   def new
