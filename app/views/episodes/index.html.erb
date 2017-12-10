@@ -20,16 +20,51 @@
       </div>
   </div>
 
-  <div>
+  <div class="episodes">
+    <div class="row">
       <div class="episodes-row2">
-        <div class="btn-kenko">
-          <%= link_to "Ajouter un épisode", new_episode_path, class: "btn10 btn-add" %>
+
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <%= link_to episodes_path do %>
+          <div class="btn-with-img-blue">
+            <div class="btn-img">
+              <%= image_tag("mes-episodes.png", class: "", height: '35') %>
+            </div>
+            <div class="btn-text">
+              Vue par épisode
+            </div>
+          </div>
+          <% end %>
         </div>
-        <div class="btn-kenko">
-          <%= link_to "Vue chonologique", chrono_episodes_path, class: "btn10 btn-view" %>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <%= link_to chrono_episodes_path do %>
+          <div class="btn-with-img-blue">
+            <div class="btn-img">
+              <%= image_tag("chrono2.png", class: "", height: '35') %>
+            </div>
+            <div class="btn-text">
+              Vue globale
+            </div>
+          </div>
+          <% end %>
         </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <%= link_to new_episode_path do %>
+          <div class="btn-with-img-green">
+            <div class="btn-img">
+              <%= image_tag("add-note.png", class: "", height: '35') %>
+            </div>
+            <div class="btn-text">
+              Ajouter un épisode
+            </div>
+          </div>
+          <% end %>
+        </div>
+
       </div>
-  </div>
+
 
 
       <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
@@ -50,32 +85,31 @@
 
 
 
-      <div class="episodes">
-        <div class="row">
-          <% @episodes.each do |episode| %>
-          <!-- episode card beginning -->
+
+
+        <% @episodes.each do |episode| %>
 
           <div class="col-xs-12 col-sm-4 col-md-3">
             <%= link_to episode_path(episode) do %>
-            <div class="card-episode">
-              <div class="card-episode-upbox">
-                <div class="episode-name">
-                  <%= episode.name.capitalize %>
+              <div class="card-episode">
+                <div class="card-episode-upbox">
+                  <div class="episode-name">
+                    <%= episode.name.capitalize %>
+                  </div>
+                </div>
+                <div class="card-episode-downbox">
+                  <div class="episode-date">
+                    Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
+                  </div>
                 </div>
               </div>
-              <div class="card-episode-downbox">
-                <div class="episode-date">
-                  Mis à jour le <%= episode.updated_at.strftime("%d-%m-%Y") %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
     </div>
   </div>
 </div>
-
 </div>
 
 
