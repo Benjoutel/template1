@@ -34,7 +34,7 @@ chris = Patient.new(firstname: "christophe",
   lastname: "Taro",
   email: 'chris@gmail.com',
   password: "popopo",
-  photo: File.open(Rails.root.join('db/fixtures/images/chris.jpg')),
+  photo: File.open(Rails.root.join('db/fixtures/images/benjamin.jpg')),
   birth_date: "1987-09-14",
   phone_number: "06-07-30-46-76",
   address: "27 Boulevard Stalingrad 44000 Nantes"
@@ -144,7 +144,7 @@ puts 'Creating episodes...'
 episode_attributes = [
   {
     patient: chris,
-    name: "Fatigue decembre 2017"
+    name: "Rhume decembre 2016"
   },
   {
     patient: chris,
@@ -281,34 +281,34 @@ event_attributes = [
     category: "note",
     description: "Création de l'épisode",
     episode: Episode.all[3],
-    date: "2014-03-01"
+    date: "2015-03-01"
   },
   {#9
     category: "appointment",
     description: "Visite de routine chez le doc. Je suis assez fatigué en ce moment. Soit c'est la sortie de l'hiver, soit c'est le taff ou peut-etre autre chose. Le dr aimerait que je fasse des examens du coeur car il dit que j'ai un souffle au coeur. Je l'ai depuis longtemps mais il dit qu'il vaut mieux vérifier le coeur tant que je vais bien :). ",
     episode: Episode.all[3],
-    date: "2017-03-01",
+    date: "2015-03-01",
     caregiver: Caregiver.all[0] #medecin generaliste
   },
   {#10
     category: "appointment",
     description: "ECG et echographie cardiaque chez le cardiologue. J'avais jamais vu mon coeur!",
     episode: Episode.all[3],
-    date: "2017-03-10",
+    date: "2015-03-10",
     caregiver: Caregiver.all[3] #cardiologue
   },
   {#11
     category: "appointment",
     description: "Radio pour compléter le bilan cardiaque. Pas très bavard le radiologue. J'avais l'impression de le déranger ;)",
     episode: Episode.all[3],
-    date: "2017-03-18",
+    date: "2015-03-18",
     caregiver: Caregiver.all[1] #radiologue
   },
   {
   category: "appointment",
   description: "Le cardiologue regarde la radio. pas de soucis. C'est un \"souffle fonctionnel\". Ca veut dire que je vais bien, que je fais partie des gens dont le coeur fait des bruits chelous.",
   episode: Episode.all[3],
-  date: "2017-03-20",
+  date: "2015-03-20",
   caregiver: Caregiver.all[3] #cardiologue
   },
      {
