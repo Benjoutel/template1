@@ -1,87 +1,32 @@
 
+
+
+
 .episodes-head {
   display: flex;
-
   align-items : center;
   // margin-bottom: 40px;
   margin-left: 10px;
-  // background-color: $dark-blue;
-  color: white;
-  border-radius: .3125em;
-  // border: 1px solid $gray-above-background;
-  padding: 24px 30px;
-  margin: 25px auto 0;
-  width: 94%;
-  -webkit-transition: height .25s;
-  -moz-transition: height .25s;
-  transition: height .25s;
-  height: 70px;
+    background-color: $gray-above-background;
+    border-radius: .3125em;
+    border: 1px solid $gray-above-background;
+    padding: 24px 30px;
+    margin: 25px auto 0;
+    width: 94%;
+    -webkit-transition: height .25s;
+    -moz-transition: height .25s;
+    transition: height .25s;
+    height: 70px;
+
 }
-.episodes-row1 {
-  display: flex;
-  // align-items: stretch;
-  justify-content: space-between;
-}
-.episodes-row1 {
-  display: flex;
-  // align-items: stretch;
-  justify-content: space-between;
-}
-.episodes-home {
-  position: relative;
-  width: 150px;
-  height: 40px;
-  border: 1px solid white;
-  margin-bottom: 10px;
-}
-.episodes-home-add {
-  position: relative;
-  width: 150px;
-  height: 40px;
-  border: 1px solid white;
-  margin-bottom: 10px;
-  padding: 2px;
-  color: white;
-  background-color: $green;
-  color: white;
-}
-.episodes-home-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.add-episode-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.episodes-chrono-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.search-box {
-  flex: 1 0 auto;
-}
-.subsearch-box {
-  position: relative;
-}
-.search {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 .episodes-title {
   // width: 600px;
-  flex: 0 1 40%;
-  color: white;
+  flex: 1 0 auto;
+  align-items: center;
+
 }
-.episodes-title h3{
-  font-size: 40px;
-  color: $blue-title;
-  font-weight: 600;
-  font-size: 40px;
-}
+
 
 .episodes-view {
   flex: 0 0 20%;
@@ -108,7 +53,9 @@
   padding-bottom: 20px;
 }
 
-
+.search {
+  flex: 1 0 auto;
+}
 
 .add-episode-btn {
   flex: 0 0 200px;
@@ -125,11 +72,10 @@
 }
 
 .episodes-index-container {
-  background: linear-gradient(45deg, $blue, $dark-blue);
+  background-color: $white-background;
   margin: 0px;
-  border-left: 0.5px solid $blue-title;
   padding-top: 5px;
-  padding-left: 10px;
+  padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 20px;
 }
@@ -138,37 +84,18 @@
   padding-left: 27px;
   padding-right: 109px;
   padding-bottom: 50px;
-  // background: linear-gradient(45deg, $blue, $dark-blue);
-  // border-left: 0.5px solid $blue-title;
-  margin: 0px;
-  padding-top: 10px;
 }
 
 .card-episode {
-  height: 150px;
-  width: 150px;
+  height: 220px;
+  width: 200px;
   position: relative;
-  border-radius: 2px;
-  margin-bottom: 10px;
-
-  // border: 0.5px solid white;
-  // background: white;
-  border: 0.5px solid $blue-title;
-  // background: linear-gradient(90deg, $blue, $dark-blue);
-  box-shadow: 2px 2px 4px $dark-blue;
+  border-radius: 4px;
+  margin: 10px;
+  background-color: white;
+  border: 0.5px solid #DCE4ED;
+  box-shadow: 4px 4px 4px #DCE4ED;
   padding: 10px;
-  color: white;
-  background-color: $green;
-  opacity: 0.6;
-}
-.card-episode:hover {
-
-  // border: 0.5px solid white;
-  // background: linear-gradient(90deg, $blue, $dark-blue);
-  // background: white;
-  // color: $gray;
-  // border: 0.5px solid $gray;
-  opacity: 1;
 }
 
 
@@ -195,28 +122,21 @@
   justify-content: space-around;
   height: 50px;
   background-color: $green;
-  // border: 0.5px solid #01C3A7 ;
+  border: 0.5px solid #01C3A7 ;
   color: white;
   transition: all 0.3s ease;
-  border: 1px solid $green;
 }
 
 .episode-name {
-  text-align: left;
-
-   margin-left: 10px;
-  margin-right: 10px;
-   font-weight: 600;
-   opacity: 1;
-
+  text-align: center;
+   margin: 30px;
+   font-weight: 700;
 }
 
 .episode-date {
   text-align: center;
-  // color: $blue-title;
   margin: 10px;
   font-size: 10px;
-  font-weight: 200;
 }
 
 

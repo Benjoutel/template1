@@ -1,31 +1,59 @@
- <nav class="navbar navbar-inverse navbar-fixed-left">
-    <div class="navbar-container">
-      <div class="navbar-header">
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "", height: 50 %>
+  <% end %>
 
-          <%= link_to "Kenko", root_path, class: "navbar-title" %>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <% if patient_signed_in? %>
+
+      <!-- Links when logged in -->
+      <%= link_to "Mes épisodes", episodes_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Mon profil", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
-<!-- if signed-in -->
-      <% if patient_signed_in? %>
-      <div class="navbar">
-        <div class="navbar-section">
-          <%= link_to "Mes épisodes", episodes_path, class: "navbar-section-text" %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= cl_image_tag current_patient.photo, width: 30, height: 30, :radius=>"max", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_patient_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
         </div>
-        <div class="navbar-section">
-          <%= link_to "Mon profil", profile_path, class: "navbar-section-text" %>
-        </div>
-<!-- else -->
-          <% else %>
-          <!-- Login link (when logged out) -->
-          <%= link_to t(".sign_in", default: "Login"), new_patient_session_path, class: "" %>
+      </div>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_patient_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
 
-      </div>
-      <% end %>
-<!-- end -->
-      </div>
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Other one</a></li>
+        <li><a href="#">Other one</a></li>
+      </ul>
     </div>
-  </nav>
-
-
-
+  </div>
+</div>
 
