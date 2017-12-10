@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>§
 
   <%#= link_to "Ajouter un épisode medical", new_episode_path %>
   </div>
@@ -56,8 +56,12 @@
         <div class="card-episode">
           <div class="card-episode-upbox">
             <div class="episode-name">
+                <div class="icon">
+                <%= cl_image_tag("plastered-foot-1_ay1wqg.png", :width=>40, :crop=>"scale") %>
+            </div>
               <%= episode.name.capitalize %>
             </div>
+
           </div>
           <div class="card-episode-downbox">
             <div class="episode-date">
