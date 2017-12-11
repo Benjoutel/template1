@@ -2,6 +2,7 @@
 
   <div class="main-container">
 
+<!-- modals   -->
     <div class="episode-sidebar">
       <h1><%= @episode.name %></h1>
 
@@ -93,46 +94,144 @@
           </div>
         </div>
       </div>
+<!-- end modals -->
 
-      <div class="row">
+
+
+<!-- begin timeline container -->
+    <div class="timeline-container">
+
+<!-- begin timeline head container  -->
+      <div class="timeline-head-container">
+
+      </div>
+<!-- end timeline head container  -->
+
+    <div class="col-xs-12">
+
         <%@events.each do |event| %>
 
-          <div class="col-xs-12">
 
-            <!-- card begin -->
-            <div class="card-event-timeline">
-              <div class="card-event-timeline-date">
-                <%=event.date.strftime('%d/%m/%Y')%>
+
+<!-- card begin -->
+          <% if event.category == "appointment" %>
+            <div class="card-event">
+              <div class="row-banner">
+                <!-- <div class="card-event-banner"> -->
+                <div class="event-date appointment">
+                  <%= event.date.strftime('%d/%m/%Y')%>
+                </div>
+                <div class="avatar-content appointment">
+                  <div class="event-avatar">
+                    <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                  </div>
+                </div>
               </div>
-              <% if event.category == "appointment" %>
-                <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"card-event-timeline-avatar" %>
-              <% end %>
-
-              <div class="card-event-timeline-category">
-                <% if event.category == "appointment" %>
-                  <p>Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%> </p>
-                <% else %>
-                  <p>Prise de note</p>
-                <% end %>
+              <!-- </div> -->
+              <div class="box-shadow">
+                <div class="card-event-content">
+                  <div class="card-event-content-row">
+                    <div class="event-caregiver">
+                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                    </div>
+                    <div class="event-text">
+                      <div class="event-title">
+                          Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%>
+                      </div>
+                        <div class="event-description">
+                          <%= event.description%>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="card-event-footer">
+                    <div class="card-event-footer-row1">
+                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      <div class="docs-number">
+                        <p><%= event.documents.count %> documents associés</p>
+                      </div>
+                    </div>
+                    <div class="card-event-footer-row2">
+                      <div class="docs-view">
+                        <!-- iteration each doc |event| -->
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                        <!-- end iteration -->
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      </div>
+                      <div>
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      </div>
+                    </div>
+                  </div>
               </div>
-
-              <div class="card-event-timeline-description">
-                <p>
-                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                    <%= event.description%>
-                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                </p>
-              </div>
-
-
             </div>
-            <!-- card end -->
           </div>
 
-        <% end %>
-      </div>
+          <% else %>
 
+            <div class="card-event">
+              <div class="row-banner">
+                <!-- <div class="card-event-banner"> -->
+                <div class="event-date note">
+                  <%= event.date.strftime('%d/%m/%Y')%>
+                </div>
+                <div class="avatar-content note">
+                  <div class="event-avatar">
+                    <%= image_tag("logo.png", :height=> 35, class:"") %>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="box-shadow">
+                <div class="card-event-content">
+                  <div class="card-event-content-row">
+                    <div class="event-text">
+                      <div class="event-title">
+                          Prise de note
+                      </div>
+                        <div class="event-description">
+                          <%= event.description%>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="card-event-footer">
+                    <div class="card-event-footer-row1">
+                      <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      <div class="docs-number">
+                        <p><%= event.documents.count %> documents associés</p>
+                      </div>
+                    </div>
+                    <div class="card-event-footer-row2">
+                      <div class="docs-view">
+                        <!-- iteration each doc |event| -->
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                        <!-- end iteration -->
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      </div>
+                      <div>
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+      <% end %>
+
+<!-- card end -->
+
+
+
+        <% end %>
+         </div>
+      </div>
     </div>
+<!-- end timeline container -->
+
   </div>
 </div>
 

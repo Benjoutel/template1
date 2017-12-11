@@ -68,48 +68,111 @@
   height: 100vh;
 }
 
-.card-event-timeline {
-  // display: flex;
-  // justify-content: space-around;
-  position: relative;
-  margin: 10px;
-  background-color: white;
-  box-shadow: 4px 4px 7px #bababa;
-  padding: 15px 0 15px 0;
-  border-radius: 2px;
-  height: 25vh;
-}
-
-.card-event-timeline-date {
-  position: absolute;
-  top: 5px;
-  background-color: white;
-  left: 10px;
-}
-
-.card-event-timeline-avatar {
-  position: absolute;
-  top: 5px;
+// EVENT CARD
+.card-event {
   display: flex;
-  right: 5px;
+  flex-direction: column;
+  border-radius: 2px;
+  width: auto;
+  margin-right: 10px;
+}
+.row-banner {
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-top: 60px;
+}
+.event-date {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  text-align: left;
+  border-top-left-radius: 4px;
+  padding-left: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.appointment {
+  background-color: $green;
+}
+.note {
+  background-color: $blue;
+}
+.avatar-content {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.event-avatar {
+  flex: 0 0 auto;
+}
+.box-shadow {
+  box-shadow: 4px 4px 7px #bababa;
+}
+.card-event-content {
+  flex: 1 1 auto;
+  width: 100%;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  border-left: 0.5px solid gray;
+  border-bottom: 0.5px solid gray;
+  border-right: 0.5px solid gray;
+}
+.card-event-content-row {
+  display: flex;
+}
+.event-title {
+    font-size: 20px;
+    color: black;
+  }
+.event-description {
+    font-size: 12px;
+    color: gray;
+  }
+.event-caregiver {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  padding-top: 20px;
+}
+.event-text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.card-event-footer-row1 {
+  display: flex;
+}
+.card-event-footer {
+  flex: 0 1 auto;
+  width: 100%;
+  background-color: white;
+}
+.docs-number {
+  padding-left: 12px;
+  padding-right: 10px;
+}
+.card-event-footer-row2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px
+}
+.docs-view {
+  display: flex;
 }
 
-.card-event-timeline-category {
-  position: absolute;
-  top: 40px;
-  background-color: white;
-  left: 10px;
-}
-
-.card-event-timeline-description {
-  position: absolute;
-  top: 70px;
-  background-color: white;
-  left: 10px;
-  // width: 300px;
-  font-size: 18px;
-  font-weight: 100;
-}
+//
 
 // .card-event-timeline-left {
 
