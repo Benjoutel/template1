@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206124857) do
+ActiveRecord::Schema.define(version: 20171210134940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20171206124857) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["patient_id"], name: "index_antecedents_on_patient_id", using: :btree
+  end
+
+  create_table "association_icons", force: :cascade do |t|
+    t.integer "icon_id"
+    t.integer "caregiver_id"
+    t.integer "event_id"
+    t.integer "episode_id"
+    t.index ["caregiver_id"], name: "index_association_icons_on_caregiver_id", using: :btree
+    t.index ["episode_id"], name: "index_association_icons_on_episode_id", using: :btree
+    t.index ["event_id"], name: "index_association_icons_on_event_id", using: :btree
+    t.index ["icon_id"], name: "index_association_icons_on_icon_id", using: :btree
   end
 
   create_table "caregivers", force: :cascade do |t|
@@ -74,6 +85,13 @@ ActiveRecord::Schema.define(version: 20171206124857) do
     t.datetime "updated_at",   null: false
     t.index ["caregiver_id"], name: "index_events_on_caregiver_id", using: :btree
     t.index ["episode_id"], name: "index_events_on_episode_id", using: :btree
+  end
+
+  create_table "icons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "measures", force: :cascade do |t|
@@ -125,6 +143,10 @@ ActiveRecord::Schema.define(version: 20171206124857) do
 
   add_foreign_key "allergies", "patients"
   add_foreign_key "antecedents", "patients"
+  add_foreign_key "association_icons", "caregivers"
+  add_foreign_key "association_icons", "episodes"
+  add_foreign_key "association_icons", "events"
+  add_foreign_key "association_icons", "icons"
   add_foreign_key "caregivers", "patients"
   add_foreign_key "documents", "events"
   add_foreign_key "episodes", "patients"

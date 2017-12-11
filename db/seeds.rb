@@ -156,7 +156,8 @@ episode_attributes = [
   },
   {
     patient: chris,
-    name: "Souffle au coeur"
+    name: "Souffle au coeur",
+    description: "J'ai une sensation d'épuisement. Je me sens fatigué tout le temps et je suis essouflé pour rien."
   },
   {
     patient: chris,
@@ -372,3 +373,530 @@ document_attributes = [
 
 
 Document.create!(document_attributes)
+
+
+
+icon_attributes = [
+  {
+  name: 'anesthesia',
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/anesthesia.png'))
+  },
+  {
+ name: 'antibiotic',
+ photo: File.open(Rails.root.join('db/fixtures/images/icons/antibiotic.png'))
+  },
+ {
+  name: 'arm-1',
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/arm-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/arm.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/articulation.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/bacteria.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/band-aid.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/blood-sample-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/blood-sample.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/blood-transfusion.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/bone.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/braces-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/braces-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/braces.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/brain-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/brain-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/brain-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/brain.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast-implant.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/breast.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/canine-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/canine-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/canine-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/canine.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/cardiogram-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/cardiogram-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/cardiogram.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/caries-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/caries.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/crutches.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/dental-drill.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/dental-floss.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/dna.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/dropper.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/drugs-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/drugs-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/drugs-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/drugs-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/drugs.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/ear.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/earbuds.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/edema.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/electric-toothbrush.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/epidermis.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/extraction.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/eye-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/eye-drops-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/eye-drops.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/eye.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/fat.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/femur.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/finger-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/finger-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/finger.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/first-aid-kit.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/fit.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/gum-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/gum.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/hammer.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/heart.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/implants-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/implants-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/implants-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/implants-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/implants.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/inhalator.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/intestines.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/iris.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/kidney-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/kidney.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/knee-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/knee.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/kneecap.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/liver.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/lozenge.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/lungs-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/lungs-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/lungs.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/medical-records.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/medicine-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/medicine.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/microbe.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/mirror.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-5.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-6.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-7.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-8.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar-crown.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/molar.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/nose.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/notepad.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/ointment-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/ointment.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/optical.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/otoscope.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pancreas.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/penis.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/perfusion.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/periodontal-scaler-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/periodontal-scaler-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/periodontal-scaler.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pill-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pill.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pills-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pills-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pills-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pills-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/pills.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/plastered-foot-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/plastered-foot.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/premolar-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/premolar-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/premolar.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/records-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/records-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/records.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/ribbon.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/scalpel.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/scissors.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/skeleton.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/skull-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/skull.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/spinal-column.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/stethoscope.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/stomach-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/stomach.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/syringe-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/syringe-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/syringe-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/syringe-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/syringe.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tablets.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-10.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-3.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-4.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-5.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-6.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-7.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-8.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth-9.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/teeth.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/thermometer-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/thermometer.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/thin.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tonsils-tester.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tooth-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tooth-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tooth-brush.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tooth-pliers.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tooth.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tweezers-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/tweezers.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/uterus.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/vagina-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/vagina.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/virus.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/wheelchair.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/x-ray-1.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/x-ray-2.png'))
+  },
+ {
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/x-ray.png'))
+}
+
+]
+
+Icon.create!(icon_attributes)
+
+
+
+
+
+
