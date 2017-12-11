@@ -29,16 +29,16 @@
         </button>
       </div>
 
-      <%@events.joins(:caregiver).distinct.where(category: "appointment").each do |event| %>
+      <%@caregivers.each do |caregiver| %>
         <div class="episode-sidebar-caregiver">
           <div class="episode-sidebar-caregiver-avatar">
-          <%= cl_image_tag event.caregiver.photo, :height=> 35 %>
+          <%= cl_image_tag caregiver.photo, :height=> 35 %>
           </div>
           <div class="episode-sidebar-caregiver-fullname">
-            <%= event.caregiver.firstname %> <%= event.caregiver.lastname %>
+            <%= caregiver.firstname %> <%= caregiver.lastname %>
           </div>
           <div class="episode-sidebar-cargiver-speciality">
-            <%= event.caregiver.speciality %>
+            <%= caregiver.speciality %>
           </div>
         </div>
       <% end %>

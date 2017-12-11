@@ -6,7 +6,7 @@ class EpisodesController < ApplicationController
     # @events = @episode.events.order(date: :desc)
     @appointment  = Event.new(category: "appointment")
     @note         = Event.new(category: "note")
-    @caregivers   = Caregiver.where(patient_id: @episode.patient_id)
+    @caregivers   = current_patient.caregivers.for_episode(@episode.id)
     @document     = Document.new
     # @document_categories = Document.group(:category).count.sort_by{ |k, v| v }.reverse.to_h
   end
