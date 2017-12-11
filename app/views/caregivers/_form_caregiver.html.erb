@@ -1,0 +1,10 @@
+<%= simple_form_for @caregiver, url: new_caregiver_path, method: :post do |form| %>
+  <%= form.input :firstname %>
+  <%= form.input :lastname %>
+  <%= form.input :address %>
+  <%= form.input :mail %>
+  <%= form.input :phone_number %>
+  <%= form.input :speciality %>
+  <%= form.input :photo, label: "Upload Document", error: 'photo is compulsory' %>
+  <%= form.submit "Ajouter un docteur", class: "btn-blue"  %>
+<% end %>

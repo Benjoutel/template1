@@ -7,13 +7,10 @@
   <h2>Créer un épisode</h2>
 
   <div class="sidebarbtn">
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addAppointment"> Ajouter un épisode</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode</button>
   </div>
 
   <h2>Mon équipe soignante</h2>
-
-
-
 
       <%@caregivers.each do |caregiver| %>
         <div class="index-episode-sidebar-caregiver">
@@ -28,7 +25,7 @@
           </div>
         </div>
       <% end %>
-        <div class="sidebarbtn">
+    <div class="sidebarbtn">
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
     </button>
   </div>
@@ -61,6 +58,39 @@
       <%= text_field_tag :name, :Recherche  %>
       <% end %>
     </div>
+
+
+   <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="addEpisodeLabel">Ajouter un épisode medicale</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "form_new_episode" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="addCaregiverLabel">Ajouter un soignant</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "caregivers/form_caregiver" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 <!--     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal" >Ajouter un épisode</button>
