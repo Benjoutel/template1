@@ -11,11 +11,14 @@
             <div class="separator"></div>
             <div class="timeline-head-container-content">
               <div class="timeline-filters">
-                  <div class="search">
-                      <%= form_tag(episodes_path, method: :get) do %>
-                      <%= text_field_tag :name, :Recherche  %>
+                  <!-- <div class="timeline-search"> -->
+                      <%= form_tag(episodes_path, method: :get, class: 'input-group') do %>
+                      <%= text_field_tag :search, params[:search], class: 'search-box', placeholder: "Rechercher dans cet épisode"  %>
+                      <!-- <span class="btn-icon">
+                        <%= submit_tag "search", class: "" %>
+                      </span> -->
                       <% end %>
-                    </div>
+                    <!-- </div> -->
                 <div class="btn-blue">Radiographies</div>
                 <div class="btn-blue">Médicaments</div>
               </div>
@@ -30,11 +33,11 @@
                 <div class="row-banner">
                   <!-- <div class="card-event-banner"> -->
                   <div class="event-date appointment">
-                    <%= event.date.strftime('%d/%m/%Y')%>
+                    <%= event.date.strftime('%A %d %b %Y')%>
                   </div>
                   <div class="avatar-content appointment">
                     <div class="event-avatar">
-                      <%= cl_image_tag event.icon, :height=> 35, class:"" %>
+                      <%= cl_image_tag event.icon, :height=> 50, class:"" %>
                     </div>
                   </div>
                 </div>
@@ -56,46 +59,50 @@
                       </div>
                     <div class="card-event-footer">
                       <div class="card-event-footer-row1">
-                        <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
+                        <i class="fa fa-paperclip fa-1x padding-top-paperclip" aria-hidden="true"></i>
                         <div class="docs-number">
                           <% if event.documents.size == 0 %>
-                            aucun document associé
+                            Aucun document associé
                           <% else %>
                             <%= pluralize event.documents.size, "document associé", "documents associés" %>
                           <% end %>
                         </div>
                       </div>
                       <div class="card-event-footer-row2">
-                        <div class="docs-view">
-                          <% event.documents.each do |document| %>
-                            <span data-toggle="modal" data-target="#<%= document.id%>">
-                               <%#= document.name %>
-                               <%= cl_image_tag document.document, :height=> 50 %>
-                            </span>
-                            <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <%= cl_image_tag document.document, :height=> 200 %>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
+                          <div class="docs-view">
+                            <% event.documents.each do |document| %>
+
+                              <span class="document-box" data-toggle="modal" data-target="#<%= document.id%>">
+                                 <%#= document.name %>
+                                 <%= cl_image_tag document.document, :height=> 50, :width=>50 %>
+                              </span>
+
+                              <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
+                                      <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <%= cl_image_tag document.document, :height=> 200 %>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn-green" data-dismiss="modal">Close </button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
+                            <% end %>
+                            <div class="btn-icon">
+                              <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i>
                             </div>
-                          <% end %>
+                          </div>
+                            <div class="btn-icon">
+                              <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                            </div>
 
 
-
-                        </div>
-                        <div>
-                          <i class="fa fa-pencil fa-2x appointment" aria-hidden="true"></i>
-                        </div>
                       </div>
                     </div>
                 </div>
@@ -108,7 +115,7 @@
                 <div class="row-banner">
                   <!-- <div class="card-event-banner"> -->
                   <div class="event-date note">
-                    <%= event.date.strftime('%d/%m/%Y')%>
+                    <%= event.date.strftime('%A %d %b %Y')%>
                   </div>
                   <div class="avatar-content note">
                     <div class="event-avatar">
@@ -147,17 +154,19 @@
                                     <%= cl_image_tag document.document, :height=> 200 %>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
+                                    <button type="button" class="btn-green" data-dismiss="modal">Close</ button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           <% end %>
-
+                            <div class="btn-icon background-color-blue">
+                              <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i>
+                            </div>
 
 
                         </div>
-                        <div>
+                        <div class="btn-icon background-color-blue">
                           <i class="fa fa-pencil fa-2x note" aria-hidden="true"></i>
                         </div>
                       </div>
@@ -179,10 +188,10 @@
         <p> <%= @episode.description %></p>
         <h2>Ajouter un évènement</h2>
         <div class="">
-          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
+          <button type="button" class="btn-green" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
         </div>
         <div class="">
-          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addNote">   Ajouter une note
+          <button type="button" class="btn-green" data-toggle="modal" data-target="#addNote">   Ajouter une note
           </button>
         </div>
 
@@ -202,7 +211,7 @@
           </div>
         <% end %>
          <div class="">
-          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+          <button type="button" class="btn-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
           </button>
         </div>
       </div>
