@@ -32,6 +32,7 @@ class EpisodesController < ApplicationController
       joins(:episode).
       where(episodes: { patient_id: current_patient.id }).
       order(date: :desc)
+    @episodes     = current_patient.episodes
     @appointment  = Event.new(category: "appointment")
     @note         = Event.new(category: "note")
     @caregivers   = current_patient.caregivers
