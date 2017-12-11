@@ -44,9 +44,15 @@
 }
 
 .episode-sidebar-caregiver-avatar {
+  border-radius: 50%;
   position: absolute;
   top: 5px;
   left: 5px;
+}
+
+.episode-sidebar-caregiver-avatar img {
+  border-radius: 50%;
+
 }
 .episode-sidebar-caregiver-fullname {
   position: absolute;
