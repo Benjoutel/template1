@@ -25,6 +25,7 @@ class EpisodesController < ApplicationController
     # joins events and order episodes by update date
     @episode = Episode.new
     @caregivers = current_patient.caregivers
+    @caregiver = Caregiver.new
   end
 
   def chrono
