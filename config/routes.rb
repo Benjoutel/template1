@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :notes, only: [:new, :create] do
       resources :documents, only: [:new, :create]
     end
+
+    resources :caregivers, only: [:new, :create]
+
   end
 
   resources :events, only: [:edit, :update, :show, :destroy]
