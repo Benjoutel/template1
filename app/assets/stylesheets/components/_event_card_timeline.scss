@@ -40,17 +40,21 @@
   display: flex;
   flex-direction: column;
 }
-.rechercher {
-  display: flex;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 20px;
-  color: $green;
-}
+// .rechercher {
+//   display: flex;
+//   margin-left: 10px;
+//   margin-right: 10px;
+//   font-size: 20px;
+//   color: $green;
+// }
+// .grow-width {
+//   flex: 1 0 auto;
+// }
 .timeline-filters {
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
+  align-items: center;
 }
 .timeline-search {
   flex: 1 1 auto;
