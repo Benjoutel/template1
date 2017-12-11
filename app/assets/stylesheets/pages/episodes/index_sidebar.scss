@@ -1,0 +1,122 @@
+.main-container {
+  display: flex;
+}
+
+.index_episode-sidebar {
+  flex: 250px 0 0;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  background-color: white;
+  margin: 40px auto;
+  box-shadow: 4px 4px 7px #bababa;
+  padding: 15px 0 15px 0;
+  border-radius: 2px;
+
+}
+
+.index_episode-sidebar h1 {
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+  text-align:center;
+  color:#21314D;
+
+}
+
+.index_episode-sidebar h2 {
+  font-size: 19px;
+  text-align: left;
+  color:#21314D;
+  margin-left: 20px;
+}
+
+.index_episode-sidebar p {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 10px;
+  font-weight: 100;
+}
+
+.index-episode-sidebar-caregiver {
+  position: relative;
+  height: 65px;
+  margin: auto 15px;
+}
+
+.episode-sidebar-caregiver-avatar {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.episode-sidebar-caregiver-fullname {
+  position: absolute;
+  left: 55px;
+  top: 2px;
+  color:#21314D;
+}
+.episode-sidebar-cargiver-speciality {
+  position: absolute;
+  top: 20px;
+  left: 55px;
+  color:#21314D;
+}
+
+.separator {
+  border-width: 1px;
+  border-color: #DCE3E6;
+}
+
+.timeline-container {
+  width: 717px;
+  height: 100vh;
+}
+
+.card-event-timeline {
+  // display: flex;
+  // justify-content: space-around;
+  position: relative;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 4px 4px 7px #bababa;
+  padding: 15px 0 15px 0;
+  border-radius: 2px;
+  height: 25vh;
+}
+
+.card-event-timeline-date {
+  position: absolute;
+  top: 5px;
+  background-color: white;
+  left: 10px;
+}
+
+.card-event-timeline-avatar {
+  position: absolute;
+  top: 5px;
+  display: flex;
+  right: 5px;
+}
+
+.card-event-timeline-category {
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  left: 10px;
+}
+
+.card-event-timeline-description {
+  position: absolute;
+  top: 70px;
+  background-color: white;
+  left: 10px;
+  // width: 300px;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.sidebarbtn{
+  padding-top: 10px;
+  text-align: left;
+  margin-left: 20px;
+
+}
