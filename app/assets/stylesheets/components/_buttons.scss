@@ -1,13 +1,14 @@
 .btn-blue {
-  color: white;
-  background-color: $blue;
-  border : 4px solid $blue;
+  color: $dark-blue;
+  background-color: $green;
+  border : 1px solid $green;
   border-radius: 4px;
   padding: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 
 .btn-blue:hover {
+  background-color: white;
   border-color: $dark-blue;
 }
 

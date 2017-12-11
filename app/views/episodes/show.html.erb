@@ -1,52 +1,219 @@
-<div class="container">
 
-  <div class="main-container">
 
-<!-- modals   -->
-    <div class="episode-sidebar">
-      <h1><%= @episode.name %></h1>
+<div class="episodes-container">
 
-      <div class="separator"></div>
+        <div class="column-container">
 
-      <h2>Description</h2>
+          <div class="timeline-head-container">
+            <div class="timeline-head-container-title">
+              Ma timeline
+            </div>
+            <div class="separator"></div>
+            <div class="timeline-head-container-content">
+              <div class="rechercher">
+                Rechercher
+              </div>
+              <div class="timeline-filters">
+                <div class="timeline-search">search</div>
+                <div class="btn-blue">Radiographies</div>
+                <div class="btn-blue">Médicaments</div>
+              </div>
+            </div>
+          </div>
 
-      <p> <%= @episode.description %></p>
+          <div class="timeline-container">
+          <%@events.each do |event| %>
+  <!-- card begin -->
+            <% if event.category == "appointment" %>
+              <div class="card-event">
+                <div class="row-banner">
+                  <!-- <div class="card-event-banner"> -->
+                  <div class="event-date appointment">
+                    <%= event.date.strftime('%d/%m/%Y')%>
+                  </div>
+                  <div class="avatar-content appointment">
+                    <div class="event-avatar">
+                      <%= cl_image_tag event.icon, :height=> 35, class:"" %>
+                    </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+                <div class="">
+                  <div class="card-event-content box-shadow">
+                    <div class="card-event-content-row">
+                      <div class="event-caregiver">
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      </div>
+                      <div class="event-text">
+                        <div class="event-title">
+                            Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%>
+                        </div>
+                          <div class="event-description">
+                            <%= event.description%>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="card-event-footer">
+                      <div class="card-event-footer-row1">
+                        <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
+                        <div class="docs-number">
+                          <% if event.documents.size == 0 %>
+                            aucun document associé
+                          <% else %>
+                            <%= pluralize event.documents.size, "document associé", "documents associés" %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="card-event-footer-row2">
+                        <div class="docs-view">
+                          <% event.documents.each do |document| %>
+                            <span data-toggle="modal" data-target="#<%= document.id%>">
+                               <%#= document.name %>
+                               <%= cl_image_tag document.document, :height=> 50 %>
+                            </span>
+                            <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <%= cl_image_tag document.document, :height=> 200 %>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
 
-      <h2>Ajouter un évènement</h2>
 
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
+
+                        </div>
+                        <div>
+                          <i class="fa fa-pencil fa-2x appointment" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <% else %>
+
+              <div class="card-event">
+                <div class="row-banner">
+                  <!-- <div class="card-event-banner"> -->
+                  <div class="event-date note">
+                    <%= event.date.strftime('%d/%m/%Y')%>
+                  </div>
+                  <div class="avatar-content note">
+                    <div class="event-avatar">
+                      <%= cl_image_tag event.icon, :height=> 35, class:"" %>
+                    </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+                <div class="">
+                  <div class="card-event-content box-shadow">
+                    <div class="card-event-content-row">
+                      <div class="event-text">
+                        <div class="event-title">
+                            Prise de note
+                        </div>
+                          <div class="event-description">
+                            <%= event.description%>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="card-event-footer-row2">
+                        <div class="docs-view">
+                          <% event.documents.each do |document| %>
+                            <span data-toggle="modal" data-target="#<%= document.id%>">
+                               <%#= document.name %>
+                               <%= cl_image_tag document.document, :height=> 50 %>
+                            </span>
+                            <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label=  "Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <%= cl_image_tag document.document, :height=> 200 %>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn-blue" data-dismiss="modal">Close</ button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
+
+
+
+                        </div>
+                        <div>
+                          <i class="fa fa-pencil fa-2x note" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+  <!-- card end -->
+          <% end %>
+          </div>
+
       </div>
 
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNote">   Ajouter une note
-        </button>
-      </div>
-
-      <h2>Mon équipe soignante</h2>
-
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
-        </button>
-      </div>
-
-      <%@caregivers.each do |caregiver| %>
-        <div class="episode-sidebar-caregiver">
-          <div class="episode-sidebar-caregiver-avatar">
-          <%= cl_image_tag caregiver.photo, :height=> 35 %>
-          </div>
-          <div class="episode-sidebar-caregiver-fullname">
-            <%= caregiver.firstname %> <%= caregiver.lastname %>
-          </div>
-          <div class="episode-sidebar-cargiver-speciality">
-            <%= caregiver.speciality %>
-          </div>
+    <div>
+      <div class="episode-sidebar">
+        <div class="episode-sidebar-title"><%= @episode.name %></div>
+        <div class="separator"></div>
+        <h2>Description</h2>
+        <p> <%= @episode.description %></p>
+        <h2>Ajouter un évènement</h2>
+        <div class="">
+          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
         </div>
-      <% end %>
-    </div>
+        <div class="">
+          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addNote">   Ajouter une note
+          </button>
+        </div>
 
-    <div class="timeline-container">
+        <h2>Mon équipe soignante</h2>
 
+        <div class="">
+          <button type="button" class="btn-blue" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+          </button>
+        </div>
+
+        <%@caregivers.each do |caregiver| %>
+          <div class="episode-sidebar-caregiver">
+            <div class="episode-sidebar-caregiver-avatar">
+            <%= cl_image_tag caregiver.photo, :height=> 35 %>
+            </div>
+            <div class="episode-sidebar-caregiver-fullname">
+              <%= caregiver.firstname %> <%= caregiver.lastname %>
+            </div>
+            <div class="episode-sidebar-cargiver-speciality">
+              <%= caregiver.speciality %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+</div>
+</div>
+
+<!-- end timeline container -->
+
+
+
+  <!-- modals   -->
       <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -96,144 +263,6 @@
       </div>
 <!-- end modals -->
 
-
-
-<!-- begin timeline container -->
-    <div class="timeline-container">
-
-<!-- begin timeline head container  -->
-      <div class="timeline-head-container">
-
-      </div>
-<!-- end timeline head container  -->
-
-    <div class="col-xs-12">
-
-        <%@events.each do |event| %>
-
-
-
-<!-- card begin -->
-          <% if event.category == "appointment" %>
-            <div class="card-event">
-              <div class="row-banner">
-                <!-- <div class="card-event-banner"> -->
-                <div class="event-date appointment">
-                  <%= event.date.strftime('%d/%m/%Y')%>
-                </div>
-                <div class="avatar-content appointment">
-                  <div class="event-avatar">
-                    <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                  </div>
-                </div>
-              </div>
-              <!-- </div> -->
-              <div class="box-shadow">
-                <div class="card-event-content">
-                  <div class="card-event-content-row">
-                    <div class="event-caregiver">
-                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                    </div>
-                    <div class="event-text">
-                      <div class="event-title">
-                          Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%>
-                      </div>
-                        <div class="event-description">
-                          <%= event.description%>
-                        </div>
-                      </div>
-                    </div>
-                  <div class="card-event-footer">
-                    <div class="card-event-footer-row1">
-                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                      <div class="docs-number">
-                        <p><%= event.documents.count %> documents associés</p>
-                      </div>
-                    </div>
-                    <div class="card-event-footer-row2">
-                      <div class="docs-view">
-                        <!-- iteration each doc |event| -->
-                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                        <!-- end iteration -->
-                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                      </div>
-                      <div>
-                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-          <% else %>
-
-            <div class="card-event">
-              <div class="row-banner">
-                <!-- <div class="card-event-banner"> -->
-                <div class="event-date note">
-                  <%= event.date.strftime('%d/%m/%Y')%>
-                </div>
-                <div class="avatar-content note">
-                  <div class="event-avatar">
-                    <%= image_tag("logo.png", :height=> 35, class:"") %>
-                  </div>
-                </div>
-              </div>
-              <!-- </div> -->
-              <div class="box-shadow">
-                <div class="card-event-content">
-                  <div class="card-event-content-row">
-                    <div class="event-text">
-                      <div class="event-title">
-                          Prise de note
-                      </div>
-                        <div class="event-description">
-                          <%= event.description%>
-                        </div>
-                      </div>
-                    </div>
-                  <div class="card-event-footer">
-                    <div class="card-event-footer-row1">
-                      <%= image_tag("logo.png", :height=> 35, class:"") %>
-                      <div class="docs-number">
-                        <p><%= event.documents.count %> documents associés</p>
-                      </div>
-                    </div>
-                    <div class="card-event-footer-row2">
-                      <div class="docs-view">
-                        <!-- iteration each doc |event| -->
-                        <%= image_tag("logo.png", :height=> 35, class:"") %>
-                        <!-- end iteration -->
-                        <%= image_tag("logo.png", :height=> 35, class:"") %>
-                      </div>
-                      <div>
-                        <%= image_tag("logo.png", :height=> 35, class:"") %>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-      <% end %>
-
-<!-- card end -->
-
-
-
-        <% end %>
-         </div>
-      </div>
-    </div>
-<!-- end timeline container -->
-
-  </div>
-</div>
 
 
 
