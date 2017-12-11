@@ -2,50 +2,7 @@
 
   <div class="main-container">
 
-    <div class="episode-sidebar">
-      <h1><%= @episode.name %></h1>
-
-      <div class="separator"></div>
-
-      <h2>Description</h2>
-
-      <p> <%= @episode.description %></p>
-
-      <h2>Ajouter un évènement</h2>
-
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
-      </div>
-
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNote">   Ajouter une note
-        </button>
-      </div>
-
-      <h2>Mon équipe soignante</h2>
-
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
-        </button>
-      </div>
-
-      <%@events.joins(:caregiver).distinct.where(category: "appointment").each do |event| %>
-        <div class="episode-sidebar-caregiver">
-          <div class="episode-sidebar-caregiver-avatar">
-          <%= cl_image_tag event.caregiver.photo, :height=> 35 %>
-          </div>
-          <div class="episode-sidebar-caregiver-fullname">
-            <%= event.caregiver.firstname %> <%= event.caregiver.lastname %>
-          </div>
-          <div class="episode-sidebar-cargiver-speciality">
-            <%= event.caregiver.speciality %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="timeline-container">
-
+<!-- modals   -->
       <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -93,46 +50,184 @@
           </div>
         </div>
       </div>
+<!-- end modals -->
 
-      <div class="row">
-        <%@events.each do |event| %>
+<!-- begin sidebar -->
 
-          <div class="col-xs-12">
+    <div class="episode-sidebar">
+        <h1><%= @episode.name %></h1>
+        <div class="separator"></div>
+        <h2>Description</h2>
+        <p> <%= @episode.description %></p>
+        <h2>Ajouter un évènement</h2>
 
-            <!-- card begin -->
-            <div class="card-event-timeline">
-              <div class="card-event-timeline-date">
-                <%=event.date.strftime('%d/%m/%Y')%>
-              </div>
-              <% if event.category == "appointment" %>
-                <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"card-event-timeline-avatar" %>
-              <% end %>
-
-              <div class="card-event-timeline-category">
-                <% if event.category == "appointment" %>
-                  <p>Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%> </p>
-                <% else %>
-                  <p>Prise de note</p>
-                <% end %>
-              </div>
-
-              <div class="card-event-timeline-description">
-                <p>
-                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                    <%= event.description%>
-                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                </p>
-              </div>
-
-
-            </div>
-            <!-- card end -->
-          </div>
-
-        <% end %>
+      <div class="btn">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
       </div>
 
+      <div class="btn">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNote">   Ajouter une note
+        </button>
+      </div>
+
+      <h2>Mon équipe soignante</h2>
+
+      <div class="btn">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+        </button>
+      </div>
+
+      <%@events.joins(:caregiver).distinct.where(category: "appointment").each do |event| %>
+        <div class="episode-sidebar-caregiver">
+          <div class="episode-sidebar-caregiver-avatar">
+          <%= cl_image_tag event.caregiver.photo, :height=> 35 %>
+          </div>
+          <div class="episode-sidebar-caregiver-fullname">
+            <%= event.caregiver.firstname %> <%= event.caregiver.lastname %>
+          </div>
+          <div class="episode-sidebar-cargiver-speciality">
+            <%= event.caregiver.speciality %>
+          </div>
+        </div>
+      <% end %>
     </div>
+
+<!-- end sidebar -->
+
+<!-- begin timeline container -->
+    <div class="timeline-container">
+
+<!-- begin timeline head container  -->
+      <div class="timeline-head-container">
+
+      </div>
+<!-- end timeline head container  -->
+
+    <div class="col-xs-12">
+
+        <%@events.each do |event| %>
+
+
+
+<!-- card begin -->
+          <% if event.category == "appointment" %>
+            <div class="card-event">
+              <div class="row-banner">
+                <!-- <div class="card-event-banner"> -->
+                <div class="event-date appointment">
+                  <%= event.date.strftime('%d/%m/%Y')%>
+                </div>
+                <div class="avatar-content appointment">
+                  <div class="event-avatar">
+                    <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="box-shadow">
+                <div class="card-event-content">
+                  <div class="card-event-content-row">
+                    <div class="event-caregiver">
+                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                    </div>
+                    <div class="event-text">
+                      <div class="event-title">
+                          Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%>
+                      </div>
+                        <div class="event-description">
+                          <%= event.description%>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="card-event-footer">
+                    <div class="card-event-footer-row1">
+                      <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      <div class="docs-number">
+                        <p><%= event.documents.count %> documents associés</p>
+                      </div>
+                    </div>
+                    <div class="card-event-footer-row2">
+                      <div class="docs-view">
+                        <!-- iteration each doc |event| -->
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                        <!-- end iteration -->
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      </div>
+                      <div>
+                        <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <% else %>
+
+            <div class="card-event">
+              <div class="row-banner">
+                <!-- <div class="card-event-banner"> -->
+                <div class="event-date note">
+                  <%= event.date.strftime('%d/%m/%Y')%>
+                </div>
+                <div class="avatar-content note">
+                  <div class="event-avatar">
+                    <%= image_tag("logo.png", :height=> 35, class:"") %>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="box-shadow">
+                <div class="card-event-content">
+                  <div class="card-event-content-row">
+                    <div class="event-text">
+                      <div class="event-title">
+                          Prise de note
+                      </div>
+                        <div class="event-description">
+                          <%= event.description%>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="card-event-footer">
+                    <div class="card-event-footer-row1">
+                      <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      <div class="docs-number">
+                        <p><%= event.documents.count %> documents associés</p>
+                      </div>
+                    </div>
+                    <div class="card-event-footer-row2">
+                      <div class="docs-view">
+                        <!-- iteration each doc |event| -->
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                        <!-- end iteration -->
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      </div>
+                      <div>
+                        <%= image_tag("logo.png", :height=> 35, class:"") %>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+      <% end %>
+
+<!-- card end -->
+
+
+
+        <% end %>
+         </div>
+      </div>
+    </div>
+<!-- end timeline container -->
+
   </div>
 </div>
 
