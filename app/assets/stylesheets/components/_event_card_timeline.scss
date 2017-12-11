@@ -1,19 +1,82 @@
-.main-container {
+.episodes-container {
   display: flex;
+  align-content: space-around;
+}
+.column-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  margin-top: 6px;
+  width: 70%;
+}
+.timeline-container {
+  float: left;
+  width: 100%;
+  overflow: scroll;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.timeline-head-container{
+  float: left;
+  width: 100%;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
 }
 
+.timeline-head-container-title {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+
+}
+.timeline-head-container-content {
+  display: flex;
+  flex-direction: column;
+}
+// .rechercher {
+//   display: flex;
+//   margin-left: 10px;
+//   margin-right: 10px;
+//   font-size: 20px;
+//   color: $green;
+// }
+// .grow-width {
+//   flex: 1 0 auto;
+// }
+.timeline-filters {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.timeline-search {
+  flex: 1 1 auto;
+}
 .episode-sidebar {
-  flex: 250px 0 0;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
+  // flex: 0 0 250px;
+  // position: -webkit-sticky;
+  // position: sticky !important; /* !important to override Gmaps inline CSS */
+  // top: 0 !important;
+  // float: right;
+  width: 250px;
   background-color: white;
   margin: 10px;
-  box-shadow: 4px 4px 7px #bababa;
   padding: 15px 0 15px 0;
   border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  // overflow: scroll;
+
 }
 
-.episode-sidebar h1 {
+.episode-sidebar-title {
   font-size: 24px;
   text-align: left;
   font-weight: bold;
@@ -63,10 +126,7 @@
   margin: 15px;
 }
 
-.timeline-container {
-  width: 717px;
-  height: 100vh;
-}
+
 
 // EVENT CARD
 .card-event {
@@ -123,6 +183,7 @@
   background-color: white;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 2px;
   display: flex;
   flex-direction: column;
   border-left: 0.5px solid gray;
@@ -153,6 +214,7 @@
 }
 .card-event-footer-row1 {
   display: flex;
+  padding-top: 5px;
 }
 .card-event-footer {
   flex: 0 1 auto;
@@ -162,6 +224,8 @@
 .docs-number {
   padding-left: 12px;
   padding-right: 10px;
+  display: flex;
+  align-items: center;
 }
 .card-event-footer-row2 {
   display: flex;
