@@ -5,8 +5,8 @@
 
   <div class="separator"></div>
 
-  <h2>Créer un épisode</h2>
-
+<!--   <h2>Créer un épisode</h2>
+ -->
   <div class="sidebarbtn">
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode</button>
   </div>
@@ -27,7 +27,7 @@
         </div>
       <% end %>
     <div class="sidebarbtn">
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
     </button>
   </div>
 
@@ -70,14 +70,19 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title form-login" id="addEpisodeLabel">Ajouter un épisode medicale</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+
+          <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medicale</p></h4>
+
+
         </div>
         <div class="modal-body">
           <%= render "form_new_episode" %>
         </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
       </div>
     </div>
   </div>
@@ -86,13 +91,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="addCaregiverLabel">Ajouter un soignant</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h4 class="modal-title modal-caregiver" id="addCaregiverLabel"> <p>Ajouter un soignant</p></h4>
+<!--           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+          </button> -->
         </div>
         <div class="modal-body">
           <%= render "caregivers/form_caregiver" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
