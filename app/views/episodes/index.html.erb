@@ -1,4 +1,5 @@
 <div class="main-container">
+
   <div class="index_episode-sidebar">
   <h1>Bonjour <%= current_patient.firstname.capitalize %></h1>
 
@@ -58,6 +59,11 @@
       <%= text_field_tag :name, :Recherche  %>
       <% end %>
     </div>
+
+    <div class="mobile-only">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode</button>
+  </div>
+
 
 
    <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
