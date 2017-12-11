@@ -1,10 +1,8 @@
-  <%= simple_form_for [@episode, @appointment], url: episode_appointments_path(@episode), method: :post do |f| %>
+<%= simple_form_for [@episode, @appointment], url: episode_appointments_path(@episode), method: :post do |f| %>
   <%= f.input :date, as: :date , html5: true %>
   <%= f.input :description %>
   <%= f.association :caregiver , collection: @caregivers, :label_method => lambda{|caregiver| "#{caregiver.speciality} #{caregiver.lastname} #{caregiver.firstname}" }, value_method: :id %>
-
-<div class="form_new_validation">
-  <%= f.button :submit , class: "btn-primary"%>
-
-</div>
+  <div class="form_new_validation">
+    <%= f.submit "Ajouter un rendez-vous", class: "btn-primary"%>
+  </div>
 <% end %>

@@ -1,5 +1,48 @@
+<div class="main-container">
+  <div class="episode-sidebar">
+  <h1>Fatigue decembre 2017</h1>
 
-<div class="episodes-index-container">
+  <div class="separator"></div>
+
+  <h2>Description</h2>
+
+  <p> </p>
+
+  <h2>Ajouter un évènement</h2>
+
+  <div class="btn">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAppointment"> Ajouter un rendez-vous</button>
+  </div>
+
+  <div class="btn">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNote">   Ajouter une note
+    </button>
+  </div>
+
+  <h2>Mon équipe soignante</h2>
+
+  <div class="btn">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
+    </button>
+  </div>
+
+      <%@caregivers.each do |caregiver| %>
+        <div class="episode-sidebar-caregiver">
+          <div class="episode-sidebar-caregiver-avatar">
+          <%= cl_image_tag caregiver.photo, :height=> 35 %>
+          </div>
+          <div class="episode-sidebar-caregiver-fullname">
+            <%= caregiver.firstname %> <%= caregiver.lastname %>
+          </div>
+          <div class="episode-sidebar-cargiver-speciality">
+            <%= caregiver.speciality %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+  <div class="episodes-index-container">
   <div class="episodes-head">
     <div class="episodes-title">
       <div>
@@ -9,12 +52,7 @@
 
 
     <div class="add-episode">
-      <div class="search">
-        <%= form_tag(episodes_path, method: :get) do %>
-        <%= text_field_tag :name, :Recherche  %>
-        <%= submit_tag 'Search', class: "btn btn-success"%>
-        <% end %>
-      </div>
+
     </div>
 
 
@@ -23,10 +61,18 @@
 
   <div class="rowbtn">
 
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal" >Ajouter un épisode</button>
+    <div class="search">
+
+      <%= form_tag(episodes_path, method: :get) do %>
+      <%= text_field_tag :name, :Recherche  %>
+      <% end %>
+    </div>
 
 
-     <%= link_to "Vue chonologique", chrono_episodes_path, class: "btn btn-success" %>
+<!--     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal" >Ajouter un épisode</button>
+
+
+     <%#= link_to "Vue chonologique", chrono_episodes_path, class: "btn btn-success" %>
 
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -38,11 +84,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <%= render "form_new_episode" %>
+          <%#= render "form_new_episode" %>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <%#= link_to "Ajouter un épisode medical", new_episode_path %>
   </div>
@@ -52,11 +98,14 @@
       <% @episodes.each do |episode| %>
       <!-- episode card beginning -->
 
-      <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="col-xs-12 col-sm-3 col-md-3">
         <div class="card-episode">
           <div class="card-episode-upbox">
             <div class="episode-name">
               <%= episode.name.capitalize %>
+            <div class="icon">
+            <%= cl_image_tag episode.icon, :height=> 35 %>
+            </div>
             </div>
           </div>
           <div class="card-episode-downbox">
@@ -75,8 +124,8 @@
       <% end %>
     </div>
   </div>
+  </div>
 </div>
-
 
 
 
