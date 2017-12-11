@@ -26,18 +26,20 @@
     </button>
   </div>
 
-  <div class="episode-sidebar-caregiver">
-    <div class="episode-sidebar-caregiver-avatar">
-      <img height="35" src="http://res.cloudinary.com/deko23qhf/image/upload/v1512748034/ntihfqughukq37aej9wy.png" alt="Ntihfqughukq37aej9wy">
+      <%@caregivers.each do |caregiver| %>
+        <div class="episode-sidebar-caregiver">
+          <div class="episode-sidebar-caregiver-avatar">
+          <%= cl_image_tag caregiver.photo, :height=> 35 %>
+          </div>
+          <div class="episode-sidebar-caregiver-fullname">
+            <%= caregiver.firstname %> <%= caregiver.lastname %>
+          </div>
+          <div class="episode-sidebar-cargiver-speciality">
+            <%= caregiver.speciality %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div class="episode-sidebar-caregiver-fullname">
-      Marc Greene
-    </div>
-    <div class="episode-sidebar-cargiver-speciality">
-      Medecin généraliste
-    </div>
-  </div>
-  </div>
 
 
   <div class="episodes-index-container">
@@ -101,7 +103,9 @@
           <div class="card-episode-upbox">
             <div class="episode-name">
               <%= episode.name.capitalize %>
-
+            <div class="icon">
+            <%= cl_image_tag episode.icon, :height=> 35 %>
+            </div>
             </div>
           </div>
           <div class="card-episode-downbox">
