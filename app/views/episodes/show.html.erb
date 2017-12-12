@@ -246,32 +246,6 @@
 
 
 
-        <h2>Mon équipe soignante</h2>
-
-        <%@episode_caregivers.each do |caregiver| %>
-          <div class="episode-sidebar-caregiver">
-            <div class="episode-sidebar-caregiver-avatar">
-            <%= cl_image_tag caregiver.photo, :height=> 35 %>
-            </div>
-            <div class="episode-sidebar-caregiver-fullname">
-              <%= caregiver.firstname %> <%= caregiver.lastname %>
-            </div>
-            <div class="episode-sidebar-cargiver-speciality">
-              <%= caregiver.speciality %>
-            </div>
-          </div>
-        <% end %>
-         <div class="">
-          <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
-          </button>
-        </div>
-      </div>
-</div>
-</div>
-
-<!-- end timeline container -->
-
-
 
   <!-- modals   -->
       <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">

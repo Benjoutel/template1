@@ -171,9 +171,10 @@
 
 .rowbtn{
   width: 100%;
-  border-bottom-style: solid;
+  border-top-style: solid;
   padding-bottom: 14px;
   border-width: 1px;
+  padding-top: 10px;
   border-color: $gray-above-background;
 }
 
