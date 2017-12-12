@@ -248,14 +248,14 @@
       <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addAppointmentLabel">Ajouter un rendez-vous</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-header" id="modal-episode-appointment">
+              <h4 class="modal-title modal-title-form" id="addAppointmentLabel"><p>Ajouter un rendez-vous</p></h4>
             </div>
             <div class="modal-body">
               <%= render "appointments/form_appointment" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cool-green" data-dismiss="modal">Fermer</button>
             </div>
           </div>
         </div>
