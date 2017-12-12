@@ -264,14 +264,14 @@
       <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="  addNoteLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addNoteLabel">Ajouter une note</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-header" id="modal-add-note-header">
+              <h4 class="modal-title modal-title-form" id="addNoteLabel"><p>Ajouter une note</p></h4>
             </div>
             <div class="modal-body">
               <%= render "notes/form_note" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div>
           </div>
         </div>
