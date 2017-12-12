@@ -6,7 +6,6 @@
   margin-left: 10px;
   font-weight: 200;
 }
-
 .btn-cool-blue {
   color: white;
   background-color: $cool-blue;
@@ -16,18 +15,12 @@
   margin-left: 10px;
   font-weight: 200;
 }
-
-
-
-
 .btn-normal-green {
   color: white;
   background-color: $normal-green;
   border : 4px solid $normal-green;
   border-radius: 4px;
 }
-
-
 .btn-cool-green {
   color: white;
   background-color: $cool-green;
@@ -37,11 +30,27 @@
   margin: 10px;
   font-weight: 200;
 }
+.filter-dark-blue {
+  text-decoration: underline $dark-blue;
+  color: $dark-blue;
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: 200;
+}
+.filter-dark-blue:hover {
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: 400;
+  transition: 0.3s;
+}
 
 
 .btn-dark-blue:hover {
   background-color: $dark-blue;
   color: white;
+
 
 }
 
