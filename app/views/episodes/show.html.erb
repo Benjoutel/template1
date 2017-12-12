@@ -255,7 +255,7 @@
               <%= render "appointments/form_appointment" %>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-cool-green" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div>
           </div>
         </div>
@@ -277,17 +277,18 @@
         </div>
       </div>
 
-      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ajouter un soignant</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-header" id="modal-episode-caregiver">
+              <h5 class="modal-title modal-title-form" id="addCaregiverLabel">Ajouter un soignant</h5>
+
             </div>
             <div class="modal-body">
-              <%= render "appointments/form_appointment" %>
+              <%= render "caregivers/form_caregiver" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div>
           </div>
         </div>
