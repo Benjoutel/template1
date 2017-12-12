@@ -8,7 +8,7 @@
 <!--   <h2>Créer un épisode</h2>
  -->
   <div class="sidebarbtn">
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode</button>
+    <button type="button" class="btn btn-dark-blue" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode</button>
   </div>
 
   <h2>Mon équipe soignante</h2>
@@ -27,7 +27,7 @@
         </div>
       <% end %>
     <div class="sidebarbtn">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
+    <button type="button" class="btn btn-cool-green" data-toggle="modal" data-target="#addCaregiver">Ajouter un soignant
     </button>
   </div>
 
@@ -69,7 +69,7 @@
    <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" id="modal-episode">
 
           <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medicale</p></h4>
 
@@ -90,7 +90,7 @@
   <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" id="modal-episode-caregiver">
           <h4 class="modal-title modal-caregiver" id="addCaregiverLabel"> <p>Ajouter un soignant</p></h4>
 <!--           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -100,7 +100,7 @@
           <%= render "caregivers/form_caregiver" %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-cool-green" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

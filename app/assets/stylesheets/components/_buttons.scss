@@ -3,7 +3,6 @@
   background-color: $dark-blue;
   border : 1px solid $dark-blue;
   border-radius: 4px;
-  padding: 5px;
   margin-left: 10px;
   font-weight: 200;
 }
@@ -26,7 +25,6 @@
   background-color: $normal-green;
   border : 4px solid $normal-green;
   border-radius: 4px;
-  padding: 5px;
 }
 
 
@@ -41,17 +39,17 @@
 }
 
 
-.btn-blue:hover {
-  background-color: white;
-  color: $dark-blue;
+.btn-dark-blue:hover {
+  background-color: $dark-blue;
+  color: white;
 
 }
 
 
 
-.btn-green:hover {
-  background-color: white;
-  color: $cool-green;
+.btn-cool-green:hover {
+  background-color: $cool-green;
+  color: white;
 }
 
 
