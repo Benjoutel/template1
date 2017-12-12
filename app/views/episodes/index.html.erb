@@ -14,6 +14,7 @@
 
 <%@caregivers.each do |caregiver| %>
 <div class="index-episode-sidebar-caregiver">
+  <%= link_to caregiver_path(caregiver) do %>
   <div class="episode-sidebar-caregiver-avatar">
     <%= cl_image_tag caregiver.photo, :height=> 35 %>
   </div>
@@ -23,6 +24,7 @@
   <div class="episode-sidebar-cargiver-speciality">
     <%= caregiver.speciality %>
   </div>
+  <% end %>
 </div>
 <% end %>
 <div class="sidebarbtn">

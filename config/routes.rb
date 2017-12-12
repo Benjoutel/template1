@@ -34,5 +34,5 @@ Rails.application.routes.draw do
     resources :antecedents, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :caregivers, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :caregivers, only: [:index, :new, :create, :edit, :update, :destroy, :show]
 end

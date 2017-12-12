@@ -10,6 +10,12 @@ class CaregiversController < ApplicationController
     end
   end
 
+  def show
+    @caregiver = Caregiver.find(params[:id])
+    @episodes = current_patient.episodes.joins(:events).where("events.caregiver_id = ?", @caregiver.id).to_a.uniq
+  end
+
+
 
 private
 
