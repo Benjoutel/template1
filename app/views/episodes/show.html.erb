@@ -4,23 +4,25 @@
 
   <div class="column-container">
 
-    <div class="timeline-title-container visible-xs">
-      <div class="episode-sidebar-title"><%= @episode.name %>
-      </div>
-      <div class="button-box">
-        <div class="">
-          <button type="button" class="btn-dark-blue" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
-          </button>
-        </div>
-        <div class="">
-          <button type="button" class="btn-cool-green " data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
-        </div>
-        <div class="">
-          <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
-          </button>
-        </div>
-      </div>
-    </div>
+
+              <div class="timeline-title-container visible-xs">
+                    <div class="episode-sidebar-title"><%= @episode.name %>
+                    </div>
+                    <div class="button-box">
+                      <div class="">
+                        <button type="button" class="btn-cool-green " data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
+                      </div>
+                      <div class="">
+                        <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
+                        </button>
+                      </div>
+                      <div class="">
+                        <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
 
 
     <div class="timeline-head-container">
@@ -244,55 +246,84 @@
 
 
 
-                <!-- modals   -->
-                <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="addAppointmentLabel">Ajouter un rendez-vous</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%= render "appointments/form_appointment" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <h2>Mon équipe soignante</h2>
 
-                <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="  addNoteLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="addNoteLabel">Ajouter une note</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%= render "notes/form_note" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <%@episode_caregivers.each do |caregiver| %>
+          <div class="episode-sidebar-caregiver">
+            <div class="episode-sidebar-caregiver-avatar">
+            <%= cl_image_tag caregiver.photo, :height=> 35 %>
+            </div>
+            <div class="episode-sidebar-caregiver-fullname">
+              <%= caregiver.firstname %> <%= caregiver.lastname %>
+            </div>
+            <div class="episode-sidebar-cargiver-speciality">
+              <%= caregiver.speciality %>
+            </div>
+          </div>
+        <% end %>
+         <div class="">
+          <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
+          </button>
+        </div>
+      </div>
+</div>
+</div>
 
-                <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ajouter un soignant</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%= render "appointments/form_appointment" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- end modals -->
+<!-- end timeline container -->
+
+
+
+  <!-- modals   -->
+      <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" id="modal-episode-appointment">
+              <h4 class="modal-title modal-title-form" id="addAppointmentLabel"><p>Ajouter un rendez-vous</p></h4>
+            </div>
+            <div class="modal-body">
+              <%= render "appointments/form_appointment" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="  addNoteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" id="modal-add-note-header">
+              <h4 class="modal-title modal-title-form" id="addNoteLabel"><p>Ajouter une note</p></h4>
+            </div>
+            <div class="modal-body">
+              <%= render "notes/form_note" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" id="modal-episode-caregiver">
+              <h5 class="modal-title modal-title-form" id="addCaregiverLabel">Ajouter un soignant</h5>
+
+            </div>
+            <div class="modal-body">
+              <%= render "caregivers/form_caregiver" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- end modals -->
+
 
 
 

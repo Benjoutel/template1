@@ -1,3 +1,14 @@
+.modal-title-form {
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.modal-title-form p {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
 #modal-episode{
   padding: 0px;
   background-color: $dark-blue;
@@ -10,3 +21,14 @@
   background-color: $cool-green;
 
 }
+
+#modal-add-note-header {
+  padding: 0px;
+  background-color: $cool-blue;
+}
+
+#modal-episode-appointment{
+  padding: 0px;
+  background-color: $cool-green;
+}
+
