@@ -1,17 +1,17 @@
 .btn-blue {
-  color: $dark-blue;
-  background-color: $green;
-  border : 1px solid $green;
+  color: white;
+  background-color: $blue-marine;
+  border : 1px solid $blue-marine;
   border-radius: 4px;
   padding: 5px;
-  margin: 10px;
+  margin-left: 10px;
+  font-weight: 200;
 }
-
 .btn-blue:hover {
   background-color: white;
-  border-color: $dark-blue;
-}
+  color: $blue-marine;
 
+}
 .btn-succes {
   color: white;
   background-color: $green;
@@ -19,11 +19,19 @@
   border-radius: 4px;
   padding: 5px;
 }
-
-.btn-green:hover {
-  border-color: $green;
+.btn-green {
+  color: white;
+  background-color: $green;
+  border : 1px solid $green;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px;
+  font-weight: 200;
 }
-
+.btn-green:hover {
+  background-color: white;
+  color: $green;
+}
 .btn-orange {
   color: white;
   background-color: $orange;
@@ -57,3 +65,33 @@
 .btn-white:hover {
   background-color: white;
 }
+.btn-icon {
+  color: gray;
+  // background-color: $green;
+  // border : 1px solid white;
+  // border : 1px solid $blue-marine;
+  border-radius: 4px;
+  // margin: 10px;
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  opacity: 0.7;
+}
+.btn-icon:hover {
+  // background-color: white;
+  opacity: 1;
+}
+.background-color-blue {
+  // background-color: $blue;
+}
+.background-color-blue:hover {
+  // background-color: white;
+}
+
+
+
+
+

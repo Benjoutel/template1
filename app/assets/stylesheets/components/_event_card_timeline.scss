@@ -7,7 +7,7 @@
   flex-direction: column;
   overflow: scroll;
   margin-top: 6px;
-  width: 70%;
+  // width: 70%;
 }
 .timeline-container {
   float: left;
@@ -36,6 +36,13 @@
   font-weight: bold;
 
 }
+.search-box {
+  // flex: 1 1 auto;
+  padding: 5px;
+  width: 400px;
+  border: 1px solid $dark-blue;
+  border-radius: 4px;
+}
 .timeline-head-container-content {
   display: flex;
   flex-direction: column;
@@ -53,6 +60,7 @@
 .timeline-filters {
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
@@ -150,10 +158,12 @@
   width: 100%;
   text-align: left;
   border-top-left-radius: 4px;
-  padding-left: 10px;
+  padding-left: 14px;
   color: white;
   display: flex;
   align-items: center;
+  font-size: 20px;
+  font-weight: 100;
 }
 .appointment {
   background-color: $green;
@@ -195,12 +205,17 @@
   display: flex;
 }
 .event-title {
-    font-size: 20px;
-    color: black;
+    font-size: 19px;
+    text-align: left;
+    color: #00CC7E;
+    margin-left: 10px;
+    margin-top: 10px;
   }
 .event-description {
-    font-size: 12px;
-    color: gray;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+    font-weight: 100;
   }
 .event-caregiver {
   flex: 0 0 auto;
@@ -216,25 +231,38 @@
 .card-event-footer-row1 {
   display: flex;
   padding-top: 5px;
+  margin-top: 10px;
 }
 .card-event-footer {
   flex: 0 1 auto;
   width: 100%;
   background-color: white;
 }
+.padding-top-paperclip {
+  padding-top: 3px;
+}
 .docs-number {
-  padding-left: 12px;
+  padding-left: 6px;
   padding-right: 10px;
   display: flex;
   align-items: center;
+  font-size: 16px;
+  text-align: left;
+  // margin-left: 10px;
+  font-weight: 100;
 }
 .card-event-footer-row2 {
   display: flex;
   justify-content: space-between;
   padding: 5px
 }
+.document-box {
+  margin-right: 10px;
+  border-radius: 4px;
+}
 .docs-view {
   display: flex;
+  // margin: 5px;
 }
 
 //
