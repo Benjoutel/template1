@@ -9,14 +9,14 @@
                     </div>
                     <div class="button-box">
                       <div class="">
-                        <button type="button" class="btn-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+                        <button type="button" class="btn-dark-blue" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
                         </button>
                       </div>
                       <div class="">
-                        <button type="button" class="btn-green" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
+                        <button type="button" class="btn-cool-green " data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
                       </div>
                       <div class="">
-                        <button type="button" class="btn-green" data-toggle="modal" data-target="#addNote">   Ajouter une note
+                        <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
                         </button>
                       </div>
                     </div>
@@ -38,8 +38,8 @@
                         </span> -->
                         <% end %>
                       <!-- </div> -->
-                  <div class="btn-blue">Radiographies</div>
-                  <div class="btn-blue">Médicaments</div>
+                  <div class="filter-dark-blue">Radiographies</div>
+                  <div class="filter-dark-blue">Médicaments</div>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
           <%@events.each do |event| %>
   <!-- card begin -->
             <% if event.category == "appointment" %>
-              <div class="card-event">
+              <div class="card-event box-shadow">
                 <div class="row-banner">
                   <!-- <div class="card-event-banner"> -->
                   <div class="event-date appointment">
@@ -59,7 +59,7 @@
                 </div>
                 <!-- </div> -->
                 <div class="">
-                  <div class="card-event-content box-shadow">
+                  <div class="card-event-content ">
 
                     <div class="card-event-content-row">
 
@@ -111,7 +111,7 @@
                                       <%= cl_image_tag document.document, :height=> 200 %>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn-green" data-dismiss="modal">Close </button>
+                                      <button type="button" class="btn-cool-green" data-dismiss="modal">Close </button>
                                     </div>
                                   </div>
                                 </div>
@@ -147,7 +147,7 @@
                   <div class="card-event-content box-shadow">
                     <div class="card-event-content-row">
                       <div class="event-text">
-                        <div class="event-title">
+                        <div class="note-title">
                             Prise de note
                         </div>
                           <div class="event-description">
@@ -176,7 +176,7 @@
                                     <%= cl_image_tag document.document, :height=> 200 %>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn-green" data-dismiss="modal">Close</ button>
+                                    <button type="button" class="btn-cool-green" data-dismiss="modal">Close</ button>
                                   </div>
                                 </div>
                               </div>
@@ -210,10 +210,10 @@
         <p> <%= @episode.description %></p>
         <h2>Ajouter un évènement</h2>
         <div class="">
-          <button type="button" class="btn-green" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
+          <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addAppointment" style="width: 180px"> Ajouter un rendez-vous</button>
         </div>
         <div class="">
-          <button type="button" class="btn-green" data-toggle="modal" data-target="#addNote">   Ajouter une note
+          <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote" style="width: 180px">   Ajouter une note
           </button>
         </div>
 
@@ -233,7 +233,7 @@
           </div>
         <% end %>
          <div class="">
-          <button type="button" class="btn-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+          <button type="button" class="btn-dark-blue" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
           </button>
         </div>
       </div>
