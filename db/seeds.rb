@@ -29,8 +29,23 @@ Antecedent.destroy_all
 puts "destroy Patients"
 Patient.destroy_all
 
+Picto.destroy_all
+picto_attributes = [
+  {
+  name: 'anesthesia',
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/anesthesia.png'))
+  },
+  {
+ name: 'antibiotic',
+ photo: File.open(Rails.root.join('db/fixtures/images/icons/antibiotic.png'))
+  },
+ {
+  name: 'arm-1',
+  photo: File.open(Rails.root.join('db/fixtures/images/icons/arm-1.png'))
+  }
+]
 
-
+Picto.create!([picto_attributes])
 
 
 puts "Create Patient chris"

@@ -47,6 +47,13 @@ class EpisodesController < ApplicationController
     @episode.patient = current_patient
     initial_event   = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", date: Date.today)
     @episode.events << initial_event
+    if Picto.where("name ILIKE?", "%#{@episode.name}%") != []
+      name = Picto.where("name ILIKE?", "%#{@episode.name}%").first.name
+      @episode.icon = File.open(Rails.root.join("app/assets/images/icons/#{name}.png"))
+    else
+      @episode.icon = File.open(Rails.root.join("app/assets/images/icons/arm-1.png"))
+    end
+
     if @episode.save
       redirect_to episodes_path
     else
