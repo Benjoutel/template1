@@ -184,6 +184,11 @@
 
 
 
+@media (min-width: 992px){
+  .col-md-3 {
+      width: 33%;
+  }
+}
 @media (min-width: 768px) {
   .mobile-only{
     display:none;
