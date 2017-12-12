@@ -17,7 +17,7 @@
                         </button>
                       </div>
                       <div class="">
-                        <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+                        <button type="button" class="btn btn-cool-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
                         </button>
                       </div>
                     </div>
@@ -256,7 +256,7 @@
                       </div>
                       <% end %>
                       <div class="">
-                        <button type="button" class="btn-dark-blue" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
+                        <button type="button" class="btn btn-cool-green" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
                         </button>
                       </div>
                     </div>
@@ -309,7 +309,7 @@
 
             </div>
             <div class="modal-body">
-              <%= render "caregivers/form_caregiver" %>
+              <%= render("caregivers/form_episode_caregiver", episode: @episode) %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
