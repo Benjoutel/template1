@@ -197,7 +197,7 @@
 
         <h2>Mon équipe soignante</h2>
 
-        <%@caregivers.each do |caregiver| %>
+        <%@episode_caregivers.each do |caregiver| %>
           <div class="episode-sidebar-caregiver">
             <div class="episode-sidebar-caregiver-avatar">
             <%= cl_image_tag caregiver.photo, :height=> 35 %>
