@@ -6,7 +6,8 @@ class EpisodesController < ApplicationController
     # @events = @episode.events.order(date: :desc)
     @appointment  = Event.new(category: "appointment")
     @note         = Event.new(category: "note")
-    @caregivers   = current_patient.caregivers.for_episode(@episode.id)
+    @episode_caregivers   = current_patient.caregivers.for_episode(@episode.id)
+    @caregivers   = current_patient.caregivers
     @document     = Document.new
     @caregiver    = Caregiver.new
   end
