@@ -50,16 +50,7 @@
   display: flex;
   flex-direction: column;
 }
-// .rechercher {
-//   display: flex;
-//   margin-left: 10px;
-//   margin-right: 10px;
-//   font-size: 20px;
-//   color: $green;
-// }
-// .grow-width {
-//   flex: 1 0 auto;
-// }
+
 .timeline-filters {
   margin-left: 10px;
   margin-right: 10px;
@@ -97,7 +88,7 @@
 .episode-sidebar h2 {
   font-size: 19px;
   text-align: left;
-  color: $green;
+  color: $cool-green;
   margin-left: 10px;
 }
 
@@ -169,10 +160,10 @@
   font-weight: 100;
 }
 .appointment {
-  background-color: $green;
+  background-color: $cool-green;
 }
 .note {
-  background-color: $blue;
+  background-color: $cool-blue;
 }
 .avatar-content {
   position: absolute;
@@ -268,93 +259,3 @@
   // margin: 5px;
 }
 
-//
-
-// .card-event-timeline-left {
-
-// }
-
-
-// .card-event-timeline-date {
-//   margin: 5px;
-//   font-weight: 100;
-//   font-size: 16px;
-// }
-
-
-// .card-event-timeline-middle {
-//   width: 70%;
-//   border-left-color: $blue;
-//   border-left-style: solid;
-//   border-left-width: 11px;
-//   padding-left: 10px;
-// }
-
-
-
-// .card-event-timeline-middle-note {
-//   width: 70%;
-//   border-left-color: $blue;
-//   border-left-style: solid;
-//   border-left-width: 11px;
-//   padding-left: 10px;
-// }
-
-// .card-event-timeline-middle-appointment {
-//   width: 70%;
-//   border-left-color: $green;
-//   border-left-style: solid;
-//   border-left-width: 11px;
-//   padding-left: 10px;
-// }
-// .card-event-timeline-name {
-//   margin: 5px;
-//   font-weight: 900;
-//   font-size: 14px;
-
-// }
-
-// .card-event-timeline-description p {
-//   margin: 5px;
-//   // width: 300px;
-//   // height: 42px;
-//   // overflow: hidden;
-//   // text-overflow: ellipsis;
-//   // white-space: nowrap;
-//   font-weight: 100;
-//   text-overflow: unset;
-//   overflow: unset;
-//   width: unset;
-//   height: unset;
-//   white-space: unset;
-// }
-
-// .card-event-timeline-description-all p {
-//   margin: 5px;
-// }
-
-
-// .card-event-timeline-documents {
-//   margin: 10px;
-//   font-weight: 900;
-//   color: $blue;
-
-// }
-
-// .card-event-timeline-right {
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   align-items: flex-end;
-// }
-
-// .card-event-timeline-picto {
-//   margin: 8px;
-//   // height: 35px;
-//   // width: 35px;
-//   // border-radius: 50%;
-// }
-
-// .card-event-timeline-btn {
-//   margin: 5px;
-// }
