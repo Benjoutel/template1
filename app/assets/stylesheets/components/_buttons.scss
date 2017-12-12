@@ -1,75 +1,71 @@
-.btn-blue {
+.btn-dark-blue {
   color: white;
-  background-color: $blue-marine;
-  border : 1px solid $blue-marine;
+  background-color: $dark-blue;
+  border : 1px solid $dark-blue;
   border-radius: 4px;
   padding: 5px;
   margin-left: 10px;
   font-weight: 200;
 }
-.btn-blue:hover {
-  background-color: white;
-  color: $blue-marine;
 
-}
-.btn-succes {
+.btn-cool-blue {
   color: white;
-  background-color: $green;
-  border : 4px solid $green;
+  background-color: $cool-blue;
+  border : 1px solid $cool-blue;
+  border-radius: 4px;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: 200;
+}
+
+
+
+
+.btn-normal-green {
+  color: white;
+  background-color: $normal-green;
+  border : 4px solid $normal-green;
   border-radius: 4px;
   padding: 5px;
 }
-.btn-green {
+
+
+.btn-cool-green {
   color: white;
-  background-color: $green;
-  border : 1px solid $green;
+  background-color: $cool-green;
+  border : 1px solid $cool-green;
   border-radius: 4px;
   padding: 5px;
   margin: 10px;
   font-weight: 200;
 }
+
+
+.btn-blue:hover {
+  background-color: white;
+  color: $blue-marine;
+
+}
+
+
+
 .btn-green:hover {
   background-color: white;
   color: $green;
 }
-.btn-orange {
-  color: white;
-  background-color: $orange;
-  border : 4px solid $orange;
-  border-radius: 4px;
-  padding: 5px;
-}
+
 
 .btn-orange:hover {
   border-color: $dark-orange;
 }
 
-.btn-inactive {
-  color: white;
-  background-color: $light-gray;
-  border : 4px solid $light-gray;
-  border-radius: 4px;
-  padding: 5px;
-  margin: 10px;
-}
 
-.btn-white {
-  color: white;
-  background-color: $green;
-  border : 4px solid white;
-  border-radius: 4px;
-  padding: 5px;
-  margin: 10px;
-}
 
-.btn-white:hover {
-  background-color: white;
-}
+
+
+
 .btn-icon {
   color: gray;
-  // background-color: $green;
-  // border : 1px solid white;
-  // border : 1px solid $blue-marine;
   border-radius: 4px;
   // margin: 10px;
   width: 50px;
@@ -79,16 +75,6 @@
   align-items: center;
   justify-content: space-around;
   opacity: 0.7;
-}
-.btn-icon:hover {
-  // background-color: white;
-  opacity: 1;
-}
-.background-color-blue {
-  // background-color: $blue;
-}
-.background-color-blue:hover {
-  // background-color: white;
 }
 
 
