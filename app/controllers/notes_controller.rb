@@ -17,6 +17,20 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+     @note = Event.find(params[:id])
+  end
+
+  def update
+    @note = Event.find(params[:id])
+    @note.update(note_params)
+
+    if @note.save
+       redirect_to episode_path(@note.episode_id)
+    else
+    end
+  end
+
 
 private
 

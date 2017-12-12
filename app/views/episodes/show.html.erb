@@ -191,12 +191,33 @@
 
                               </div>
                               <div class="btn-icon background-color-blue">
-                                <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                                <div class="fa fa-pencil fa-2x" aria-hidden="true" data-toggle="modal" data-target="#editNote<%= event.id %>" style="width: 180px">
+                          </div>
+
+
+
+
                               </div>
                             </div>
                           </div>
                         </div>
+
                       </div>
+                             <div class="modal fade" id="editNote<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="addNoteLabel<%=event.id%>" aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                  <div class="modal-header" id="modal-add-note-header">
+                    <h4 class="modal-title modal-title-form" id="addNoteLabel<%=event.id%>"><p>Modifier la note</p></h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "notes/form_edit_note", note: event %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+              </div>
                       <% end %>
                       <!-- card end -->
                       <% end %>

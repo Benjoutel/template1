@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       get :chrono
     end
 
-    resources :appointments, only: [:new, :create] do
+    resources :appointments, only: [:new, :create, :edit, :update] do
       resources :documents, only: [:new, :create]
     end
-    resources :notes, only: [:new, :create] do
+    resources :notes, only: [:new, :create, :edit, :update] do
       resources :documents, only: [:new, :create]
     end
 
