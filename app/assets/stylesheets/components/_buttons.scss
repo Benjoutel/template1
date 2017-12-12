@@ -4,6 +4,7 @@
   border : 1px solid $dark-blue;
   border-radius: 4px;
   margin-left: 10px;
+  padding: 5px;
   font-weight: 200;
 }
 .btn-cool-blue {
@@ -20,6 +21,7 @@
   background-color: $normal-green;
   border : 4px solid $normal-green;
   border-radius: 4px;
+  padding: 5px;
 }
 .btn-cool-green {
   color: white;
@@ -27,6 +29,7 @@
   border : 1px solid $cool-green;
   border-radius: 4px;
   margin: 10px;
+  padding: 5px;
   font-weight: 200;
 }
 .filter-dark-blue {
@@ -49,8 +52,6 @@
 .btn-dark-blue:hover {
   background-color: $dark-blue;
   color: white;
-
-
 }
 
 
