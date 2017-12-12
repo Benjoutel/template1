@@ -16,6 +16,7 @@
   background-color: white;
   margin: 5px;
   padding: 5px;
+  min-height: 100vh;
 }
 .timeline-head-container{
   float: left;
@@ -75,11 +76,7 @@
   flex: 1 1 auto;
 }
 .episode-sidebar {
-  // flex: 0 0 250px;
-  // position: -webkit-sticky;
-  // position: sticky !important; /* !important to override Gmaps inline CSS */
-  // top: 0 !important;
-  // float: right;
+
   width: 250px;
   background-color: white;
   margin-top: 30px;
@@ -88,6 +85,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  min-height: 100vh
   // overflow: scroll;
 
 }
@@ -277,10 +275,13 @@
     margin-top: 10px;
   }
 .event-description {
-    font-size: 16px;
+    font-size: 18px;
     text-align: left;
     margin-left: 10px;
     font-weight: 100;
+    font-style: italic;
+    color: $dark-blue;
+    margin-top: 10px;
   }
 .event-caregiver {
   flex: 0 0 auto;
@@ -329,4 +330,11 @@
   display: flex;
   // margin: 5px;
 }
+
+
+.docs-view img{
+ border-radius: 8px;
+}
+
+
 
