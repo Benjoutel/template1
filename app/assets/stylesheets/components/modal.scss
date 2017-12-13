@@ -1,9 +1,13 @@
-.modal-title-form {
+.modal-title-appointment-form {
+  color: $dark-blue;
+  border-radius: 5px;
+  padding: 5px;
+}
+.modal-title-note-form {
   color: white;
   border-radius: 5px;
   padding: 5px;
 }
-
 .modal-title-form p {
   margin-left: 10px;
   margin-top: 10px;
@@ -22,10 +26,18 @@
 }
 
 #modal-add-note-header {
-  padding: 0px;
-  background-color: $cool-blue;
+  // color: $dark-blue;
+  color: white;
+  padding: 15px;
+  background-color: $dark-blue;
+  border-bottom: 4px solid $cool-green;
 }
-
+#modal-add-appointment-header {
+  color: $dark-blue;
+  padding: 15px;
+  background-color: $cool-green;
+  border-bottom: 4px solid $dark-blue;
+}
 #modal-episode-appointment{
   padding: 0px;
   background-color: $cool-green;
@@ -59,4 +71,43 @@
    // }
 
  }
+
+.modal-episode {
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.modal-episode p {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.modal-caregiver {
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.modal-caregiver p {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+.modal-appointment {
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.modal-appointment p {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+.my_class{
+  width: 200px;
+}
 

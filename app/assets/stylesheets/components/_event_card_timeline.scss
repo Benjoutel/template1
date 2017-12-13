@@ -45,11 +45,12 @@
 .timeline-head-container-title {
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 24px;
+  font-size: 30px;
   text-align: left;
   font-weight: bold;
   color: $dark-blue;
   padding-top: 10px;
+  // min-height: 100px;
 }
 #search {
   flex: 1 1 auto;
@@ -77,7 +78,6 @@
   flex: 1 1 auto;
 }
 .episode-sidebar {
-
   width: 250px;
   background-color: white;
   margin-top: 30px;
@@ -86,19 +86,20 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-  min-height: 100vh
-  // overflow: scroll;
-
+  max-height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
 }
 
 .episode-sidebar-title {
-  font-size: 24px;
+  font-size: 30px;
   text-align: left;
   font-weight: bold;
   margin-left: 10px;
   margin-top: 6px;
   color: $dark-blue;
   padding-top: 10px;
+  // min-height: 100px;
 }
 
 .episode-sidebar h2 {
@@ -106,19 +107,21 @@
   text-align: left;
   color: $cool-green;
   margin-left: 10px;
+  margin-top: 15px;
 }
 
 .episode-sidebar p {
   font-size: 16px;
   text-align: left;
   margin-left: 10px;
+  margin-right: 10px;
   font-weight: 100;
 }
 
 .episode-sidebar-caregiver {
   position: relative;
-  height: 65px;
   margin-left: 10px;
+  min-height: 45px;
 }
 
 .episode-sidebar-caregiver-avatar {
@@ -142,7 +145,7 @@
   border-style: solid;
   border-bottom: 1px;
   border-color: #d5cdcd;
-  margin: 15px;
+  margin: 10px;
 }
 
 
@@ -215,19 +218,21 @@
   border-top-right-radius: 2px;
   // border: 1px solid $cool-green;
   padding-left: 14px;
-  color: white;
+  // color: $dark-blue;
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
 }
 .appointment {
   background-color: $cool-green;
   border-bottom: 4px solid $dark-blue;
+  color: $dark-blue;
 }
 .note {
   background-color: $dark-blue;
   border-bottom: 4px solid $cool-green;
+  color: white;
 }
 .note-title {
   color: $dark-blue;

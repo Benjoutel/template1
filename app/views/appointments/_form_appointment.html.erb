@@ -3,6 +3,6 @@
   <%= f.input :description %>
   <%= f.association :caregiver , collection: @caregivers, :label_method => lambda{|caregiver| "#{caregiver.speciality} #{caregiver.lastname} #{caregiver.firstname}" }, value_method: :id %>
   <div class="form_new_validation">
-    <%= f.submit "Ajouter un rendez-vous", class: "btn-primary"%>
+    <%= f.submit "Ajouter un rendez-vous", class: "btn-cool-green"%>
   </div>
 <% end %>
