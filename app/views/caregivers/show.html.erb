@@ -23,17 +23,15 @@
     <div class="episodes-head">
       <div class="episodes-title">
         <div>
-          <h3>Episodes associés</h3>
+          <h3><i class="fa fa-share-alt" aria-hidden="true"></i>   Partager vos épisodes </h3>
+
+
         </div>
       </div>
     </div>
 
     <div class="rowbtn">
-      <div class="search">
-        <%= form_tag(episodes_path, method: :get) do %>
-          <%= text_field_tag :name, :Recherche  %>
-        <% end %>
-      </div>
+
     </div>
 
     <div class="episodes">
@@ -57,8 +55,10 @@
                     Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
                   </div>
                   <div class="episode-button">
-                    <div class=" decoration-btn"> Partager l'épisode </div>
+
+                    <div class=" decoration-btn">Partager</div>
                   </div>
+
                 </div>
               <% end %>
             </div>
