@@ -1,11 +1,18 @@
 .btn-dark-blue {
   color: white;
   background-color: $dark-blue;
-  border : 1px solid $dark-blue;
-  border-radius: 4px;
+  border-bottom : 4px solid $cool-green;
+  border-radius: 2px;
   margin-left: 10px;
   padding: 5px;
-  font-weight: 200;
+  font-weight: 400;
+  text-align: center;
+}
+.btn-dark-blue:hover {
+  color: $dark-blue;
+  background-color: white;
+  // border-bottom : 4px solid $dark-blue;
+  cursor: pointer;
 }
 .btn-cool-blue {
   color: white;
@@ -24,39 +31,44 @@
   padding: 5px;
 }
 .btn-cool-green {
-  color: white;
+  color: $dark-blue;
   background-color: $cool-green;
-  border : 1px solid $cool-green;
-  border-radius: 4px;
+  border-bottom: 4px solid $dark-blue;
+  border-radius: 2px;
   margin: 10px;
   padding: 5px;
-  font-weight: 200;
+  font-weight: 400;
+  text-align: center;
+}
+.btn-cool-green:hover {
+  color: $cool-green;
+  background-color: white;
+  // border-bottom: 4px solid $cool-green;
+  cursor: pointer;
+}
+.btn-level2 {
+  color: $dark-blue;
+  text-decoration: none;
+  text-align: left;
+  font-weight: 400;
+}
+.btn-level2:hover {
+  text-decoration: underline $dark-blue;
 }
 .filter-dark-blue {
-  text-decoration: underline $dark-blue;
+  // text-decoration: underline $dark-blue;
   color: $dark-blue;
-  border-radius: 4px;
+  background: none;
+  border-radius: 2px;
+  // border: 1px solid #F2F2F2;
   padding: 5px;
+  text-align: center;
   margin-left: 10px;
   font-weight: 200;
 }
 .filter-dark-blue:hover {
-  border-radius: 4px;
-  padding: 5px;
-  margin-left: 10px;
-  font-weight: 400;
-  transition: 0.3s;
-}
-
-
-.btn-dark-blue:hover {
-  background-color: $dark-blue;
-  color: white;
-}
-
-.btn-cool-green:hover {
-  background-color: $cool-green;
-  color: white;
+  background: #F2F2F2;
+  cursor: pointer;
 }
 
 .btn-icon {

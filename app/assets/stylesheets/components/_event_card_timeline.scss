@@ -211,9 +211,9 @@
   height: 50px;
   width: 100%;
   text-align: left;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border: 1px solid $cool-green;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  // border: 1px solid $cool-green;
   padding-left: 14px;
   color: white;
   display: flex;
@@ -223,12 +223,14 @@
 }
 .appointment {
   background-color: $cool-green;
+  border-bottom: 4px solid $dark-blue;
 }
 .note {
-  background-color: $cool-blue;
+  background-color: $dark-blue;
+  border-bottom: 4px solid $cool-green;
 }
 .note-title {
-  color: $cool-blue;
+  color: $dark-blue;
   font-size: 19px;
   text-align: left;
   margin-left: 10px;
