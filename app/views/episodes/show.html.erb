@@ -170,9 +170,9 @@
                      <div class="modal-body">
                        <%= render "appointments/form_edit_appointment", appointment: event %>
                      </div>
-                     <div class="modal-footer">
+                     <!-- <div class="modal-footer">
                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                      </div>
+                      </div> -->
                    </div>
                   </div>
                 </div>
@@ -209,7 +209,7 @@
                                 <% event.documents.each do |document| %>
                                 <span data-toggle="modal" data-target="#<%= document.id%>">
                                  <%#= document.name %>
-                                 <%= cl_image_tag document.document, :height=> 50 %>
+                                 <%= cl_image_tag document.document, :height=> 50 , :style => "cursor:pointer;" %>
                                </span>
                                <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
@@ -221,9 +221,9 @@
                                     <div class="modal-body modal-body-document" style=" background-image: url('<%=cl_image_path document.document %>')">
                                       <%#= cl_image_tag document.document, :height=> 200 %>
                                     </div>
-                                    <div class="modal-footer">
+                                    <!-- <div class="modal-footer">
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</ button>
-                                      </div>
+                                      </div> -->
                                     </div>
                                   </div>
                                 </div>
@@ -337,9 +337,9 @@
             <div class="modal-body">
               <%= render "appointments/form_appointment" %>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -353,9 +353,9 @@
             <div class="modal-body">
               <%= render "notes/form_note" %>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -370,9 +370,9 @@
             <div class="modal-body">
               <%= render("caregivers/form_episode_caregiver", episode: @episode) %>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
