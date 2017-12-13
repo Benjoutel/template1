@@ -1,14 +1,57 @@
 class EpisodesController < ApplicationController
 
   def show
-    @episode      = Episode.find_by_id(params[:id])
-    @events       = @episode.events
+    @episode = Episode.find_by_id(params[:id])
+    @events  = @episode.events
 
-    # @events = @episode.events.order(date: :desc)
     if params[:search]
-      # @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
       @events = @events.search(params[:search]).reorder("")
     end
+
+    if params[:category]
+      @events = @events.
+        joins('INNER JOIN documents ON documents.event_id = events.id'). # We have to force the table alias thanks to pg_search
+        where(documents: { category: params[:category] })
+    end
+
+    if @events == []
+      message = "Vous ne possédez pas de #{params[:category] || 'événement'} pour cet épisode"
+
+      if params[:search]
+        message += " avec le mot #{params[:search]}"
+      end
+
+      flash[:notice] = message
+      return redirect_to episode_path(@episode)
+    end
+
+    # if params[:search] &&  params[:category] == nil
+    #   # @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
+    #   @events = @events.search(params[:search]).reorder("")
+    #   if @events == []
+    #     redirect_to episode_path(@episode)
+    #     flash[:notice] = "Vous ne possédez pas d'évènements pour cet épisode avec le mot #{params[:search]}"
+    #   end
+    # end
+
+    # if params[:category] && params[:search] == nil
+    #   # binding.pry
+    #   @events = @events.joins(:documents).where("documents.category ILIKE ?", "%#{params[:category]}%")
+    #   if @events == []
+    #     redirect_to episode_path(@episode)
+    #     flash[:notice] = "Vous ne possédez pas de #{params[:category]} pour cet épisode avec le mot "
+    #   end
+    # end
+
+    # if params[:category] && params[:search]
+    #   binding.pry
+    #   @events = @events.search(params[:search]).reorder("")
+    #   @events = @events.joins(:documents).where("documents.category ILIKE ?", "%#{params[:category]}%")
+    #   # if @events == []
+    #   #   redirect_to episode_path(@episode)
+    #   #   flash[:notice] = "Vous ne possédez pas de #{params[:category]} pour cet épisode avec le mot "
+    #   # end
+    # end
 
     @events = @events.order(date: :desc)
 
