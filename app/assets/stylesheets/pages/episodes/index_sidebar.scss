@@ -3,24 +3,45 @@
 }
 
 .index_episode-sidebar {
-  flex: 250px 0 0;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
+  // flex: 250px 0 0;
+  // position: sticky !important; /* !important to override Gmaps inline CSS */
+  // top: 0 !important;
+  // background-color: white;
+  // margin: 30px 20px auto 100px;
+  // box-shadow: 4px 4px 7px #bababa;
+  // padding: 15px 0 15px 0;
+  // border-radius: 2px;
+  // max-height:100vh;
+  width: 250px;
   background-color: white;
-  margin: 30px 20px auto 100px;
-  box-shadow: 4px 4px 7px #bababa;
-  padding: 15px 0 15px 0;
+  margin-top: 30px;
+  margin-left: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 2px;
-  height:100vh;
-
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  max-height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+  align-items: left;
 }
 
 .index_episode-sidebar h1 {
-  font-size: 24px;
+  font-size: 30px;
   text-align: left;
   font-weight: bold;
-  text-align:center;
-  color:#21314D;
+  margin-left: 10px;
+  margin-top: 6px;
+  color: $dark-blue;
+  padding-top: 10px;
+  width: 250px;
+  // font-size: 24px;
+  // text-align: left;
+  // font-weight: bold;
+  // text-align:center;
+  // color:#21314D;
 
 }
 
@@ -39,9 +60,12 @@
 }
 
 .index-episode-sidebar-caregiver {
+  // position: relative;
+  // height: 65px;
+  // margin: auto 15px;
   position: relative;
-  height: 65px;
-  margin: auto 15px;
+  margin-left: 10px;
+  min-height: 45px;
 }
 
 .episode-sidebar-caregiver-avatar {
