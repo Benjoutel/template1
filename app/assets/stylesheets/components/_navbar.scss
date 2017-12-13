@@ -12,12 +12,21 @@
   justify-content: space-between;
   border-bottom: 6px solid;
   border-bottom-color: #00CC7E;
+  font-family: lobster;
 }
 
-/* Logo */
+/* Logo kenko*/
 .navbar-wagon-brand img {
   height: 50px;
+  font-family: $home-title;
 }
+
+
+.navbar-wagon-brand a {
+  height: 50px;
+  font-family: $home-title;
+}
+
 
 /* User Avatar */
 .navbar-wagon .avatar {
