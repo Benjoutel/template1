@@ -3,10 +3,12 @@ class CaregiversController < ApplicationController
   def create
     @caregiver = Caregiver.new(caregiver_params)
     @caregiver.patient = current_patient
-    if @caregiver.photo.model.id == nil
-      @caregiver.photo = File.open(Rails.root.join("app/assets/images/doctor-green.png"))
-    end
+
     if @caregiver.save
+      if @caregiver.photo.url.nil?
+        @caregiver.photo = File.open(Rails.root.join("app/assets/images/doctor-green.png"))
+        @caregiver.save
+      end
       if caregiver_hidden_params[:from] == "index"
         redirect_to episodes_path
       else
