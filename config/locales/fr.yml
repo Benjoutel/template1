@@ -12,6 +12,11 @@ fr:
       episode:
         name: "Nom"
         description: "Description"
+      document:
+        name: "Nom"
+        category: "Categorie"
+      event:
+        caregiver: "Soignant"
   date:
     abbr_day_names:
     - dim
