@@ -288,6 +288,7 @@
                       <h2>Mon équipe soignante</h2>
 
                       <%@episode_caregivers.each do |caregiver| %>
+                      <%= link_to caregiver_path(caregiver) do %>
                       <div class="episode-sidebar-caregiver">
                         <div class="episode-sidebar-caregiver-avatar">
                           <%= cl_image_tag caregiver.photo, :height=> 35 %>
@@ -299,6 +300,7 @@
                           <%= caregiver.speciality %>
                         </div>
                       </div>
+                      <% end %>
                       <% end %>
                       <div class="btn btn-level2" data-toggle="modal" data-target="#addCaregiver" style=""> > Ajouter un soignant
                       </div>

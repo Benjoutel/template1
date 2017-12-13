@@ -7,27 +7,31 @@
 
 
     <div class="sidebarbtn">
-      <div class="btn-add-episode" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode
+      <div class="btn-dark-blue" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode
       </div>
     </div>
 
     <h2>Mon équipe soignante</h2>
 
-    <%@caregivers.each do |caregiver| %>
-        <div class="index-episode-sidebar-caregiver">
-          <%= link_to caregiver_path(caregiver) do %>
-          <div class="episode-sidebar-caregiver-avatar">
-            <%= cl_image_tag caregiver.photo, :height=> 35 %>
-          </div>
-          <div class="episode-sidebar-caregiver-fullname">
-            <%= caregiver.firstname %> <%= caregiver.lastname %>
-          </div>
-          <div class="episode-sidebar-cargiver-speciality">
-            <%= caregiver.speciality %>
-          </div>
-          <% end %>
-        </div>
-    <% end %>
+        <%@caregivers.each do |caregiver| %>
+                      <%= link_to caregiver_path(caregiver) do %>
+                      <div class="episode-sidebar-caregiver">
+                        <div class="episode-sidebar-caregiver-avatar">
+                          <%= cl_image_tag caregiver.photo, :height=> 35 %>
+                        </div>
+                        <div class="episode-sidebar-caregiver-fullname">
+                          <%= caregiver.firstname %> <%= caregiver.lastname %>
+                        </div>
+                        <div class="episode-sidebar-cargiver-speciality">
+                          <%= caregiver.speciality %>
+                        </div>
+                      </div>
+                      <% end %>
+                      <% end %>
+
+
+
+
     <div class="btn-level2" data-toggle="modal" data-target="#addCaregiver">> Ajouter un soignant
     </div>
   </div>
@@ -98,7 +102,7 @@
     <% @episodes.each do |episode| %>
     <!-- episode card beginning -->
 
-    <div class="col-xs-12 col-sm-3 col-md-3">
+    <div class="col-xs-12 col-md-3">
       <div class="card-episode">
         <%= link_to episode_path(episode) do %>
         <div class="card-episode-upbox">
