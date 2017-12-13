@@ -12,7 +12,7 @@ class CaregiversController < ApplicationController
       if caregiver_hidden_params[:from] == "index"
         redirect_to episodes_path
       else
-        event = Event.new(category: "appointment", description: "Ajout de l'épisode #{@caregiver.firstname} #{@caregiver.lastname}, #{@caregiver.speciality}", date: Date.today)
+        event = Event.new(category: "appointment", description: "Ajout de #{@caregiver.firstname} #{@caregiver.lastname}, #{@caregiver.speciality}", date: Date.today)
         episode = Episode.find(params[:episode_id])
         event.episode = episode
         event.caregiver = @caregiver

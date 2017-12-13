@@ -13,10 +13,7 @@
                       </div>
                       <div class="btn-dark-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
                       </div>
-                      <!-- <div class="">
-                        <button type="button" class="btn-level2" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
-                        </button>
-                      </div> -->
+
                     </div>
                   </div>
 
@@ -32,11 +29,8 @@
           <!-- <div class="timeline-search"> -->
             <%= form_tag(episode_path(@episode), method: :get, id: 'search') do %>
             <%= text_field_tag :search, params[:search], class: 'search-box', placeholder: "Rechercher dans cet épisode"  %>
-                        <!-- <span class="btn-icon">
-                          <%#= submit_tag "search", class: "" %>
-                        </span> -->
+
                         <% end %>
-                        <!-- </div> -->
 
 
                         <% if params[:search] %>
@@ -117,22 +111,20 @@
                                    <%= cl_image_tag document.document, :height=> 50, :width=>50 %>
                                  </span>
 
-                                 <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header modal-document">
-
-                                        <h4 class="modal-title modal-title-form" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
-                                      </div>
-                                      <div class="modal-body modal-body-document" style=" background-image: url('<%=cl_image_path document.document %>')">
-                                        <%#= cl_image_tag document.document, :height=> 200 %>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                  <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-document">
+                          <h4 class="modal-title modal-title-form " id="myModalLabel"><p><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></p></h4>
+                        </div>
+                        <div class="modal-body modal-body-document " style=" background-image: url('<%=cl_image_path document.document %>')">
+                        </div>
+                    <!--       <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer </button>
+                          </div> -->
+                        </div>
+                    </div>
+                  </div>
                                 <% end %>
                                 <div class="btn-icon">
                                   <i class="fa fa-file-image-o fa-2x" aria-hidden="true" data-toggle="modal" data-target="#add_doc<%=event.id%>"></i>
@@ -170,7 +162,9 @@
                      <div class="modal-body">
                        <%= render "appointments/form_edit_appointment", appointment: event %>
                      </div>
-                     <!-- <div class="modal-footer">
+
+                   <!--   <div class="modal-footer">
+
                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                       </div> -->
                    </div>
@@ -221,7 +215,9 @@
                                     <div class="modal-body modal-body-document" style=" background-image: url('<%=cl_image_path document.document %>')">
                                       <%#= cl_image_tag document.document, :height=> 200 %>
                                     </div>
-                                    <!-- <div class="modal-footer">
+
+                                  <!--   <div class="modal-footer">
+
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</ button>
                                       </div> -->
                                     </div>
@@ -265,7 +261,7 @@
                         </div>
 
                       </div>
-                             <div class="modal fade" id="editNote<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="addNoteLabel<%=event.id%>" aria-hidden="true">
+            <div class="modal fade" id="editNote<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="addNoteLabel<%=event.id%>" aria-hidden="true">
                <div class="modal-dialog" role="document">
                  <div class="modal-content">
                   <div class="modal-header" id="modal-add-note-header">
@@ -274,9 +270,9 @@
                   <div class="modal-body">
                     <%= render "notes/form_edit_note", note: event %>
                   </div>
-                  <div class="modal-footer">
+               <!--    <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               </div>
@@ -292,14 +288,12 @@
                       <div class="separator"></div>
                       <h2 style="margin-top: 0px">Description</h2>
                       <p> <%= @episode.description %></p>
-                      <!-- <h2>Ajouter un évènement</h2> -->
-                      <!-- <div class="separator"></div> -->
+
                       <div class="btn-cool-green" data-toggle="modal" data-target="#addAppointment" style="width: 180px"> Ajouter un rendez-vous
                       </div>
                       <div class="btn-dark-blue" data-toggle="modal" data-target="#addNote" style="width: 180px">   Ajouter une note
 
                       </div>
-                      <!-- <div class="separator"></div> -->
                       <h2>Mon équipe soignante</h2>
 
                       <%@episode_caregivers.each do |caregiver| %>
@@ -337,7 +331,9 @@
             <div class="modal-body">
               <%= render "appointments/form_appointment" %>
             </div>
-            <!-- <div class="modal-footer">
+
+           <!--  <div class="modal-footer">
+
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div> -->
           </div>
@@ -364,13 +360,15 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="" id="modal-add-appointment-header">
-              <h5 class="modal-title modal-title-form" id="addCaregiverLabel">Ajouter un soignant</h5>
+              <h5 class="modal-title modal-title-form modal-add-caregiver" id="addCaregiverLabel">Ajouter un soignant</h5>
 
             </div>
             <div class="modal-body">
               <%= render("caregivers/form_episode_caregiver", episode: @episode) %>
             </div>
-            <!-- <div class="modal-footer">
+
+           <!--  <div class="modal-footer">
+
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
             </div> -->
           </div>

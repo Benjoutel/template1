@@ -1,33 +1,37 @@
 <div class="main-container">
 
   <div class="index_episode-sidebar">
-    <h1> <%= @caregiver.firstname %> <%= @caregiver.lastname %></h1>
-
+    <div class="caregiver-head">
+      <h1> <%= @caregiver.firstname %> <%= @caregiver.lastname %></h1>
+    </div>
     <div class="separator"></div>
+    <div class="caregiver-head">
+      <h2><%= @caregiver.speciality %></h2>
+    </div>
+    <div class="photo-caregiver">
+      <%= cl_image_tag @caregiver.photo, :height=> 35 %>
+    </div>
+    <div class="caregiver-details">
+        <p><%= @caregiver.address %></p>
+        <p><%= @caregiver.mail %></p>
+        <p><%= @caregiver.phone_number %></p>
 
-    <h2><%= @caregiver.speciality %></h2>
-
-    <div> <%= cl_image_tag @caregiver.photo, :height=> 35 %></div>
-    <div><%= @caregiver.address %></div>
-    <div><%= @caregiver.mail %></div>
-    <div><%= @caregiver.phone_number %></div>
+    </div>
   </div>
 
   <div class="episodes-index-container">
     <div class="episodes-head">
       <div class="episodes-title">
         <div>
-          <h3>Episodes associés</h3>
+          <h3><i class="fa fa-share-alt" aria-hidden="true"></i>   Partager vos épisodes </h3>
+
+
         </div>
       </div>
     </div>
 
     <div class="rowbtn">
-      <div class="search">
-        <%= form_tag(episodes_path, method: :get) do %>
-          <%= text_field_tag :name, :Recherche  %>
-        <% end %>
-      </div>
+
     </div>
 
     <div class="episodes">
@@ -51,8 +55,10 @@
                     Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
                   </div>
                   <div class="episode-button">
-                    <div class=" decoration-btn"> Partager l'épisode </div>
+
+                    <div class=" decoration-btn">Partager</div>
                   </div>
+
                 </div>
               <% end %>
             </div>
@@ -62,8 +68,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 
