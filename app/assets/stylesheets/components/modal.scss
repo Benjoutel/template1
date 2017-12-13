@@ -57,8 +57,9 @@
 .modal-body-document {
      margin: 15px 15px 15px 15px;
      height: 80vh;
-     background-size: contain;
+     background-size: cover;
      background-repeat: no-repeat;
+     background-position: center;;
  }
 
 
@@ -113,4 +114,8 @@
 
 .modal-add-caregiver {
   color: white;
+}
+
+.image-body {
+  height: 100vh;
 }

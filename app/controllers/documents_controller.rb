@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to episode_path(@event.episode)
     else
-      redirect_to root_path
+      render
     end
   end
 
