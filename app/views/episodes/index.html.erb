@@ -58,19 +58,29 @@
 <!-- modal add episode -->
     <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
+        <%= simple_form_for @episode do |f| %>
         <div class="modal-content">
           <div class="" id="modal-add-note-header">
             <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medical</p></h4>
           </div>
           <div class="modal-body">
-            <%= render "form_new_episode" %>
+              <%= f.input :name, class: "form-text" %>
+              <%= f.input :description, class: "form-text" %>
+
+            <!--   <div class="form_new_validation">
+              </div>
+ -->
+
+            <%#= render "form_new_episode" %>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            <%= f.submit "Ajouter un épisode" , class: "btn-dark-blue"%>
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button> -->
           </div>
 
         </div>
+        <% end %>
       </div>
     </div>
 <!-- modal add caregiver -->

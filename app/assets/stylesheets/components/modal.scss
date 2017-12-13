@@ -8,6 +8,11 @@
   border-radius: 5px;
   padding: 5px;
 }
+
+.modal-title-form {
+  padding: 5px;
+}
+
 .modal-title-form p {
   margin-left: 10px;
   margin-top: 10px;
@@ -45,32 +50,18 @@
 
 .modal-document {
   padding: 0px;
- background-color: $cool-blue;
+  background-color: #EBE9E9;
+  color: $dark-blue;
 }
 
 .modal-body-document {
-     // border-bottom: none;
      margin: 15px 15px 15px 15px;
-     height: 60vh;
+     height: 80vh;
      background-size: contain;
      background-repeat: no-repeat;
-     // margin-top: 30px;
-
-   //   .close {
-   //     background: none;
-   //     border: none;
-   //     float: right;
-   //     font-size: 40px;
-   //     line-height: 20px;
-   //     padding: 0;
-
-   //     &:hover {
-   //       color: @hover-blush;
-   //     }
-   //   }
-   // }
-
  }
+
+
 
 .modal-episode {
   color: white;
@@ -111,3 +102,11 @@
   width: 200px;
 }
 
+
+.fa-file-image-o:hover {
+  cursor: pointer;
+}
+
+.fa-pencil:hover {
+  cursor: pointer;
+}
