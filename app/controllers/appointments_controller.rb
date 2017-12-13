@@ -24,10 +24,24 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def edit
+   @appointment = Event.find(params[:id])
+   @caregivers = Caregiver.all
+ end
 
-private
+ def update
+   @appointment = Event.find(params[:id])
+   @appointment.update(appointment_params)
+   if @appointment.save
+     redirect_to episode_path(@appointment.episode_id)
+   else
+   end
+ end
 
-def appointment_params
-    params.require(:event).permit(:date, :description , :caregiver_id)
-  end
+
+ private
+
+ def appointment_params
+  params.require(:event).permit(:date, :description , :caregiver_id)
+end
 end
