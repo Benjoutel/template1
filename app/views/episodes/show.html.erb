@@ -13,13 +13,13 @@
                         <button type="button" class="btn-cool-green " data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
                       </div>
                       <div class="">
-                        <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
+                        <button type="button" class="btn-dark-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
                         </button>
                       </div>
-                      <div class="">
-                        <button type="button" class="btn btn-cool-green" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
+                      <!-- <div class="">
+                        <button type="button" class="btn-level2" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
                         </button>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
 
@@ -232,12 +232,10 @@
                       <h2>Description</h2>
                       <p> <%= @episode.description %></p>
                       <h2>Ajouter un évènement</h2>
-                      <div class="">
-                        <button type="button" class="btn-cool-green" data-toggle="modal" data-target="#addAppointment" style="width: 180px"> Ajouter un rendez-vous</button>
+                      <div class="btn-cool-green" data-toggle="modal" data-target="#addAppointment" style="width: 180px"> Ajouter un rendez-vous
                       </div>
-                      <div class="">
-                        <button type="button" class="btn-cool-blue" data-toggle="modal" data-target="#addNote" style="width: 180px">   Ajouter une note
-                        </button>
+                      <div class="btn-dark-blue" data-toggle="modal" data-target="#addNote" style="width: 180px">   Ajouter une note
+
                       </div>
 
                       <h2>Mon équipe soignante</h2>
@@ -255,9 +253,7 @@
                         </div>
                       </div>
                       <% end %>
-                      <div class="">
-                        <button type="button" class="btn btn-cool-green" data-toggle="modal" data-target="#addCaregiver" style="width: 180px">Ajouter un soignant
-                        </button>
+                      <div class="btn btn-level2" data-toggle="modal" data-target="#addCaregiver" style=""> Ajouter un soignant  >
                       </div>
                     </div>
 
