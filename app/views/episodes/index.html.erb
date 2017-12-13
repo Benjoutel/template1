@@ -49,9 +49,8 @@
     <div class="search">
 
       <%= form_tag(episodes_path, method: :get) do %>
-      <%= text_field_tag :name, :Recherche  %>
+      <%= text_field_tag :name, params[:name], class: 'search-box', placeholder: "Rechercher un dossier"  %>
       <% end %>
-
 
     </div>
 

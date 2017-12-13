@@ -19,7 +19,7 @@ class EpisodesController < ApplicationController
 
     @episodes = current_patient.episodes.joins(:events).order("events.updated_at desc").to_a.uniq
     if params[:name]
-      @episodes  = @episodes.where("name ILIKE ?", "%#{params[:name]}%")
+      @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
     end
     @episode = Episode.new
     @caregivers = current_patient.caregivers
