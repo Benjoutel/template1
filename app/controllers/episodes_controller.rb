@@ -2,8 +2,16 @@ class EpisodesController < ApplicationController
 
   def show
     @episode      = Episode.find_by_id(params[:id])
-    @events       = Event.where(episode_id: @episode.id).order(date: :desc)
+    @events       = @episode.events
+
     # @events = @episode.events.order(date: :desc)
+    if params[:search]
+      # @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
+      @events = @events.search(params[:search]).reorder("")
+    end
+
+    @events = @events.order(date: :desc)
+
     @appointment  = Event.new(category: "appointment")
     @note         = Event.new(category: "note")
     @episode_caregivers   = current_patient.caregivers.for_episode(@episode.id)
@@ -12,6 +20,12 @@ class EpisodesController < ApplicationController
     @caregiver    = Caregiver.new
   end
 
+  # /episodes/191?search=Greene&category=radio
+  # /episodes/191?category=radio
+
+  # episode_path(@episode, search: "Greene", category: "radio")
+  # episode_path(@episode, category: "radio")
+
   def index
     # better use of associations
     # Order episodes / date events la plus récente
@@ -19,7 +33,11 @@ class EpisodesController < ApplicationController
 
     @episodes = current_patient.episodes.joins(:events).order("events.updated_at desc").to_a.uniq
     if params[:name]
+      if params[:name] != ''
       @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
+      else
+        @episodes = current_patient.episodes.joins(:events).order("events.updated_at desc").to_a.uniq
+      end
     end
     @episode = Episode.new
     @caregivers = current_patient.caregivers
