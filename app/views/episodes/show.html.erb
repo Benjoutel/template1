@@ -73,7 +73,7 @@
                       <div class="row-banner">
                         <!-- <div class="card-event-banner"> -->
                           <div class="event-date appointment">
-                            <%= event.date.strftime('%A %d %b %Y')%>
+                            <%= l(event.date)%>
                           </div>
 
                         </div>
@@ -187,7 +187,7 @@
                       <div class="row-banner">
                         <!-- <div class="card-event-banner"> -->
                           <div class="event-date note">
-                            <%= event.date.strftime('%A %d %b %Y')%>
+                            <%= l(event.date)%>
                           </div>
 
                         </div>
