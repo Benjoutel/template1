@@ -43,7 +43,7 @@
 
 
                         <% if params[:search] %>
-                          <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode , category: "radio",search: "#{ params[:search]}")%> </div>
+                          <div class="filter-dark-blue "> <%= link_to "Radiographies", episode_path(@episode , category: "radio",search: "#{ params[:search]}")%> </div>
                         <% else %>
                           <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode, category: "radio")%> </div>
                         <% end %>
