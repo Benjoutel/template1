@@ -15,7 +15,6 @@
 
 }
 
-
 #modal-episode-caregiver{
   padding: 0px;
   background-color: $cool-green;
@@ -31,4 +30,33 @@
   padding: 0px;
   background-color: $cool-green;
 }
+
+.modal-document {
+  padding: 0px;
+ background-color: $cool-blue;
+}
+
+.modal-body-document {
+     // border-bottom: none;
+     margin: 15px 15px 15px 15px;
+     height: 60vh;
+     background-size: contain;
+     background-repeat: no-repeat;
+     // margin-top: 30px;
+
+   //   .close {
+   //     background: none;
+   //     border: none;
+   //     float: right;
+   //     font-size: 40px;
+   //     line-height: 20px;
+   //     padding: 0;
+
+   //     &:hover {
+   //       color: @hover-blush;
+   //     }
+   //   }
+   // }
+
+ }
 
