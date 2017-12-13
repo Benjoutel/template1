@@ -13,7 +13,7 @@
 
     <h2>Mon équipe soignante</h2>
 
-        <%@caregivers.each do |caregiver| %>
+                  <%@caregivers.each do |caregiver| %>
                       <%= link_to caregiver_path(caregiver) do %>
                       <div class="episode-sidebar-caregiver">
                         <div class="episode-sidebar-caregiver-avatar">
@@ -52,18 +52,15 @@
       <% end %>
     </div>
 
-    <div class="btn-add-episode visible-xs" data-toggle="modal" data-target="#addEpisode" style="width: 200px; margin-top: 10px"> Ajouter un épisode
+    <div class="btn-dark-blue visible-xs" data-toggle="modal" data-target="#addEpisode" style="width: 200px; margin-top: 10px"> Ajouter un épisode
     </div>
 
 <!-- modal add episode -->
     <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header" id="modal-episode">
-
+          <div class="" id="modal-add-note-header">
             <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medical</p></h4>
-
-
           </div>
           <div class="modal-body">
             <%= render "form_new_episode" %>
