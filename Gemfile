@@ -13,6 +13,8 @@ gem 'rails', '5.0.6'
 gem 'rails-i18n'
 gem 'redis'
 
+gem 'pg_search'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
