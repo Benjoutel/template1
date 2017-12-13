@@ -1,5 +1,5 @@
 meta_product_name: "Kenko"
 meta_title: "Kenko app - Votre carnet de santé dans la poche"
-meta_description: "Kenko est votre dossier médical numérique. Il vous permet d'organiser et de retrouver tous vos documents médicaux et notes associées. Ajoutez vos discussions avec votre médecin ou tout autre professionnel de santé. Ajoutez vos documents médicaux : ordonnances, résultats d'analyses, radios..."
+meta_description: "Kenko est votre dossier nouveau médical nomade."
 meta_image: "prescription.png"                       # should exist in `app/assets/images/`
 twitter_account: "@appkenko"   # required for Twitter Cards
