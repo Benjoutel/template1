@@ -43,13 +43,22 @@
 
 
                         <% if params[:search] %>
-                        <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode , category: "radio",search: "#{ params[:search]}")%> </div>
+                          <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode , category: "radio",search: "#{ params[:search]}")%> </div>
                         <% else %>
-                        <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode, category: "radio")%> </div>
+                          <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode, category: "radio")%> </div>
+                        <% end %>
+                        <% if params[:search] %>
+                          <div class="filter-dark-blue"> <%= link_to "Ordonnances", episode_path(@episode , category: "ordonnance",search: "#{ params[:search]}")%> </div>
+                        <% else %>
+                          <div class="filter-dark-blue"> <%= link_to "Ordonnances", episode_path(@episode, category: "ordonnance")%> </div>
+                        <% end %>
+                          <% if params[:search] %>
+                          <div class="filter-dark-blue"> <%= link_to "Analyses", episode_path(@episode , category: "analyse",search: "#{ params[:search]}")%> </div>
+                        <% else %>
+                          <div class="filter-dark-blue"> <%= link_to "Analyses", episode_path(@episode, category: "analyse")%> </div>
                         <% end %>
 
-                        <div class="filter-dark-blue"> <%= link_to "Ordonnances", episode_path(@episode, category: "ordonnance")%> </div>
-                        <div class="filter-dark-blue"> <%= link_to "analyses", episode_path(@episode, category: "analyse")%> </div>
+
 
                       </div>
                     </div>
