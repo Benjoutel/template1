@@ -1,16 +1,22 @@
 <div class="main-container">
 
   <div class="index_episode-sidebar">
-    <h1> <%= @caregiver.firstname %> <%= @caregiver.lastname %></h1>
-
+    <div class="caregiver-head">
+      <h1> <%= @caregiver.firstname %> <%= @caregiver.lastname %></h1>
+    </div>
     <div class="separator"></div>
+    <div class="caregiver-head">
+      <h2><%= @caregiver.speciality %></h2>
+    </div>
+    <div class="photo-caregiver">
+      <%= cl_image_tag @caregiver.photo, :height=> 35 %>
+    </div>
+    <div class="caregiver-details">
+        <p><%= @caregiver.address %></p>
+        <p><%= @caregiver.mail %></p>
+        <p><%= @caregiver.phone_number %></p>
 
-    <h2><%= @caregiver.speciality %></h2>
-
-    <div> <%= cl_image_tag @caregiver.photo, :height=> 35 %></div>
-    <div><%= @caregiver.address %></div>
-    <div><%= @caregiver.mail %></div>
-    <div><%= @caregiver.phone_number %></div>
+    </div>
   </div>
 
   <div class="episodes-index-container">
@@ -62,8 +68,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 
