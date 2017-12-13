@@ -1,8 +1,18 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <span style = "color: #00ce79">K</span>enko
+
+
+  <% if patient_signed_in? %>
+    <%= link_to episodes_path, class: "navbar-wagon-brand" do %>
+      <span style = "color: #00ce79">K</span>enko
+    <% end %>
+
+    <% else %>
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+        <span style = "color: #00ce79">K</span>enko
+      <% end %>
   <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
