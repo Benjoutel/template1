@@ -1,9 +1,13 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,700");
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+
 
 // Define fonts for body and headers
 $body-font: 'Source Sans Pro', sans-serif;
 $headers-font: 'Source Sans Pro', sans-serif;
+$home-title: 'Lobster', cursive;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

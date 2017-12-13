@@ -1,38 +1,20 @@
-<div class="banner " style="background-image: linear-gradient(-225deg, rgba(192,192,170,0.6) 0%, rgba(126, 183, 246, 0.6) 50%), url('<%= image_path("g-crescoli-365895.jpg")%>');">
+
+<div class="banner " style="background-image: linear-gradient(-225deg, rgba(192,192,170,0.6) 0%, rgba(126, 183, 246, 0.6) 50%), url('<%= image_path("bg.jpg")%>');">
 
   <div class="banner-content">
 
-    <h2>Bienvenue sur Kenko , votre dossier médicale nomade</h2>
+    <h1><span style = "color: #00ce79">K</span>enko</h1>
+    <span class="wrap">
+      <h2 href="" class="typewrite" data-period="2000000000" data-type='[ "Votre nouveau carnet médical nomade"]'>
+      </span>
+    </h2>
 
-    <h1>Kenko</h1>
-      <p>
-        <a href="" class="typewrite" data-period="2000" data-type='[ "Prenez en main votre santé", "En sécurité", "Créez votre dossier" ]'>
-          <span class="wrap"></span>
-        </a>
-      </p>
-
-      <div>
-      <%= link_to "Créez votre Kenko", episodes_path, class: "btn btn-primary" %>
-      </div>
+    <%= link_to "Créez votre Kenko", episodes_path, class: "btn btn-home" %>
   </div>
 </div>
 
 
-<!-- <div class="banner banner60" style="background-image: linear-gradient(-225deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255, 0.9) 50%), url('<%#= image_path("laptop.jpg")%>');">
-  <div class="col-xs-6 col-sm-4">
-    <div class="icon">
-      <%#= image_tag('note-green.png', height:"200px")%>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-4">
-    <div class="info">
-      Prenez des notes directement dans votre Kenko.
-    </div>
-  </div>
-  <div class="col-xs-0 col-sm-4">
-    <div></div>
-  </div>
-</div> -->
+
 
 <script>
   var TxtType = function(el, toRotate, period) {

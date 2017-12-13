@@ -33,15 +33,24 @@
       <div class="timeline-head-container-content">
         <div class="timeline-filters">
           <!-- <div class="timeline-search"> -->
-            <%= form_tag(episodes_path, method: :get, id: 'search') do %>
+            <%= form_tag(episode_path(@episode), method: :get, id: 'search') do %>
             <%= text_field_tag :search, params[:search], class: 'search-box', placeholder: "Rechercher dans cet épisode"  %>
                         <!-- <span class="btn-icon">
                           <%#= submit_tag "search", class: "" %>
                         </span> -->
                         <% end %>
                         <!-- </div> -->
-                        <div class="filter-dark-blue">Ordonnances</div>
-                        <div class="filter-dark-blue">Radiographies</div>
+
+
+                        <% if params[:search] %>
+                        <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode , category: "radio",search: "#{ params[:search]}")%> </div>
+                        <% else %>
+                        <div class="filter-dark-blue"> <%= link_to "Radiographies", episode_path(@episode, category: "radio")%> </div>
+                        <% end %>
+
+                        <div class="filter-dark-blue"> <%= link_to "Ordonnances", episode_path(@episode, category: "ordonnance")%> </div>
+                        <div class="filter-dark-blue"> <%= link_to "analyses", episode_path(@episode, category: "analyse")%> </div>
+
                       </div>
                     </div>
                   </div>
