@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   include PgSearch
 
   pg_search_scope :search,
-    against: [ :description],
+    against: [ :description, :category],
     associated_against: {
       documents: [ :name, :category ],
       caregiver: [:firstname, :lastname, :speciality]

@@ -5,6 +5,9 @@ class EpisodesController < ApplicationController
     @events  = @episode.events
 
     if params[:search]
+      if params[:search] == "rendez-vous"
+        params[:search] = "appointment"
+      end
       @events = @events.search(params[:search]).reorder("")
     end
 
