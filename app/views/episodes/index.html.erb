@@ -1,32 +1,33 @@
 <div class="main-container">
 
   <div class="index_episode-sidebar">
+    <h1>Bonjour <%= current_patient.firstname.capitalize %></h1>
 
-      <div class="episode-sidebar-title">
-        Bonjour <%= current_patient.firstname.capitalize %></div>
+    <div class="separator"></div>
 
-      <div class="separator"></div>
 
-      <div class="btn-dark-blue" data-toggle="modal" data-target="#addEpisode" style="width: 180px"> Ajouter un épisode
-      </div>
-
-      <h2>Mon équipe soignante</h2>
-
-    <%@caregivers.each do |caregiver| %>
-    <%= link_to caregiver_path(caregiver) do %>
-    <div class="episode-sidebar-caregiver">
-      <div class="episode-sidebar-caregiver-avatar">
-        <%= cl_image_tag caregiver.photo, :height=> 35 %>
-      </div>
-      <div class="episode-sidebar-caregiver-fullname">
-        <%= caregiver.firstname %> <%= caregiver.lastname %>
-      </div>
-      <div class="episode-sidebar-cargiver-speciality">
-        <%= caregiver.speciality %>
+    <div class="sidebarbtn">
+      <div class="btn-dark-blue" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode
       </div>
     </div>
-    <% end %>
-    <% end %>
+
+    <h2>Mon équipe soignante</h2>
+
+                  <%@caregivers.each do |caregiver| %>
+                      <%= link_to caregiver_path(caregiver) do %>
+                      <div class="episode-sidebar-caregiver">
+                        <div class="episode-sidebar-caregiver-avatar">
+                          <%= cl_image_tag caregiver.photo, :height=> 35 %>
+                        </div>
+                        <div class="episode-sidebar-caregiver-fullname">
+                          <%= caregiver.firstname %> <%= caregiver.lastname %>
+                        </div>
+                        <div class="episode-sidebar-cargiver-speciality">
+                          <%= caregiver.speciality %>
+                        </div>
+                      </div>
+                      <% end %>
+                      <% end %>
 
 
 
@@ -36,115 +37,106 @@
   </div>
 
 
-  <div class="episodes-index-container">
-    <div class="episodes-head">
-      <div class="episodes-title">
-        Mes épisodes
-      </div>
-      <div class="chrono">
-        <%#= link_to chrono_episodes_path do%>
+<div class="episodes-index-container">
+  <div class="episodes-head">
+    <div class="episodes-title">
+      Mes épisodes
+    </div>
+<div class="chrono">
+      <%#= link_to chrono_episodes_path do%>
 
         <%# end %>
       </div>
+  </div>
+
+  <div class="rowbtn">
+
+    <div class="search">
+      <%= form_tag(episodes_path, method: :get) do %>
+      <%= text_field_tag :name, params[:name], class: 'search-box', placeholder: "Rechercher un dossier"  %>
+      <% end %>
     </div>
 
-    <div class="rowbtn">
+    <div class="btn-dark-blue visible-xs" data-toggle="modal" data-target="#addEpisode" style="width: 200px; margin-top: 10px"> Ajouter un épisode
+    </div>
 
-      <div class="search">
-        <%= form_tag(episodes_path, method: :get) do %>
-        <%= text_field_tag :name, params[:name], class: 'search-box', placeholder: "Rechercher un dossier"  %>
-        <% end %>
-      </div>
-
-      <div class="btn-dark-blue visible-xs" data-toggle="modal" data-target="#addEpisode" style="width: 200px; margin-top: 10px"> Ajouter un épisode
-      </div>
-
-      <!-- modal add episode -->
-      <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <%= simple_form_for @episode do |f| %>
-          <div class="modal-content">
-            <div class="" id="modal-add-note-header">
-              <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medical</p></h4>
-            </div>
-            <div class="modal-body">
+<!-- modal add episode -->
+    <div class="modal fade" id="addEpisode" tabindex="-1" role="dialog" aria-labelledby=addEpisodeLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <%= simple_form_for @episode do |f| %>
+        <div class="modal-content">
+          <div class="" id="modal-add-note-header">
+            <h4 class="modal-title modal-episode" id="addEpisodeLabel"> <p>Ajouter un épisode medical</p></h4>
+          </div>
+          <div class="modal-body">
               <%= f.input :name, class: "form-text" %>
               <%= f.input :description, class: "form-text" %>
-            </div>
-
-            <div class="modal-footer">
-              <%= f.submit "Ajouter un épisode" , class: "btn-dark-blue"%>
-            </div>
-
+          </div>
 
           <div class="modal-footer">
             <%= f.submit "Ajouter un épisode" , class: "btn-dark-blue"%>
-            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button> -->
           </div>
 
-
-
-        </div>
-      </div>
-
-      <!-- modal add caregiver -->
-      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header" id="modal-add-appointment-header">
-              <h4 class="modal-title modal-title-form modal-add-caregiver" id="addCaregiverLabel"> <p>Ajouter un soignant</p></h4>
-
-            </div>
-            <div class="modal-body">
-              <%= render "caregivers/form_caregiver" %>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-    </div>
-
-    <div class="episodes">
-      <div class="row">
-        <% @episodes.each do |episode| %>
-        <!-- episode card beginning -->
-
-        <div class="col-xs-12 col-md-3">
-          <div class="card-episode">
-            <%= link_to episode_path(episode) do %>
-            <div class="card-episode-upbox">
-              <div class="episode-name">
-                <%= episode.name.capitalize %>
-                <div class="icon">
-                  <%= cl_image_tag episode.icon, :height=> 35 %>
-                </div>
-              </div>
-            </div>
-            <div class="card-episode-downbox">
-              <div class="episode-date">
-                Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
-              </div>
-              <div class="episode-button">
-                <div>
-
-                  <div class="blue-btn decoration-btn"> Voir l'épisode </div>
-
-                </div>
-              </div>
-
-            </div>
-            <% end %>
-          </div>
         </div>
         <% end %>
       </div>
     </div>
+<!-- modal add caregiver -->
+    <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" id="modal-add-appointment-header">
+            <h4 class="modal-title modal-title-form modal-add-caregiver" id="addCaregiverLabel"> <p>Ajouter un soignant</p></h4>
+
+        </div>
+        <div class="modal-body">
+          <%= render "caregivers/form_caregiver" %>
+        </div>
+       <!--  <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="episodes">
+  <div class="row">
+    <% @episodes.each do |episode| %>
+    <!-- episode card beginning -->
+
+    <div class="col-xs-12 col-md-3">
+      <div class="card-episode">
+        <%= link_to episode_path(episode) do %>
+        <div class="card-episode-upbox">
+          <div class="episode-name">
+            <%= episode.name.capitalize %>
+            <div class="icon">
+              <%= cl_image_tag episode.icon, :height=> 35 %>
+            </div>
+          </div>
+        </div>
+        <div class="card-episode-downbox">
+          <div class="episode-date">
+            Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
+          </div>
+          <div class="episode-button">
+            <div>
+
+              <div class="blue-btn decoration-btn"> Voir l'épisode </div>
+
+            </div>
+          </div>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
 </div>
-
-
-
-
+</div>
+</div>
