@@ -28,33 +28,6 @@ class EpisodesController < ApplicationController
       return redirect_to episode_path(@episode)
     end
 
-    # if params[:search] &&  params[:category] == nil
-    #   # @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
-    #   @events = @events.search(params[:search]).reorder("")
-    #   if @events == []
-    #     redirect_to episode_path(@episode)
-    #     flash[:notice] = "Vous ne possédez pas d'évènements pour cet épisode avec le mot #{params[:search]}"
-    #   end
-    # end
-
-    # if params[:category] && params[:search] == nil
-    #   # binding.pry
-    #   @events = @events.joins(:documents).where("documents.category ILIKE ?", "%#{params[:category]}%")
-    #   if @events == []
-    #     redirect_to episode_path(@episode)
-    #     flash[:notice] = "Vous ne possédez pas de #{params[:category]} pour cet épisode avec le mot "
-    #   end
-    # end
-
-    # if params[:category] && params[:search]
-    #   binding.pry
-    #   @events = @events.search(params[:search]).reorder("")
-    #   @events = @events.joins(:documents).where("documents.category ILIKE ?", "%#{params[:category]}%")
-    #   # if @events == []
-    #   #   redirect_to episode_path(@episode)
-    #   #   flash[:notice] = "Vous ne possédez pas de #{params[:category]} pour cet épisode avec le mot "
-    #   # end
-    # end
 
     @events = @events.order(date: :desc)
 
