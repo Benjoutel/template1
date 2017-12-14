@@ -4,6 +4,8 @@ class CreateInvitations < ActiveRecord::Migration[5.0]
       t.references :episode, foreign_key: true
       t.references :caregiver, foreign_key: true
       t.references :specialist, foreign_key: true
+      t.string :invitation_token
+      t.string :status
     end
   end
 end

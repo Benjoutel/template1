@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214131305) do
+ActiveRecord::Schema.define(version: 20171214131537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20171214131305) do
     t.string   "icon"
     t.index ["caregiver_id"], name: "index_events_on_caregiver_id", using: :btree
     t.index ["episode_id"], name: "index_events_on_episode_id", using: :btree
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer "episode_id"
+    t.integer "caregiver_id"
+    t.integer "specialist_id"
+    t.string  "invitation_token"
+    t.string  "status"
+    t.index ["caregiver_id"], name: "index_invitations_on_caregiver_id", using: :btree
+    t.index ["episode_id"], name: "index_invitations_on_episode_id", using: :btree
+    t.index ["specialist_id"], name: "index_invitations_on_specialist_id", using: :btree
   end
 
   create_table "measures", force: :cascade do |t|
@@ -156,6 +167,9 @@ ActiveRecord::Schema.define(version: 20171214131305) do
   add_foreign_key "episodes", "patients"
   add_foreign_key "events", "caregivers"
   add_foreign_key "events", "episodes"
+  add_foreign_key "invitations", "caregivers"
+  add_foreign_key "invitations", "episodes"
+  add_foreign_key "invitations", "specialists"
   add_foreign_key "measures", "patients"
   add_foreign_key "vaccinations", "patients"
 end
