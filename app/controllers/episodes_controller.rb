@@ -115,7 +115,7 @@ class EpisodesController < ApplicationController
       name = Picto.where("name ILIKE?", "%#{@episode.name}%").first.name
       @episode.icon = File.open(Rails.root.join("app/assets/images/icons/#{name}.png"))
     else
-      @episode.icon = File.open(Rails.root.join("app/assets/images/icons/arm-1.png"))
+      @episode.icon = File.open(Rails.root.join("app/assets/images/icons/notepad.png"))
     end
 
     if @episode.save
