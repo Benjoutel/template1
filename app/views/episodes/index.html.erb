@@ -120,7 +120,7 @@
         </div>
         <div class="card-episode-downbox">
           <div class="episode-date">
-            Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
+            Mis à jour le <%= episode.events.order(date: :desc).first.date.strftime("%d-%m-%Y") %>
           </div>
           <div class="episode-button">
             <div>
