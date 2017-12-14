@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :specialists
   root to: 'pages#home'
 
   devise_for :patients
@@ -34,5 +35,11 @@ Rails.application.routes.draw do
     resources :antecedents, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources :caregivers, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+
+  resources :caregivers, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
+   resources :episodes do
+     resources :invitations, only: [:create]
+    end
+  end
+
 end
