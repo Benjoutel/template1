@@ -10,6 +10,8 @@
 
 puts "destroy all data"
 
+Specialist.destroy_all
+Invitation.destroy_all
 puts "destroy Documents"
 Document.destroy_all
 puts "destroy Events"
@@ -28,6 +30,8 @@ puts "destroy Antecedents"
 Antecedent.destroy_all
 puts "destroy Patients"
 Patient.destroy_all
+
+
 
 Picto.destroy_all
 picto_attributes = [
