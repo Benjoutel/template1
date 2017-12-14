@@ -50,7 +50,7 @@ class EpisodesController < ApplicationController
     # Order episodes / date events la plus récente
     # Pas très efficace
 
-    @episodes = current_patient.episodes.joins(:events).order("events.updated_at desc").to_a.uniq
+    @episodes = current_patient.episodes.joins(:events).order("events.date desc").to_a.uniq
     if params[:name]
       if params[:name] != ''
       @episodes  = @current_patient.episodes.where("name ILIKE ?", "%#{params[:name]}%")
