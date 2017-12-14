@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :specialists
   root to: 'pages#home'
 
   devise_for :patients
