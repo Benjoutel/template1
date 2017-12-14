@@ -1,63 +1,327 @@
-<div class="container">
 
-  <div class="main-container">
 
-    <div class="episode-sidebar">
-      <h1>Mes épisodes</h1>
+<div class="episodes-container">
 
+  <div class="column-container">
+
+
+              <div class="timeline-title-container visible-xs">
+                    <div class="episode-sidebar-title">Mes épisodes
+                    </div>
+                  <!--   <div class="button-box">
+                      <div class="btn-cool-green " data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous
+                      </div>
+                      <div class="btn-dark-blue" data-toggle="modal" data-target="#addNote">  Ajouter une note
+                      </div>
+
+                    </div> -->
+                  </div>
+
+
+
+    <div class="timeline-head-container">
+      <div class="timeline-head-container-title">
+        Ma timeline
+      </div>
       <div class="separator"></div>
+      <div class="timeline-head-container-content">
+        <div class="timeline-filters">
+          <!-- <div class="timeline-search"> -->
+            <%#= form_tag(episode_path(@episode), method: :get, id: 'search') do %>
+            <%#= text_field_tag :search, params[:search], class: 'search-box', placeholder: "Rechercher dans cet épisode"  %>
 
-      <h2>Mes épisodes</h2>
+                        <% #end %>
 
-      <p> <%= @episode.description %></p>
 
-      <h2>Ajouter un épisode</h2>
 
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAppointment" > Ajouter un rendez-vous</button>
-      </div>
 
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNote">   Ajouter une note
-        </button>
-      </div>
 
-      <h2>Mon équipe soignante</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- </div> -->
 
-      <div class="btn">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCaregiver" >Ajouter un soignant
-        </button>
-      </div>
+                  <div class="timeline-container">
+                    <%@events.each do |event| %>
+                    <!-- card begin -->
+                    <% if event.category == "appointment" %>
+                    <div class="card-event box-shadow">
+                      <div class="row-banner">
+                        <!-- <div class="card-event-banner"> -->
+                          <div class="event-date appointment">
+                            <%= l(event.date)%>
+                          </div>
 
-      <%@caregivers.each do |caregiver| %>
-        <div class="episode-sidebar-caregiver">
-          <div class="episode-sidebar-caregiver-avatar">
-          <%= cl_image_tag caregiver.photo, :height=> 35 %>
-          </div>
-          <div class="episode-sidebar-caregiver-fullname">
-            <%= caregiver.firstname %> <%= caregiver.lastname %>
-          </div>
-          <div class="episode-sidebar-cargiver-speciality">
-            <%= caregiver.speciality %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+                        </div>
+                        <!-- </div> -->
+                        <div class="">
+                          <div class="card-event-content ">
 
-    <div class="timeline-container">
+                            <div class="card-event-content-row">
 
+                              <div class="event-caregiver">
+                                <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"" %>
+                              </div>
+                              <div class="event-text">
+                                <div class="event-title">
+                                  Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%>
+                                </div>
+                                <div class="event-description">
+                                  "<%= event.description%>"
+                                </div>
+                              </div>
+
+                              <div class="event-avatar">
+                                <%= cl_image_tag event.icon, :height=> 50, class:"" %>
+                              </div>
+
+                            </div>
+                            <div class="card-event-footer">
+                              <div class="card-event-footer-row1">
+                                <i class="fa fa-paperclip fa-1x padding-top-paperclip" aria-hidden="true"></i>
+                                <div class="docs-number">
+                                  <% if event.documents.size == 0 %>
+                                  Aucun document associé
+                                  <% else %>
+                                  <%= pluralize event.documents.size, "document associé", "documents associés" %>
+                                  <% end %>
+                                </div>
+                              </div>
+                              <div class="card-event-footer-row2">
+                                <div class="docs-view">
+                                  <% event.documents.each do |document| %>
+
+                                  <span class="document-box" data-toggle="modal" data-target="#<%= document.id%>">
+                                   <%#= document.name %>
+                                   <%= cl_image_tag document.document, :height=> 50, :width=>50 %>
+                                 </span>
+
+                  <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-document">
+                          <h4 class="modal-title modal-title-form " id="myModalLabel"><p><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></p></h4>
+                        </div>
+                        <div class="modal-body modal-body-document " style=" background-image: url('<%=cl_image_path document.document %>')">
+                        </div>
+                    <!--       <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer </button>
+                          </div> -->
+                        </div>
+                    </div>
+                  </div>
+                                <% end %>
+                                <div class="btn-icon">
+                                  <i class="fa fa-file-image-o fa-2x" aria-hidden="true" data-toggle="modal" data-target="#add_doc<%=event.id%>"></i>
+                                </div>
+                              </div>
+                              <div class="btn-icon">
+                                <i class="fa fa-pencil fa-2x" aria-hidden="true" data-toggle="modal" data-target="#editAppointment<%= event.id  %>"></i>
+                              </div>
+
+   <div class="modal fade" id="add_doc<%=event.id%>" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+                           <div class="modal-dialog" role="document">
+                             <div class="modal-content">
+                               <div class="modal-header modal-document">
+                                 <h4 class="modal-title modal-title-form" >Ajouter un document</h4>
+                               </div>
+                               <div class="modal-body">
+                                 <%#= render "documents/form_document", event: event %>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                         <div class="modal fade" id="editAppointment<%= event.id  %>" tabindex="-1" role="dialog" aria-labelledby="  addNoteLabel" aria-hidden="true">
+                 <div class="modal-dialog" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header" id="modal-add-appointment-header">
+                       <h4 class="modal-title modal-title-appointment-form" id="addNoteLabel"><p>Modifier le rendez-vous</p></h4>
+                     </div>
+                     <div class="modal-body">
+                       <%#= render "appointments/form_edit_appointment", appointment: event %>
+                     </div>
+                   <!--   <div class="modal-footer">
+                       <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                      </div> -->
+                   </div>
+                  </div>
+                </div>
+                    </div>
+
+                    <% else %>
+
+                    <div class="card-event">
+                      <div class="row-banner">
+                        <!-- <div class="card-event-banner"> -->
+                          <div class="event-date note">
+                            <%= l(event.date)%>
+                          </div>
+
+                        </div>
+                        <!-- </div> -->
+                        <div class="">
+                          <div class="card-event-content box-shadow">
+                            <div class="card-event-content-row">
+                              <div class="event-text">
+                                <div class="note-title">
+                                  Prise de note
+                                </div>
+                                <div class="event-description">
+                                  "<%= event.description%>"
+                                </div>
+                              </div>
+                              <div class="event-avatar">
+                                <%= cl_image_tag event.icon, :height=> 50, class:"" %>
+                              </div>
+                            </div>
+                            <div class="card-event-footer-row2">
+                              <div class="docs-view">
+                                <% event.documents.each do |document| %>
+                                <span data-toggle="modal" data-target="#<%= document.id%>">
+                                 <%#= document.name %>
+                                 <%= cl_image_tag document.document, :height=> 50 %>
+                               </span>
+                               <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header modal-document">
+
+                                      <h4 class="modal-title modal-title-form" id="myModalLabel"><%= document.name.capitalize %> enregistré le <%= document.created_at.strftime('%d/%m/%Y') %></h4>
+                                    </div>
+                                    <div class="modal-body modal-body-document" style=" background-image: url('<%=cl_image_path document.document %>')">
+                                      <%#= cl_image_tag document.document, :height=> 200 %>
+                                    </div>
+                                  <!--   <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</ button>
+                                      </div> -->
+                                    </div>
+                                  </div>
+                                </div>
+                                <% end %>
+                                <div class="btn-icon background-color-blue">
+                                  <i class="fa fa-file-image-o fa-2x" aria-hidden="true" data-toggle="modal" data-target="#add_doc<%=event.id%>"></i>
+                                </div>
+
+
+                              </div>
+                              <div class="btn-icon background-color-blue">
+                                <div class="fa fa-pencil fa-2x" aria-hidden="true" data-toggle="modal" data-target="#editNote<%= event.id %>" style="width: 180px">
+                          </div>
+
+
+
+
+                              </div>
+
+
+          <div class="modal fade" id="add_doc<%=event.id%>" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+                           <div class="modal-dialog" role="document">
+                             <div class="modal-content">
+                               <div class="modal-header modal-document">
+                                 <h4 class="modal-title modal-title-form" >Ajouter un document</h4>
+                               </div>
+                               <div class="modal-body">
+                                 <%#= render "documents/form_document", event: event %>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+
+
+
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+            <div class="modal fade" id="editNote<%= event.id %>" tabindex="-1" role="dialog" aria-labelledby="addNoteLabel<%=event.id%>" aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                  <div class="modal-header" id="modal-add-note-header">
+                    <h4 class="modal-title modal-title-note-form" id="addNoteLabel<%=event.id%>"><p>Modifier la note</p></h4>
+                  </div>
+                  <div class="modal-body">
+                    <%#= render "notes/form_edit_note", note: event %>
+                  </div>
+               <!--    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  </div> -->
+                </div>
+              </div>
+              </div>
+                      <% end %>
+                      <!-- card end -->
+                      <% end %>
+                    </div>
+                  </div>
+
+
+                    <div class="episode-sidebar hidden-xs">
+                      <div class="episode-sidebar-title">Mes Episodes</div>
+                      <div class="separator"></div>
+                      <h2 style="margin-top: 0px">Description</h2>
+                      <p> <%#= @episode.description %></p>
+<!--
+                      <div class="btn-cool-green" data-toggle="modal" data-target="#addAppointment" style="width: 180px"> Ajouter un rendez-vous
+                      </div>
+                      <div class="btn-dark-blue" data-toggle="modal" data-target="#addNote" style="width: 180px">   Ajouter une note
+
+                      </div> -->
+
+                      <% @episodes.each do |episode| %>
+                        <%= link_to episode_path(episode) do%>
+                          <div class="episode-name"> <%= episode.name %></div>
+                        <% end %>
+                      <% end %>
+
+                      <h2>Mon équipe soignante</h2>
+
+                      <%@caregivers.each do |caregiver| %>
+                      <%= link_to caregiver_path(caregiver) do %>
+                      <div class="episode-sidebar-caregiver">
+                        <div class="episode-sidebar-caregiver-avatar">
+                          <%= cl_image_tag caregiver.photo, :height=> 35 %>
+                        </div>
+                        <div class="episode-sidebar-caregiver-fullname">
+                          <%= caregiver.firstname %> <%= caregiver.lastname %>
+                        </div>
+                        <div class="episode-sidebar-cargiver-speciality">
+                          <%= caregiver.speciality %>
+                        </div>
+                      </div>
+                      <% end %>
+                      <% end %>
+                      <div class="btn btn-level2" data-toggle="modal" data-target="#addCaregiver" style=""> > Ajouter un soignant
+                      </div>
+                    </div>
+
+
+                <!-- end timeline container -->
+
+
+
+
+  <!-- modals   -->
       <div class="modal fade" id="addAppointment" tabindex="-1" role="dialog" aria-labelledby=addAppointmentLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addAppointmentLabel">Ajouter un rendez-vous</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="" id="modal-add-appointment-header">
+              <h4 class="modal-title modal-title-form" id="addAppointmentLabel"><p>Ajouter un rendez-vous</p></h4>
             </div>
             <div class="modal-body">
-              <%= render "appointments/form_appointment" %>
+              <%#= render "appointments/form_appointment" %>
             </div>
+           <!--  <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div> -->
           </div>
         </div>
       </div>
@@ -65,76 +329,38 @@
       <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="  addNoteLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addNoteLabel">Ajouter une note</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="" id="modal-add-note-header">
+              <h4 class="modal-title modal-title-form" id="addNoteLabel"><p>Ajouter une note</p></h4>
             </div>
             <div class="modal-body">
-              <%= render "notes/form_note" %>
+              <%#= render "notes/form_note" %>
             </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div> -->
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="addCaregiver" tabindex="-1" role="dialog" aria-labelledby=addCaregiverLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Ajouter un soignant</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="" id="modal-add-appointment-header">
+              <h5 class="modal-title modal-title-form modal-add-caregiver" id="addCaregiverLabel">Ajouter un soignant</h5>
+
             </div>
             <div class="modal-body">
-              <%= render "appointments/form_appointment" %>
+              <%#= render("caregivers/form_episode_caregiver", episode: @episode) %>
             </div>
+           <!--  <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div> -->
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <%@events.each do |event| %>
-
-          <div class="col-xs-12">
-
-            <!-- card begin -->
-            <div class="card-event-timeline">
-              <div class="card-event-timeline-date">
-                <%=event.date.strftime('%d/%m/%Y')%>
-              </div>
-              <% if event.category == "appointment" %>
-                <%= cl_image_tag event.caregiver.photo, :height=> 35, class:"card-event-timeline-avatar" %>
-              <% end %>
-
-              <div class="card-event-timeline-category">
-                <% if event.category == "appointment" %>
-                  <p>Rendez-vous avec <%=event.caregiver.firstname.capitalize%> <%=event.caregiver.lastname.capitalize%>, <%=event.caregiver.speciality.capitalize%> </p>
-                <% else %>
-                  <p>Prise de note</p>
-                <% end %>
-              </div>
-
-              <div class="card-event-timeline-description">
-                <p>
-                  <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                    <%= event.description%>
-                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                </p>
-              </div>
+<!-- end modals -->
 
 
-            </div>
-            <!-- card end -->
-          </div>
-
-        <% end %>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 
