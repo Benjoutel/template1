@@ -39,5 +39,7 @@ Rails.application.routes.draw do
   resources :caregivers, only: [:index, :new, :create, :edit, :update, :destroy, :show] do
    resources :episodes do
      resources :invitations, only: [:create]
-   end
+    end
+  end
+
 end

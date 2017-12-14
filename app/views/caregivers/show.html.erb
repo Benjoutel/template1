@@ -35,13 +35,14 @@
     </div>
 
     <div class="episodes">
+      <h2>Episodes associés</h2>
       <div class="row">
         <% @episodes.each do |episode| %>
         <!-- episode card beginning -->
 
           <div class="col-xs-12 col-sm-3 col-md-3">
             <div class="card-episode">
-              <%= link_to episode_path(episode) do %>
+              <%= link_to caregiver_episode_invitations_path(@caregiver, episode), {:method => :post } do %>
                 <div class="card-episode-upbox">
                   <div class="episode-name">
                     <%= episode.name.capitalize %>
@@ -52,11 +53,21 @@
                 </div>
                 <div class="card-episode-downbox">
                   <div class="episode-date">
+                    <% if episode.events !=[] %>
                     Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
+                    <% end %>
                   </div>
                   <div class="episode-button">
 
-                    <div class=" decoration-btn">Partager</div>
+                    <div class=" decoration-btn">
+                       <% if episode.invitations.where("invitations.caregiver_id = ?", @caregiver.id) != []  %>
+                          <% if episode.invitations.where("invitations.caregiver_id = ?", @caregiver.id).first.status == "Pending"%>
+                              En attente
+                          <% end %>
+                        <% else %>
+                          Partager
+                        <% end %>
+                    </div>
                   </div>
 
                 </div>
@@ -66,6 +77,52 @@
         <% end %>
       </div>
     </div>
+
+
+      <div class="episodes">
+      <h2>Autres associés</h2>
+      <div class="row">
+        <% @other_episodes.each do |episode| %>
+        <!-- episode card beginning -->
+
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="card-episode">
+              <%= link_to caregiver_episode_invitations_path(@caregiver, episode), {:method => :post } do %>
+                <div class="card-episode-upbox">
+                  <div class="episode-name">
+                    <%= episode.name.capitalize %>
+                      <div class="icon">
+                        <%= cl_image_tag episode.icon, :height=> 35 %>
+                      </div>
+                  </div>
+                </div>
+                <div class="card-episode-downbox">
+                  <div class="episode-date">
+                    <% if episode.events !=[] %>
+                    Mis à jour le <%= episode.events.order(updated_at: :desc).first.updated_at.strftime("%d-%m-%Y") %>
+                    <% end %>
+                  </div>
+                  <div class="episode-button">
+
+                    <div class=" decoration-btn">
+                       <% if episode.invitations.where("invitations.caregiver_id = ?", @caregiver.id) != []  %>
+                          <% if episode.invitations.where("invitations.caregiver_id = ?", @caregiver.id).first.status == "Pending"%>
+                              En attente
+                          <% end %>
+                        <% else %>
+                          Partager
+                        <% end %>
+                    </div>
+                  </div>
+
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
 
