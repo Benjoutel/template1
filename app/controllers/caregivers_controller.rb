@@ -25,18 +25,15 @@ class CaregiversController < ApplicationController
   end
 
   def show
-    @caregiver = Caregiver.find(params[:id])
-    @episodes = current_patient.episodes.joins(:events).where("events.caregiver_id = ?", @caregiver.id).to_a.uniq
-    episodes_ids = @episodes.map do |episode|
-      episode.id
-    end
-    @other_episodes = current_patient.episodes.where("id not in (?)", episodes_ids).to_a.uniq
+    @caregiver = current_patient.caregivers.find(params[:id])
+
+    @episodes = current_patient.episodes.joins(:events).where(events: { caregiver_id: @caregiver.id }).uniq
+    @other_episodes = current_patient.episodes.where.not(id: @episodes.map(&:id))
+
     @invitation = Invitation.new
   end
 
-
-
-private
+  private
 
   def caregiver_params
     params.require(:caregiver).permit(:firstname, :lastname, :address, :mail, :phone_number, :speciality, :photo)
