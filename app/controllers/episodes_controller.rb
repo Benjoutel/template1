@@ -82,7 +82,7 @@ class EpisodesController < ApplicationController
   def create
     @episode        = Episode.new(episode_params)
     @episode.patient = current_patient
-    initial_event   = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", date: Date.today)
+    initial_event   = Event.new(category: "note", description: "Création de l'épisode #{@episode.name}", date: DateTime.now)
     @episode.events << initial_event
     if Picto.where("name ILIKE?", "%#{@episode.name}%") != []
       name = Picto.where("name ILIKE?", "%#{@episode.name}%").first.name
