@@ -1,17 +1,16 @@
 <div class="main-container">
 
   <div class="index_episode-sidebar">
-    <h1>Bonjour <%= current_patient.firstname.capitalize %></h1>
 
-    <div class="separator"></div>
+      <div class="episode-sidebar-title">
+        Bonjour <%= current_patient.firstname.capitalize %></div>
 
+      <div class="separator"></div>
 
-    <div class="sidebarbtn">
-      <div class="btn-dark-blue" data-toggle="modal" data-target="#addEpisode"> Ajouter un épisode
+      <div class="btn-dark-blue" data-toggle="modal" data-target="#addEpisode" style="width: 180px"> Ajouter un épisode
       </div>
-    </div>
 
-    <h2>Mon équipe soignante</h2>
+      <h2>Mon équipe soignante</h2>
 
                   <%@caregivers.each do |caregiver| %>
                       <%= link_to caregiver_path(caregiver) do %>
@@ -79,10 +78,12 @@
             <%#= render "form_new_episode" %>
           </div>
 
+
           <div class="modal-footer">
             <%= f.submit "Ajouter un épisode" , class: "btn-dark-blue"%>
             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button> -->
           </div>
+
 
         </div>
         <% end %>
@@ -93,13 +94,17 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header" id="modal-add-appointment-header">
+
             <h4 class="modal-title modal-title-form modal-add-caregiver" id="addCaregiverLabel"> <p>Ajouter un soignant</p></h4>
+
 
         </div>
         <div class="modal-body">
           <%= render "caregivers/form_caregiver" %>
         </div>
+
        <!--  <div class="modal-footer">
+
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
         </div> -->
       </div>
