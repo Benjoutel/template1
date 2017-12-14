@@ -64,7 +64,7 @@
                       <div class="row-banner">
                         <!-- <div class="card-event-banner"> -->
                           <div class="event-date appointment">
-                            <%= l(event.date)%>
+                            <%= l(event.date.to_date)%>
                           </div>
 
                         </div>
@@ -178,7 +178,7 @@
                       <div class="row-banner">
                         <!-- <div class="card-event-banner"> -->
                           <div class="event-date note">
-                            <%= l(event.date)%>
+                            <%= l(event.date.to_date)%>
                           </div>
 
                         </div>

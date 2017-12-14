@@ -50,8 +50,8 @@ fr:
     - Samedi
     formats:
       default: "%A %d %b %Y"
-      short: "%e %b"
-      long: "%e %B %Y"
+      # short: "%e %b"
+      # long: "%e %B %Y"
   #   month_names:
   #   -
   #   - janvier
