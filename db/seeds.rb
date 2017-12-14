@@ -190,8 +190,8 @@ episode_attributes = [
   },
   {#6
     patient: Ben,
-    name: "Allergies Printemps 2016",
-    icon: File.open(Rails.root.join('app/assets/images/icons/lungs.png'))
+    name: "Acné",
+    icon: File.open(Rails.root.join('app/assets/images/icons/periodontal-scaler.png'))
   },
   {#7
     patient: Ben,
@@ -279,7 +279,18 @@ caregiver_attributes = [
     speciality: "Cardiologue",
     photo: File.open(Rails.root.join('db/fixtures/images/aime.png')),
     patient: Ben
+  },
+  {
+    firstname: "Sabri",
+    lastname: "Nored",
+    address: "Paris",
+    phone_number: "01 40 69 13 13",
+    mail: "sabri@gmail.com",
+    speciality: "Dermatologue",
+    photo: File.open(Rails.root.join('db/fixtures/images/sabri.png')),
+    patient: Ben
   }
+
 ]
 
 caregivers = Caregiver.create!(caregiver_attributes)
@@ -327,7 +338,7 @@ event_attributes = [
     category: "note",
     description: "Création de l'épisode",
     episode: episodes[6],
-    date: "2016-08-03 12:40:00.0"
+    date: "1998-01-01 12:40:00.0"
   },
   {#7
     category: "note",
@@ -447,8 +458,46 @@ event_attributes = [
     date: "2015-03-30",
     caregiver: caregivers[0], #medecin generaliste
     icon: File.open(Rails.root.join('app/assets/images/icons/stethoscope.png'))
+  },
+##################### ep 6 acne
+  {#24
+    category: "appointment",
+    description: "Première visite pour mon acné. Maman veut absolument que je mette de la crème sur ma gueule.",
+    episode: episodes[6],
+    date: "1998-03-01",
+    caregiver: caregivers[0], #medecin generaliste
+    icon: File.open(Rails.root.join('app/assets/images/icons/stethoscope.png'))
+  },
+  {#25
+    category: "appointment",
+    description: "le docteur veut que je vois un dermatologue. pfff, la tannée. Le dermato a l'air un peu taré.",
+    episode: episodes[6],
+    date: "1998-05-10",
+    caregiver: caregivers[4], #dermatologue,
+    icon: File.open(Rails.root.join('app/assets/images/icons/thin.png'))
+  },
+  {#26
+    category: "note",
+    description: "j'aime pas ma gueule. trop de boutons",
+    episode: episodes[6],
+    date: "1998-09-01",
+  },
+  {#27
+    category: "appointment",
+    description: "Trois fois que je vais chez le dermato et c'est encore la guerre des boutons!",
+    episode: episodes[6],
+    date: "1999-01-10",
+    caregiver: caregivers[4], #dermatologue,
+    icon: File.open(Rails.root.join('app/assets/images/icons/thin.png'))
+  },
+  {#28
+    category: "appointment",
+    description: "Encore chez le dermato. Nouveau traitement. Des nouveaux comprimés...",
+    episode: episodes[6],
+    date: "1999-03-10",
+    caregiver: caregivers[4], #dermatologue
+    icon: File.open(Rails.root.join('app/assets/images/icons/thin.png'))
   }
-
 ]
 
 events = Event.create!(event_attributes)
@@ -496,6 +545,43 @@ document_attributes = [
     name: "ordo controle coeur",
     event: events[22],
     document: File.open(Rails.root.join('db/fixtures/images/ordo-controle-coeur.jpg'))
+  },
+  {
+    category: "photo",
+    name: "acné 1998",
+    event: events[24],
+    document: File.open(Rails.root.join('db/fixtures/images/acne4.png'))
+  },
+    {
+    category: "photo",
+    name: "acné 1998",
+    event: events[26],
+    document: File.open(Rails.root.join('db/fixtures/images/acne3.png'))
+  },
+    {
+    category: "photo",
+    name: "acné 1998",
+    event: events[27],
+    document: File.open(Rails.root.join('db/fixtures/images/acne2.png'))
+  },
+    {
+    category: "photo",
+    name: "acné 1998",
+    event: events[28],
+    document: File.open(Rails.root.join('db/fixtures/images/acne1.png'))
+  },
+
+    {
+    category: "photo",
+    name: "acné 1998",
+    event: events[24],
+    document: File.open(Rails.root.join('db/fixtures/images/curacne.png'))
+  },
+    {
+    category: "photo",
+    name: "acné 1998",
+    event: events[28],
+    document: File.open(Rails.root.join('db/fixtures/images/acne-ttt.png'))
   }
 
 ]

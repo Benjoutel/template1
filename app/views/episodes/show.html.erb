@@ -106,10 +106,10 @@
                                 <div class="docs-view">
                                   <% event.documents.each do |document| %>
 
-                                  <span class="document-box" data-toggle="modal" data-target="#<%= document.id%>">
+                                <span class="document-box" data-toggle="modal" data-target="#<%= document.id%>">
                                    <%#= document.name %>
-                                   <%= cl_image_tag document.document, :height=> 50, :width=>50 %>
-                                 </span>
+                                  <%= cl_image_tag document.document, :height=> 50, :width=>50 %>
+                                </span>
 
                   <div class="modal fade" id="<%= document.id%>" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
