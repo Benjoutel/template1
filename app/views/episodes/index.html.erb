@@ -1,7 +1,7 @@
 <div class="main-container">
 
   <div class="index_episode-sidebar">
-    <h1>Bonjour <%= current_patient.firstname.capitalize %></h1>
+    <h1>Bonjour <% if !current_patient.firstname.nil?%>  <%= current_patient.firstname.capitalize %>  <% end %></h1>
 
     <div class="separator"></div>
 
